@@ -2,7 +2,7 @@ package co.edu.uco.reservasrestaurante.data.entity;
 
 import java.util.UUID;
 
-public final class TipoIdentificacion {
+public final class TipoIdentificacionEntity {
 	
 	private UUID id;
 	private String nombre;
@@ -10,7 +10,7 @@ public final class TipoIdentificacion {
 	private boolean estado;
 	
 	
-	private TipoIdentificacion(final UUID id, final String nombre, final String codigo, final boolean estado) {
+	private TipoIdentificacionEntity(final UUID id, final String nombre, final String codigo, final boolean estado) {
 		super();
 		setId(id);
 		setNombre(nombre);
@@ -18,8 +18,8 @@ public final class TipoIdentificacion {
 		setEstado(estado);
 	}
 
-	public static final TipoIdentificacion crear(final UUID id, final String nombre, final String codigo, final boolean estado) {
-		return new TipoIdentificacion(id, nombre, codigo, estado);
+	public static final TipoIdentificacionEntity crear(final UUID id, final String nombre, final String codigo, final boolean estado) {
+		return new TipoIdentificacionEntity(id, nombre, codigo, estado);
 	}
 	
 	
