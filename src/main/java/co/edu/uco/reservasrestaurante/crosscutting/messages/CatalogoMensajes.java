@@ -132,6 +132,10 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema inesperado tratando de abrir la conexión. Se presentó una excepeción genérica "
 				+ "de tipo Exception. Por favor verifique la traza completa del error presentado, para así poder diagnosticar "
 				+ "con mayor certeza, qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000035, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de crear el DAO deseado, debido a que la conexiòn actualmente está cerrada, "
+				+ "por lo que no hay una conexiòn vàlida disponible..."));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
@@ -155,9 +159,5 @@ public final class CatalogoMensajes {
 	
 	public static final String obtenerContenidoMensaje(final CodigoMensaje codigo) {
 		return obtenerMensaje(codigo).getContenido();
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(obtenerContenidoMensaje(null));
 	}
 }

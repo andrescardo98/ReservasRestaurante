@@ -15,8 +15,8 @@ public class ReservasRestauranteException extends RuntimeException{
 	private boolean tieneExcepcionRaiz;
 
 	
-	protected ReservasRestauranteException(LugarException lugar, Throwable excepcionRaiz, String mensajeUsuario,
-			String mensajeTecnico) {
+	protected ReservasRestauranteException(final LugarException lugar, final Throwable excepcionRaiz, final String mensajeUsuario,
+			final String mensajeTecnico) {
 		setLugar(lugar);
 		setExcepcionRaiz(excepcionRaiz);
 		setMensajeUsuario(mensajeUsuario);
@@ -24,8 +24,8 @@ public class ReservasRestauranteException extends RuntimeException{
 		setTieneExcepcionRaiz(tieneExcepcionRaiz);
 	}
 	
-	public static final ReservasRestauranteException crear (LugarException lugar, Throwable excepcionRaiz, String mensajeUsuario,
-			String mensajeTecnico) {
+	public static final ReservasRestauranteException crear (final LugarException lugar, final Throwable excepcionRaiz, final String mensajeUsuario,
+			final String mensajeTecnico) {
 		return new ReservasRestauranteException(lugar, excepcionRaiz, mensajeUsuario, mensajeTecnico);
 	}
 	

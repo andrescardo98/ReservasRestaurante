@@ -2,6 +2,11 @@ package co.edu.uco.reservasrestaurante.data.dao.base;
 
 import java.sql.Connection;
 
+import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.CrossCuttingReservasRestauranteException;
+import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
+import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
+import co.edu.uco.reservasrestaurante.crosscutting.util.UtilSQL;
+
 public class SQLDAO {
 	
 	private Connection conexion;
@@ -15,8 +20,11 @@ public class SQLDAO {
 	}
 	
 	private final void setConexion(final Connection conexion) {
-		// TODO: Controlar que la conexion no sea nula, que no esté cerrada o que ya se 
-		// haya confirmado una transaccion
+		if (!UtilSQL.conexionAbierta(conexion)) {
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000035);
+			throw CrossCuttingReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
+		}
 		this.conexion = conexion;
 	}
 
