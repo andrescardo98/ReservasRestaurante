@@ -154,7 +154,7 @@ public final class CatalogoMensajes {
 	}
 	
 	public static final String obtenerContenidoMensaje(final CodigoMensaje codigo) {
-		return obtenerMensaje(codigo).toString();
+		return obtenerMensaje(codigo).getContenido();
 	}
 	
 	public static void main(String[] args) {

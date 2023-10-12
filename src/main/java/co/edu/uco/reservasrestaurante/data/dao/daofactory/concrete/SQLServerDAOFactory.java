@@ -26,9 +26,9 @@ public final class SQLServerDAOFactory extends DAOFactory{
 
 	@Override
 	protected final void abrirConexion() {
-		final String url = "jdbc:sqlserver://localhost:1433;databaseName=databaseDOO";
-		final String usuario = "usersql";
-		final String contrasenia = "+javasql2023";
+		final String url = Configuracion.obtenerURL();
+		final String usuario = Configuracion.obtenerUsuario();
+		final String contrasenia = Configuracion.obtenerContrasenia();
 		
 		try {
 			conexion = DriverManager.getConnection(url, usuario, contrasenia);
@@ -41,7 +41,6 @@ public final class SQLServerDAOFactory extends DAOFactory{
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000029);
 			throw DataReservasRestauranteException.crear(excepcion, mensajeUsuario, mensajeTecnico);
 		}
-		
 	}
 
 	@Override
