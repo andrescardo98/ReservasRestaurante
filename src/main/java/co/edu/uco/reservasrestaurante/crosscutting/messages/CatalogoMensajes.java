@@ -136,6 +136,13 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000035, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de crear el DAO deseado, debido a que la conexiòn actualmente está cerrada, "
 				+ "por lo que no hay una conexiòn vàlida disponible..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000030, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de leer el archivo de configuración."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000031, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema de tipo IOException en la clase Configuración tratando de leer el archivo de configuración. "
+				+ "Por favor revise la traza completa del problema presentado para así poder identificar qué sucedió..."));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
