@@ -133,16 +133,74 @@ public final class CatalogoMensajes {
 				+ "de tipo Exception. Por favor verifique la traza completa del error presentado, para así poder diagnosticar "
 				+ "con mayor certeza, qué sucedió..."));
 		
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000035, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				"Se ha presentado un problema tratando de crear el DAO deseado, debido a que la conexiòn actualmente está cerrada, "
-				+ "por lo que no hay una conexiòn vàlida disponible..."));
-		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000030, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de leer el archivo de configuración."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000031, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema de tipo IOException en la clase Configuración tratando de leer el archivo de configuración. "
 				+ "Por favor revise la traza completa del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000032, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de registar la información del nuevo tipo de identificación."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000033, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema de tipo SQLException en el método crear de la clase TipoIdentificacionSQLServer "
+				+ "tratando de llevar a cabo el registro del nuevo Tipo de Identificación. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000034, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema inesperado de tipo Exception en el método crear de la clase TipoIdentificacionSQLServer "
+				+ "tratando de llevar a cabo el registro del nuevo Tipo de Identificación. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000035, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de crear el DAO deseado, debido a que la conexiòn actualmente está cerrada, "
+				+ "por lo que no hay una conexiòn vàlida disponible..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000036, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de actualizar la información del tipo de identificación deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000037, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema de tipo SQLException en el método modificar de la clase TipoIdentificacionSQLServer "
+				+ "tratando de llevar a cabo la actualización del Tipo de Identificación deseado. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000038, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema inesperado de tipo Exception en el método modificar de la clase TipoIdentificacionSQLServer "
+				+ "tratando de llevar a cabo la actualización del Tipo de Identificación deseado. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000039, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información del tipo de identificación por el identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000040, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema de tipo SQLException en el método consultarPorID de la clase TipoIdentificacionSQLServer "
+				+ "tratando de recuperar los datos del Tipo de Identificación deseado. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000041, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema de tipo SQLException en el método consultarPorID de la clase TipoIdentificacionSQLServer "
+				+ "tratando de preparar la sentencia SQL de la consulta del Tipo de Identificación deseado. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000042, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema inesperado de tipo Exception en el método consultarPorID de la clase TipoIdentificacionSQLServer "
+				+ "tratando de preparar la sentencia SQL de la consulta del Tipo de Identificación deseado. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000043, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de eliminar la información del tipo de identificación por el identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000044, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema de tipo SQLException en el método eliminar de la clase TipoIdentificacionSQLServer "
+				+ "tratando de llevar a cabo la eliminación del Tipo de Identificación deseado. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000045, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema inesperado de tipo Exception en el método eliminar de la clase TipoIdentificacionSQLServer "
+				+ "tratando de llevar a cabo la eliminación del Tipo de Identificación deseado. Por favor revise la traza completa "
+				+ "del problema presentado para así poder identificar qué sucedió..."));
+		
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
