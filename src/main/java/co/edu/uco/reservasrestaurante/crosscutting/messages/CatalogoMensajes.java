@@ -207,6 +207,58 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000053, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase TipoIdentificacionSQLServerDAO tratando "
 				+ "de ejecutar la consulta SQL. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000054, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de registar la información del nuevo Cliente."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000055, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase ClienteSQLServerDAO tratando de llevar "
+				+ "a cabo el registro del nuevo Cliente. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000056, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método crear de la clase ClienteSQLServerDAO tratando de llevar a cabo "
+				+ "el registro del nuevo Cliente. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000057, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de actualizar la información del Cliente deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000058, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase ClienteSQLServerDAO tratando de llevar "
+				+ "a cabo la actualización del Cliente deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000059, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método modificar de la clase ClienteSQLServerDAO tratando de llevar a "
+				+ "cabo la actualización del Cliente deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000060, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de eliminar la información del cliente por el identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000061, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase ClienteSQLServerDAO tratando de llevar "
+				+ "a cabo la eliminación del Cliente deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000062, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método eliminar de la clase ClienteSQLServerDAO tratando de llevar a "
+				+ "cabo la eliminación del Cliente deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000063, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información del cliente por el "
+				+ "identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000064, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + METODO_CONSULTAR_POR_ID + "preparar la sentencia SQL de la consulta del Cliente "
+						+ "deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000065, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + METODO_CONSULTAR_POR_ID + "preparar la sentencia SQL de la consulta del Cliente "
+						+ "deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000066, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta Cliente "
+				+ "deseado. " + VERIFICAR_TRAZA));		
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000067, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta Cliente deseado. " + VERIFICAR_TRAZA));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
