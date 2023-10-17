@@ -18,6 +18,8 @@ import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
 
 public final class TipoIdentificacionSQLServerDAO extends SQLDAO implements TipoIdentificacionDAO {
+	
+	private static final String SENTENCIA_WHERE = "WHERE id = ? ";
 
 	public TipoIdentificacionSQLServerDAO(final Connection conexion) {
 		super(conexion);
@@ -57,7 +59,7 @@ public final class TipoIdentificacionSQLServerDAO extends SQLDAO implements Tipo
 		
 		sentencia.append("UPDATE TipoIdentificacion ");
 		sentencia.append("SET codigo = ?, nombre = ?, estado = ? ");
-		sentencia.append("WHERE id = ? ");
+		sentencia.append(SENTENCIA_WHERE);
 		
 		try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString())) {
 			
@@ -85,7 +87,7 @@ public final class TipoIdentificacionSQLServerDAO extends SQLDAO implements Tipo
 		final var sentencia = new StringBuilder();
 		
 		sentencia.append("DELETE FROM TipoIdentificacion ");
-		sentencia.append("WHERE id = ? ");
+		sentencia.append(SENTENCIA_WHERE);
 		
 		try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString())) {
 			
@@ -110,7 +112,7 @@ public final class TipoIdentificacionSQLServerDAO extends SQLDAO implements Tipo
 		final var sentencia = new StringBuilder();
 		sentencia.append("SELECT id, codigo, nombre, estado ");
 		sentencia.append("FROM TipoIdentificacion ");
-		sentencia.append("WHERE id = ? ");
+		sentencia.append(SENTENCIA_WHERE);
 		
 		Optional<TipoIdentificacionEntity> resultado = Optional.empty();
 		
@@ -186,7 +188,7 @@ public final class TipoIdentificacionSQLServerDAO extends SQLDAO implements Tipo
 	private final String formarSentenciaConsulta(final TipoIdentificacionEntity entity, final List<Object> parametros) {
 		
 		final var sentencia = new StringBuilder();
-		String operadorCondicional = "WHERE";
+		String operadorCondicional = "WHERE ";
 		
 		sentencia.append("SELECT id, codigo, nombre, estado ");
 		sentencia.append("FROM TipoIdentificacion ");

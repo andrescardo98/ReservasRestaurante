@@ -16,6 +16,7 @@ public final class CatalogoMensajes {
 				+ "diagnosticar con mayor certeza, qué sucedió...";
 	private static final String PROBLEMA_SQLEXCEPCION = "Se ha presentado un problema de tipo SQLException ";
 	private static final String PROBLEMA_EXCEPCION = "Se ha presentado un problema inesperado de tipo Exception ";
+	private static final String  METODO_CONSULTAR_POR_ID= " en el método consultarPorID de la clase TipoIdentificacionSQLServer tratando de ";
 	private static final Map<CodigoMensaje, Mensaje> MENSAJES = new HashMap<>();
 	
 	static {
@@ -155,16 +156,16 @@ public final class CatalogoMensajes {
 				+ "identificador deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000040, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método consultarPorID de la clase TipoIdentificacionSQLServer tratando de "
-				+ "recuperar los datos de la consulta Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
+				PROBLEMA_SQLEXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta Tipo de Identificación "
+				+ "deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000041, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método consultarPorID de la clase TipoIdentificacionSQLServer tratando de "
-				+ "preparar la sentencia SQL de la consulta del Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
+				PROBLEMA_SQLEXCEPCION + METODO_CONSULTAR_POR_ID + "preparar la sentencia SQL de la consulta del Tipo de "
+				+ "Identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000042, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método consultarPorID de la clase TipoIdentificacionSQLServer tratando de "
-				+ "preparar la sentencia SQL de la consulta del Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
+				PROBLEMA_EXCEPCION + METODO_CONSULTAR_POR_ID + "preparar la sentencia SQL de la consulta del Tipo de "
+				+ "Identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000043, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de eliminar la información del tipo de identificación por el identificador deseado."));
@@ -178,8 +179,7 @@ public final class CatalogoMensajes {
 				+ "cabo la eliminación del Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000046, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método consultarPorID de la clase TipoIdentificacionSQLServer tratando de "
-				+ "recuperar los datos de la consulta Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
+				PROBLEMA_EXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000047, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de llevar a cabo la consulta de los Tipos de Identificación..."));
