@@ -1,18 +1,18 @@
-package co.edu.uco.reservasrestaurante.data.entity.support;
+package co.edu.uco.reservasrestaurante.service.domain.support;
 
-public final class NumeroCelularClienteEntity {
+public final class NumeroCelularClienteDomain {
 	private int numeroCelular;
 	private boolean numeroCelularConfirmado;
 	
 	
-	private NumeroCelularClienteEntity(final int numeroCelular, final boolean numeroCelularConfirmado) {
+	private NumeroCelularClienteDomain(final int numeroCelular, final boolean numeroCelularConfirmado) {
 		setNumeroCelular(numeroCelular);
 		setNumeroCelularConfirmado(numeroCelularConfirmado);
 	}
 
 	
-	public static final NumeroCelularClienteEntity crear(final int numeroCelular, final boolean numeroCelularConfirmado) {
-		return new NumeroCelularClienteEntity(numeroCelular, numeroCelularConfirmado);
+	public static final NumeroCelularClienteDomain crear(final int numeroCelular, final boolean numeroCelularConfirmado) {
+		return new NumeroCelularClienteDomain(numeroCelular, numeroCelularConfirmado);
 	}
 
 	
@@ -34,8 +34,5 @@ public final class NumeroCelularClienteEntity {
 	private final void setNumeroCelularConfirmado(final boolean numeroCelularConfirmado) {
 		this.numeroCelularConfirmado = numeroCelularConfirmado;
 	}
-	
-	
-
 	
 }

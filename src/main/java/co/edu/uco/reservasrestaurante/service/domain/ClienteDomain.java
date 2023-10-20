@@ -3,25 +3,25 @@ package co.edu.uco.reservasrestaurante.service.domain;
 import java.sql.Date;
 import java.util.UUID;
 
-import co.edu.uco.reservasrestaurante.data.entity.support.CorreoElectronicoClienteEntity;
-import co.edu.uco.reservasrestaurante.data.entity.support.IdentificacionClienteEntity;
-import co.edu.uco.reservasrestaurante.data.entity.support.NombreCompletoClienteEntity;
-import co.edu.uco.reservasrestaurante.data.entity.support.NumeroCelularClienteEntity;
+import co.edu.uco.reservasrestaurante.service.domain.support.CorreoElectronicoClienteDomain;
+import co.edu.uco.reservasrestaurante.service.domain.support.IdentificacionClienteDomain;
+import co.edu.uco.reservasrestaurante.service.domain.support.NombreCompletoClienteDomain;
+import co.edu.uco.reservasrestaurante.service.domain.support.NumeroCelularClienteDomain;
+
 
 public final class ClienteDomain {
 	private UUID id;
-	private IdentificacionClienteEntity identificacion;
-	private NombreCompletoClienteEntity nombreCompleto;
-	private CorreoElectronicoClienteEntity correoElectronico;
+	private IdentificacionClienteDomain identificacion;
+	private NombreCompletoClienteDomain nombreCompleto;
+	private CorreoElectronicoClienteDomain correoElectronico;
 	private Date fechaNacimiento;
 	private String pais;
-	private NumeroCelularClienteEntity numeroCelular;
+	private NumeroCelularClienteDomain numeroCelular;
 	
 	
-	private ClienteDomain(final UUID id, final IdentificacionClienteEntity identificacion, final NombreCompletoClienteEntity nombreCompleto,
-			final CorreoElectronicoClienteEntity correoElectronico, final Date fechaNacimiento, final String pais,
-			final NumeroCelularClienteEntity numeroCelular) {
-		super();
+	private ClienteDomain(final UUID id, final IdentificacionClienteDomain identificacion, final NombreCompletoClienteDomain nombreCompleto,
+			final CorreoElectronicoClienteDomain correoElectronico, final Date fechaNacimiento, final String pais,
+			final NumeroCelularClienteDomain numeroCelular) {
 		setId(id);
 		setIdentificacion(identificacion);
 		setNombreCompleto(nombreCompleto);
@@ -32,9 +32,9 @@ public final class ClienteDomain {
 	}
 
 	
-	public static final ClienteDomain crear(final UUID id, final IdentificacionClienteEntity identificacion, final NombreCompletoClienteEntity nombreCompleto,
-			final CorreoElectronicoClienteEntity correoElectronico, final Date fechaNacimiento, final String pais,
-			final NumeroCelularClienteEntity numeroCelular) {
+	public static final ClienteDomain crear(final UUID id, final IdentificacionClienteDomain identificacion, final NombreCompletoClienteDomain nombreCompleto,
+			final CorreoElectronicoClienteDomain correoElectronico, final Date fechaNacimiento, final String pais,
+			final NumeroCelularClienteDomain numeroCelular) {
 		return new ClienteDomain(id, identificacion, nombreCompleto, correoElectronico, fechaNacimiento, pais, numeroCelular);
 	}
 
@@ -43,17 +43,17 @@ public final class ClienteDomain {
 	}
 
 
-	public final IdentificacionClienteEntity getIdentificacion() {
+	public final IdentificacionClienteDomain getIdentificacion() {
 		return identificacion;
 	}
 
 
-	public final NombreCompletoClienteEntity getNombreCompleto() {
+	public final NombreCompletoClienteDomain getNombreCompleto() {
 		return nombreCompleto;
 	}
 
 
-	public final CorreoElectronicoClienteEntity getCorreoElectronico() {
+	public final CorreoElectronicoClienteDomain getCorreoElectronico() {
 		return correoElectronico;
 	}
 
@@ -68,7 +68,7 @@ public final class ClienteDomain {
 	}
 
 
-	public final NumeroCelularClienteEntity getNumeroCelular() {
+	public final NumeroCelularClienteDomain getNumeroCelular() {
 		return numeroCelular;
 	}
 
@@ -78,17 +78,17 @@ public final class ClienteDomain {
 	}
 
 
-	private final void setIdentificacion(final IdentificacionClienteEntity identificacion) {
+	private final void setIdentificacion(final IdentificacionClienteDomain identificacion) {
 		this.identificacion = identificacion;
 	}
 
 
-	private final void setNombreCompleto(final NombreCompletoClienteEntity nombreCompleto) {
+	private final void setNombreCompleto(final NombreCompletoClienteDomain nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
 	}
 
 
-	private final void setCorreoElectronico(final CorreoElectronicoClienteEntity correoElectronico) {
+	private final void setCorreoElectronico(final CorreoElectronicoClienteDomain correoElectronico) {
 		this.correoElectronico = correoElectronico;
 	}
 
@@ -103,12 +103,8 @@ public final class ClienteDomain {
 	}
 
 
-	private final void setNumeroCelular(final NumeroCelularClienteEntity numeroCelular) {
+	private final void setNumeroCelular(final NumeroCelularClienteDomain numeroCelular) {
 		this.numeroCelular = numeroCelular;
 	}
-	
-	
-	
-	
 	
 }

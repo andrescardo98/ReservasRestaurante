@@ -1,13 +1,13 @@
-package co.edu.uco.reservasrestaurante.data.entity.support;
+package co.edu.uco.reservasrestaurante.service.domain.support;
 
-public final class NombreCompletoClienteEntity {
+public final class NombreCompletoClienteDomain {
 	private String primerNombre;
 	private String segundoNombre;
 	private String primerApellido;
 	private String segundoApellido;
 	
 	
-	private NombreCompletoClienteEntity(final String primerNombre, final String segundoNombre, final String primerApellido, 
+	private NombreCompletoClienteDomain(final String primerNombre, final String segundoNombre, final String primerApellido, 
 			final String segundoApellido) {
 		setPrimerNombre(primerNombre);
 		setSegundoNombre(segundoNombre);
@@ -16,9 +16,9 @@ public final class NombreCompletoClienteEntity {
 	}
 	
 	
-	public static final NombreCompletoClienteEntity crear(final String primerNombre, final String segundoNombre, final String primerApellido, 
+	public static final NombreCompletoClienteDomain crear(final String primerNombre, final String segundoNombre, final String primerApellido, 
 			final String segundoApellido) {
-		return new NombreCompletoClienteEntity(primerNombre, segundoNombre, primerApellido, segundoApellido);
+		return new NombreCompletoClienteDomain(primerNombre, segundoNombre, primerApellido, segundoApellido);
 	}
 
 	

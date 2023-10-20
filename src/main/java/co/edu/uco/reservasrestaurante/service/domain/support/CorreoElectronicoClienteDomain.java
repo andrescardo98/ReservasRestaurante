@@ -1,21 +1,21 @@
-package co.edu.uco.reservasrestaurante.data.entity.support;
+package co.edu.uco.reservasrestaurante.service.domain.support;
 
-public final class CorreoElectronicoClienteEntity {
+public final class CorreoElectronicoClienteDomain {
 	private String correoElectronico;
 	private boolean correoElectronicoConfirmado;
 	private String clave;
 	
 	
-	private CorreoElectronicoClienteEntity(final String correoElectronico, final boolean correoElectronicoConfirmado, final String clave) {
+	private CorreoElectronicoClienteDomain(final String correoElectronico, final boolean correoElectronicoConfirmado, final String clave) {
 		setCorreoElectronico(correoElectronico);
 		setCorreoElectronicoConfirmado(correoElectronicoConfirmado);
 		setClave(clave);
 	}
 	
 	
-	public static final CorreoElectronicoClienteEntity crear(final String correoElectronico, 
+	public static final CorreoElectronicoClienteDomain crear(final String correoElectronico, 
 			final boolean correoElectronicoConfirmado, final String clave) {
-		return new CorreoElectronicoClienteEntity(correoElectronico, correoElectronicoConfirmado, clave);
+		return new CorreoElectronicoClienteDomain(correoElectronico, correoElectronicoConfirmado, clave);
 	}
 
 

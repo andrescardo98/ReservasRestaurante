@@ -69,7 +69,5 @@ public final class TipoIdentificacionDomain {
 	private final void setEstado(final boolean estado) {
 		this.estado = estado;
 	}
-	
-	
 
 }

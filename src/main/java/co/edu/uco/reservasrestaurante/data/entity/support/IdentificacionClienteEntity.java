@@ -8,7 +8,6 @@ public final class IdentificacionClienteEntity {
 	
 	
 	private IdentificacionClienteEntity(final TipoIdentificacionEntity tipoIdentificacion, final String numeroIdentificacion) {
-		super();
 		setTipoIdentificacion(tipoIdentificacion);
 		setNumeroIdentificacion(numeroIdentificacion);
 	}
