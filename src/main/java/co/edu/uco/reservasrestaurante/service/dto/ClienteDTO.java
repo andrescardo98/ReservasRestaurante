@@ -3,7 +3,9 @@ package co.edu.uco.reservasrestaurante.service.dto;
 import java.util.Date;
 import java.util.UUID;
 
+import co.edu.uco.reservasrestaurante.crosscutting.util.UtilFecha;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
+import co.edu.uco.reservasrestaurante.crosscutting.util.UtilUUID;
 import co.edu.uco.reservasrestaurante.service.dto.support.CorreoElectronicoClienteDTO;
 import co.edu.uco.reservasrestaurante.service.dto.support.IdentificacionClienteDTO;
 import co.edu.uco.reservasrestaurante.service.dto.support.NombreCompletoClienteDTO;
@@ -21,13 +23,11 @@ public class ClienteDTO {
 	
 	
 	public ClienteDTO() {
-		setId(id);//TODO: ¿Cómo lograr que por defecto se asigne un UUID que sea todo con 0? Es decir, los 32 caracteres 
-				//con 0. COnstruir UtilUUID
+		setId(UtilUUID.generarUUIDVacio());
 		setIdentificacion(new IdentificacionClienteDTO());
 		setNombreCompleto(new NombreCompletoClienteDTO());
 		setCorreoElectronico(new CorreoElectronicoClienteDTO());
-		setFechaNacimiento(fechaNacimiento);//TODO: ¿Cómo lograr que por defecto se asigne una fecha que sepa que 
-											//no es válida y que pueda ser facilmente identificable. Contruir UtilFecha
+		setFechaNacimiento(UtilFecha.FECHA_NACIMIENTO_DEFECTO);
 		setPais(UtilTexto.VACIO);
 		setNumeroCelular(new NumeroCelularClienteDTO());
 	}

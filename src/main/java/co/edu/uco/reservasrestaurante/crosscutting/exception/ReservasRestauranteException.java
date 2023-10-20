@@ -63,7 +63,7 @@ public class ReservasRestauranteException extends RuntimeException{
 	private final void setMensajeTecnico(final String mensajeTecnico) {
 		this.mensajeTecnico = UtilTexto.aplicarTrim(mensajeTecnico);
 	}
-	private final void setTieneExcepcionRaiz(boolean tieneExcepcionRaiz) {
+	private final void setTieneExcepcionRaiz(final boolean tieneExcepcionRaiz) {
 		this.tieneExcepcionRaiz = tieneExcepcionRaiz;
 	}
 	

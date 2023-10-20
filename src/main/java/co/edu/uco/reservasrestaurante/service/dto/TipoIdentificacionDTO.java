@@ -3,6 +3,7 @@ package co.edu.uco.reservasrestaurante.service.dto;
 import java.util.UUID;
 
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
+import co.edu.uco.reservasrestaurante.crosscutting.util.UtilUUID;
 
 public final class TipoIdentificacionDTO {
 	private UUID id;
@@ -11,7 +12,7 @@ public final class TipoIdentificacionDTO {
 	private boolean estado;
 	
 	public TipoIdentificacionDTO() {
-		setId(id); //TODO: ¿Cómo lograr que por defecto se asigne un UUID que sea todo con 0? Es decir, los 32 caracteres con 0. COnstruir UtilUUID
+		setId(UtilUUID.generarUUIDVacio());
 		setCodigo(UtilTexto.VACIO);
 		setNombre(UtilTexto.VACIO);
 		setEstado(false);
