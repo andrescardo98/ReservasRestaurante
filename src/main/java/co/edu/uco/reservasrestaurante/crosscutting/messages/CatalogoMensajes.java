@@ -259,6 +259,20 @@ public final class CatalogoMensajes {
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000067, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				PROBLEMA_EXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta Cliente deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000068, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método toDomain en la clase TipoIdentificacionEntityMapper.No es posible "
+				+ "mappear un tipo de identificación dominio a partir de una entidad de tipo identificación entity nula."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000069, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método toEntity en la clase TipoIdentificacionEntityMapper.No es posible "
+				+ "mappear un tipo de identificación entity a partir de un dominio de tipo identificación domain nulo."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000070, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo el registr de la información del nuevo tipo de identificación..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000071, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase RegistrarTipoIdentificacionUseCase, debido a que la factoría con la que se desea crear está nula..."));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

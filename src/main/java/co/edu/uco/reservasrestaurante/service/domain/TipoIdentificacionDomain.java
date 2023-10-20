@@ -11,7 +11,6 @@ public final class TipoIdentificacionDomain {
 	
 	
 	private TipoIdentificacionDomain(final UUID id, final String nombre, final String codigo, final boolean estado) {
-		super();
 		setId(id);
 		setNombre(nombre);
 		setCodigo(codigo);
