@@ -11,33 +11,23 @@ import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
 import co.edu.uco.reservasrestaurante.service.businesslogic.UseCase;
-import co.edu.uco.reservasrestaurante.service.domain.TipoIdentificacionDomain;
+import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.reservasrestaurante.service.mapper.entity.concrete.TipoIdentificacionEntityMapper;
 
 public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentificacionDomain> {
 	
 	private DAOFactory factoria;	
 
-	public RegistrarTipoIdentificacionUseCase(DAOFactory factoria) {
+	public RegistrarTipoIdentificacionUseCase(final DAOFactory factoria) {
 		setFactoria(factoria);
 	}
 
 
 	@Override
 	public void execute(TipoIdentificacionDomain domain) {
-		// 1. Validar integridad de datos (tipo de dato, longitud, obligatoriedad, formato, rango, etc.)
-		//TODO: ¿Cómo lo hago?
-		
-		// 2. No debe existir otro tipo de identificación con el mismo codigo
 		validarNoExistenciaTipoIdentificacionConMismoCodigo(domain.getCodigo());
-		
-		// 3. No debe existir otro tipo de identificación con el mismo nombre
 		validarNoExistenciaTipoIdentificacionConMismoNombre(domain.getNombre());
-		
-		// 4. No debe existir otro tipo de identificación con el mismo identificador
-				domain = obtenerIdentificadorTipoIdentificacion(domain);
-		
-		// 5. Registrar el nuevo tipo de identificación
+		domain = obtenerIdentificadorTipoIdentificacion(domain);
 		registrar(domain);
 	}
 	
@@ -103,7 +93,4 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 		}
 		this.factoria = factoria;
 	}
-	
-	
-	
 }

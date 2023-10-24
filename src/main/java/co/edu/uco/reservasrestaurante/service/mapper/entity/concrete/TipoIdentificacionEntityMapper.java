@@ -5,7 +5,7 @@ import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
-import co.edu.uco.reservasrestaurante.service.domain.TipoIdentificacionDomain;
+import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.reservasrestaurante.service.mapper.entity.EntityMapper;
 
 public final class TipoIdentificacionEntityMapper implements EntityMapper<TipoIdentificacionEntity, TipoIdentificacionDomain> {
@@ -40,11 +40,11 @@ public final class TipoIdentificacionEntityMapper implements EntityMapper<TipoId
 		return TipoIdentificacionEntity.crear(domain.getId(), domain.getNombre(), domain.getCodigo(), domain.isEstado());
 	}
 	
-	public final TipoIdentificacionDomain convertToDomain(final TipoIdentificacionEntity entity) {
+	public static final TipoIdentificacionDomain convertToDomain(final TipoIdentificacionEntity entity) {
 		return instancia.toDomain(entity);
 	}
 	
-	public final static TipoIdentificacionEntity convertToEntity(final TipoIdentificacionDomain domain) {
+	public static final TipoIdentificacionEntity convertToEntity(final TipoIdentificacionDomain domain) {
 		return instancia.toEntity(domain);
 	}
 

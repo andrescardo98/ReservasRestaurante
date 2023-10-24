@@ -3,6 +3,8 @@ package co.edu.uco.reservasrestaurante.crosscutting.util;
 public final class UtilTexto {
 	
 	public static final String VACIO = "";
+	public static final String PATTERN_SOLO_LETRAS = "^[A-Za-záéíóúÁÉÍÓÚ]+$";
+	public static final String PATTERN_SOLO_LETRAS_DIGITOS_ESPACIOS = "^[0-9A-Za-záéíóúÁÉÍÓÚ ]+$";
 	
 	private UtilTexto() {
 		super();
@@ -43,5 +45,25 @@ public final class UtilTexto {
 	public static final boolean estaVacio(final String valor) {
 		return igualdadValoresConTrim(valor, VACIO);
 	}
-
+	
+	public static final boolean longitudMinimaValida(final String valor, final int longitud) {
+		return aplicarTrim(valor).length() >= longitud;
+	}
+	
+	public static final boolean longitudMaximaValida(final String valor, final int longitud) {
+		return aplicarTrim(valor).length() <= longitud;
+	}
+	
+	public static final boolean longitudValida(final String valor, final int longitudMinima, final int longitudMaxima) {
+		return longitudMinimaValida(valor, longitudMinima) && longitudMaximaValida(valor, longitudMaxima);
+	}
+	
+	public static final boolean contieneSoloLetras(final String valor) {
+		return obtenerValorDefecto(valor).matches(PATTERN_SOLO_LETRAS);
+	}
+	
+	public static final boolean contieneSoloLetrasDigitosEspacios(final String valor) {
+		return obtenerValorDefecto(valor).matches(PATTERN_SOLO_LETRAS_DIGITOS_ESPACIOS);
+	}
+	
 }

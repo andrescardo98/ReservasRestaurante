@@ -1,4 +1,4 @@
-package co.edu.uco.reservasrestaurante.service.domain;
+package co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion;
 
 import java.util.UUID;
 

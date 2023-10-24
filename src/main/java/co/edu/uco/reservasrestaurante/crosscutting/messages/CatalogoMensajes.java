@@ -272,7 +272,45 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema llevando a cabo el registr de la información del nuevo tipo de identificación..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000071, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				"Se ha presentado un problema en el método setFactoria de la clase RegistrarTipoIdentificacionUseCase, debido a que la factoría con la que se desea crear está nula..."));
+				"Se ha presentado un problema en el método setFactoria de la clase RegistrarTipoIdentificacionUseCase, debido a que "
+				+ "la factoría con la que se desea crear está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000072, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del código del tipo de identificación no es válida. La logitud máxima "
+						+ "son 50 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000073, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El código del tipo de identificación es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000074, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El código del tipo de identificación solo puede contener letras..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000075, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del nombre del tipo de identificación no es válida. La logitud máxima "
+						+ "son 100 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000076, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El nombre del tipo de identificación es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000077, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El nombre de tipo identificación solo puede contener letras, digitos y espacios internos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000078, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id del tipo de identificación es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000079, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id del tipo de identificación no puede ser igual al id por defecto..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000080, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No es posible llevar a cabo la operación deseada con el tipo de identificación,"
+				+ " debido a que no existen datos para llevarla a cabo..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000081, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		"Se presento un problema tratando de registrar el nuevo tipo de identificación"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000082, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase RegistrarTipoIdentificacionFacade, "
+						+ "tratando de registrar el nuevo tipo de identificación." + VERIFICAR_TRAZA));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

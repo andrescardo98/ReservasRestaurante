@@ -1,6 +1,6 @@
 package co.edu.uco.reservasrestaurante.service.domain.support;
 
-import co.edu.uco.reservasrestaurante.service.domain.TipoIdentificacionDomain;
+import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 
 public final class IdentificacionClienteDomain {
 	private TipoIdentificacionDomain tipoIdentificacion;
