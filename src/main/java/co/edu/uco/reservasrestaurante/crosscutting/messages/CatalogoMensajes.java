@@ -185,12 +185,12 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema tratando de llevar a cabo la consulta de los Tipos de Identificación..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000048, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método prepararEjecutarSentenciaConsulta de la clase "
-				+ "TipoIdentificacionSQLServerDAO tratando de preparar la sentencia SQL. " + VERIFICAR_TRAZA));
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase TipoIdentificacionSQLServerDAO "
+						+ "tratando de consultar el tipo de identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000049, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método prepararEjecutarSentenciaConsulta de la clase "
-				+ "TipoIdentificacionSQLServerDAO tratando de preparar la sentencia SQL. " + VERIFICAR_TRAZA));
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase TipoIdentificacionSQLServerDAO "
+					+ "tratando de consultar el tipo de identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000050, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase TipoIdentificacionSQLServerDAO "
@@ -306,11 +306,41 @@ public final class CatalogoMensajes {
 				+ " debido a que no existen datos para llevarla a cabo..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000081, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-		"Se presento un problema tratando de registrar el nuevo tipo de identificación"));
+				"Se presento un problema tratando de registrar el nuevo tipo de identificación"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000082, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				PROBLEMA_EXCEPCION + " en la el método execute de la clase RegistrarTipoIdentificacionFacade, "
 						+ "tratando de registrar el nuevo tipo de identificación." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000083, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de consultar la información del cliente deseado..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000084, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+			PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase ClienteSQLServerDAO "
+					+ "tratando de consultar el cliente." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000085, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase ClienteSQLServerDAO "
+						+ "tratando de consultar el cliente." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000086, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase ClienteSQLServerDAO tratando "
+						+ "de consultar el cliente. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000087, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase ClienteSQLServerDAO tratando "
+						+ "de consultar el cliente. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000088, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de llevar a cabo la consulta del Cliente..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000089, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase ClienteSQLServerDAO tratando de "
+						+ "consultar el Cliente. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000090, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase ClienteSQLServerDAO tratando de "
+						+ "consultar el Cliente. " + VERIFICAR_TRAZA));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
