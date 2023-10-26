@@ -1,5 +1,8 @@
 package co.edu.uco.reservasrestaurante.data.dao.daofactory;
 
+import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.DataReservasRestauranteException;
+import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
+import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.data.dao.ClienteDAO;
 import co.edu.uco.reservasrestaurante.data.dao.PaisDAO;
 import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
@@ -14,19 +17,24 @@ public abstract class DAOFactory {
 			return new SQLServerDAOFactory();
 		}
 		case POSTGRESQL: {
-			// TODO: Falta mejorar el manejo de excepciones customizadas
-			throw new RuntimeException("Factoria no soportada");
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000091);
+			throw DataReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		case MYSQL: {
-			// TODO: Falta mejorar el manejo de excepciones customizadas
-			throw new RuntimeException("Factoria no soportada");
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000091);
+			throw DataReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		case ORACLE: {
-			// TODO: Falta mejorar el manejo de excepciones customizadas
-			throw new RuntimeException("Factoria no soportada");
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000091);
+			throw DataReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + factoria);
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000091);
+			throw DataReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 	}
 	

@@ -1,6 +1,5 @@
 package co.edu.uco.reservasrestaurante.data.entity;
 
-import java.awt.Image;
 import java.util.UUID;
 
 public final class PaisEntity {
@@ -9,21 +8,17 @@ public final class PaisEntity {
 	private String nombre;
 	private String codigoIndicativo;
 	private String codigoiso3;
-	private Image bandera;
 	
-	private PaisEntity(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3, 
-			final Image bandera) {
+	private PaisEntity(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3) {
 		super();
 		setId(id);
 		setNombre(nombre);
 		setCodigoIndicativo(codigoIndicativo);
 		setCodigoiso3(codigoiso3);
-		setBandera(bandera);
 	}
 	
-	public static final PaisEntity crear(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3, 
-			final Image bandera) {
-		return new PaisEntity(id, nombre, codigoIndicativo, codigoiso3, bandera);
+	public static final PaisEntity crear(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3) {
+		return new PaisEntity(id, nombre, codigoIndicativo, codigoiso3);
 	}
 	
 
@@ -43,10 +38,6 @@ public final class PaisEntity {
 		return codigoiso3;
 	}
 
-	public final Image getBandera() {
-		return bandera;
-	}
-
 	private final void setId(final UUID id) {
 		this.id = id;
 	}
@@ -62,11 +53,5 @@ public final class PaisEntity {
 	private final void setCodigoiso3(final String codigoiso3) {
 		this.codigoiso3 = codigoiso3;
 	}
-
-	private final void setBandera(final Image bandera) {
-		this.bandera = bandera;
-	}
-	
-	
 
 }

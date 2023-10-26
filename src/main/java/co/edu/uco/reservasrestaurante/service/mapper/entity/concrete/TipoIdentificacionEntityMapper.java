@@ -1,5 +1,8 @@
 package co.edu.uco.reservasrestaurante.service.mapper.entity.concrete;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.ServiceReservasRestauranteException;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
@@ -46,6 +49,15 @@ public final class TipoIdentificacionEntityMapper implements EntityMapper<TipoId
 	
 	public static final TipoIdentificacionEntity convertToEntity(final TipoIdentificacionDomain domain) {
 		return instancia.toEntity(domain);
+	}
+	
+	public static final List<TipoIdentificacionDomain> convertToListDomain(final List<TipoIdentificacionEntity> entity){
+		List<TipoIdentificacionDomain> resultados = new ArrayList<>();
+		
+		for (int indice = 0; indice < entity.size(); indice++) {
+			resultados.add(convertToDomain(entity.get(indice)));
+		}
+		return resultados;
 	}
 
 }

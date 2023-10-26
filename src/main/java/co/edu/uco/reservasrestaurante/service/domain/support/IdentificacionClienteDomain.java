@@ -20,6 +20,7 @@ public final class IdentificacionClienteDomain {
 	public final TipoIdentificacionDomain getTipoIdentificacion() {
 		return tipoIdentificacion;
 	}
+	
 	public final String getNumeroIdentificacion() {
 		return numeroIdentificacion;
 	}

@@ -341,6 +341,115 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000090, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				PROBLEMA_EXCEPCION + " en el método consultar de la clase ClienteSQLServerDAO tratando de "
 						+ "consultar el Cliente. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000091, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de conectar con la base de datos. Motor de base de datos que se "
+				+ "trata de conectar no usado por la app..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000092, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo toDomain de la clase TipoIdentificaciónDTOMapper. No es "
+				+ "posible mapear un tipo de identificación domain a partir de una entidad de tipo identificación dto nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000093, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo toDto de la clase TipoIdentificaciónDTOMapper. No es "
+				+ "posible mapear un tipo de identificación dto a partir de una entidad de tipo identificación domain nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000094, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método toDomain en la clase NumeroCelularClienteEntityMapper. No es posible "
+				+ "mappear un Numero de Celular dominio a partir de una entidad de Numero de Celular entity nula."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000095, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método toEntity en la clase NumeroCelularClienteEntityMapper. No es posible "
+				+ "mappear un Numero de Celular entity a partir de un dominio de Numero de Celular domain nulo."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000096, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de registar la información del nuevo País."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000097, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase PaisSQLServer tratando de llevar "
+				+ "a cabo el registro del nuevo País. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000098, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método crear de la clase PaisSQLServer tratando de llevar a cabo "
+				+ "el registro del nuevo País. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000099, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de actualizar la información del País deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000100, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase PaisSQLServer tratando de llevar "
+				+ "a cabo la actualización del País deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000101, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método modificar de la clase PaisSQLServer tratando de llevar a "
+				+ "cabo la actualización del País deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000102, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de eliminar la información del País por el identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000103, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase PaisSQLServer tratando de llevar "
+				+ "a cabo la eliminación del País deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000104, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método eliminar de la clase PaisSQLServer tratando de llevar a "
+				+ "cabo la eliminación del País deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000105, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información del País por el "
+				+ "identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000106, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método consultarPorId de la clase PaisSQLServer tratando de llevar "
+						+ "a cabo la consulta del País deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000107, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método consultarPorId de la clase PaisSQLServer tratando de llevar a "
+						+ "cabo la consulta del País deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000108, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de llevar a cabo la consulta de los Paises..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000109, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase PaisSQLServer "
+						+ "tratando de consultar el País deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000110, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase PaisSQLServer "
+					+ "tratando de consultar el País deseado. " + VERIFICAR_TRAZA));
+
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000111, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información del País por el "
+				+ "identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000112, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta País "
+				+ "deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000113, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta País deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000114, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de llevar a cabo la consulta de los Paises..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000115, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase PaisSQLServer "
+				+ "tratando de colocar los parámetros de la consulta SQL. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000116, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase PaisSQLServer "
+				+ "tratando de colocar los parámetros de la consulta SQL. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000117, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información del País deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000118, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase PaisSQLServer tratando de "
+				+ "consultar tipos de identificación. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000119, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase PaisSQLServer tratando de "
+				+ "consultar tipos de identificación. " + VERIFICAR_TRAZA));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
@@ -366,3 +475,4 @@ public final class CatalogoMensajes {
 		return obtenerMensaje(codigo).getContenido();
 	}
 }
+
