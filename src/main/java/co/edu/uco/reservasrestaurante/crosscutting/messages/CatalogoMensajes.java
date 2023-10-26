@@ -450,6 +450,61 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000119, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase PaisSQLServer tratando de "
 				+ "consultar tipos de identificación. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000120, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No existe un tipo de identificación a actualizar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000121, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo la actualización de la información del nuevo tipo de identificación..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000122, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase ModificarTipoIdentificacionUseCase, debido a que "
+				+ "la factoría con la que se desea actualizar está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000123, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No existe un tipo de identificación a eliminar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000124, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo la eliminación de la información del tipo de identificación..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000125, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase EliminarTipoIdentificacionUseCase, debido a que "
+				+ "la factoría con la que se desea eliminar está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000126, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo la consulta de la información del tipo de identificación..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000127, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase ConsultarTipoIdentificacionUseCase, debido a que "
+				+ "la factoría con la que se desea eliminar está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000128, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método toDomain en la clase ClienteEntityMapper.No es posible "
+				+ "mappear un Cliente dominio a partir de una entidad de Cliente entity nula."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000129, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método toEntity en la clase ClienteEntityMapper. No es posible "
+				+ "mappear un Cliente entity a partir de un dominio de Cliente domain nulo."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000130, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No se puede registrar el cliente. Ya existe un tipo cliente con ese nombre completo registrado"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000131, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No se puede registrar el cliente. Ya existe un tipo cliente con el correo electronico registrado"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000132, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No se puede registrar el cliente. Ya existe un tipo cliente con el número de celular registrado"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000133, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No se puede registrar el cliente. Ya existe un tipo cliente con el tipo de identificación e "
+				+ "identificación registrado"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000134, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de llevar a cabo el registro de datos de un nuevo cliente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000135, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo setFactoria de la clase RegistrarClienteUseCase, debido a "
+				+ "que la factoria con la cual se desea crear esta nula"));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
