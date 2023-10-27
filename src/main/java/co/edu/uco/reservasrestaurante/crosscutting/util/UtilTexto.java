@@ -5,6 +5,7 @@ public final class UtilTexto {
 	public static final String VACIO = "";
 	public static final String PATTERN_SOLO_LETRAS = "^[A-Za-záéíóúÁÉÍÓÚ]+$";
 	public static final String PATTERN_SOLO_LETRAS_DIGITOS_ESPACIOS = "^[0-9A-Za-záéíóúÁÉÍÓÚ ]+$";
+	public static final String PATTERN_CLAVE = "^[A-Za-z0-9\\\\s#\\\\-\\\\/]+$";
 	
 	private UtilTexto() {
 		super();
@@ -64,6 +65,10 @@ public final class UtilTexto {
 	
 	public static final boolean contieneSoloLetrasDigitosEspacios(final String valor) {
 		return obtenerValorDefecto(valor).matches(PATTERN_SOLO_LETRAS_DIGITOS_ESPACIOS);
+	}
+	
+	public static final boolean contieneLetrasDigitosEspaciosCaracteres(final String valor) {
+		return obtenerValorDefecto(valor).matches(PATTERN_CLAVE);
 	}
 	
 }

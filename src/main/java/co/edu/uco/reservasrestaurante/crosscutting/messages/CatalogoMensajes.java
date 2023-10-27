@@ -452,7 +452,7 @@ public final class CatalogoMensajes {
 				+ "consultar tipos de identificación. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000120, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No existe un tipo de identificación a actualizar"));
+				"No existe un tipo de identificación a modificar"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000121, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema llevando a cabo la actualización de la información del nuevo tipo de identificación..."));
@@ -505,6 +505,98 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000135, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase RegistrarClienteUseCase, debido a "
 				+ "que la factoria con la cual se desea crear esta nula"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000136, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No existe un cliente existente a modificar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000137, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No se puede modificar el cliente. Ya existe un tipo cliente con ese nombre completo a modificar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000138, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No se puede modificar el cliente. Ya existe un tipo cliente con el correo electronico a modificar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000139, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No se puede modificar el cliente. Ya existe un tipo cliente con el número de celular a modificar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000140, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No se puede modificar el cliente. Ya existe un tipo cliente con el tipo de identificación e "
+				+ "identificación a modificar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000141, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de modificar los datos de un nuevo cliente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000142, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo setFactoria de la clase ModificarClienteUseCase, debido a "
+				+ "que la factoria con la cual se desea crear esta nula"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000143, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id del Cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000144, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id del Cliente no puede ser igual al id por defecto..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000145, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No es posible llevar a cabo la operación deseada con la identificación del cliente, debido a"
+				+ " que no existen datos para llevarla a cabo..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000146, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del primer nombre del cliente no es válido. La logitud máxima son 50 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000147, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El primer nombre del cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000148, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El primer nombre del cliente solo puede contener letras, digitos y espacios internos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000149, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del segundo nombre del cliente no es válido. La logitud máxima son 50 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000150, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El segundo nombre del cliente solo puede contener letras, digitos y espacios internos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000151, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del primer apellido del cliente no es válido. La logitud máxima son 50 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000152, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El primer apellido del cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000153, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El primer apellido del cliente solo puede contener letras, digitos y espacios internos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000154, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del segundo apellido del cliente no es válido. La logitud máxima son 50 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000155, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El segundo apellido del cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000156, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El segundo apellido del cliente solo puede contener letras, digitos y espacios internos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000157, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del correo electrónico del cliente no es válido. La logitud mínima es de "
+				+ "30 caracteres y la longitud máxima son 250 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000158, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El correo electrónico del cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000159, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El correo electrónico del cliente puede contener letras, digitos, @ caracteres especiales"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000160, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud de la clave del cliente no es válida. La logitud mínima es de 8 caracteres "
+				+ "y la longitud máxima es de 50 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000161, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La clave del cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000162, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La clave del cliente puede contener letras, digitos y caracteres especiales (#,*,-,etc.)"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000163, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La fecha de nacimiento del cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000164, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La fecha de nacimiento del cliente debe estar en formato dd/mm/aaaa"));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

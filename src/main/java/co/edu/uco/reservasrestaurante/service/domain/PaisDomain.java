@@ -1,6 +1,5 @@
 package co.edu.uco.reservasrestaurante.service.domain;
 
-import java.awt.Image;
 import java.util.UUID;
 
 public final class PaisDomain {
@@ -9,21 +8,17 @@ public final class PaisDomain {
 	private String nombre;
 	private String codigoIndicativo;
 	private String codigoiso3;
-	private Image bandera;
 	
-	private PaisDomain(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3, 
-			final Image bandera) {
+	private PaisDomain(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3) {
 		super();
 		setId(id);
 		setNombre(nombre);
 		setCodigoIndicativo(codigoIndicativo);
 		setCodigoiso3(codigoiso3);
-		setBandera(bandera);
 	}
 	
-	public static final PaisDomain crear(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3, 
-			final Image bandera) {
-		return new PaisDomain(id, nombre, codigoIndicativo, codigoiso3, bandera);
+	public static final PaisDomain crear(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3) {
+		return new PaisDomain(id, nombre, codigoIndicativo, codigoiso3);
 	}
 	
 
@@ -43,10 +38,6 @@ public final class PaisDomain {
 		return codigoiso3;
 	}
 
-	public final Image getBandera() {
-		return bandera;
-	}
-
 	private final void setId(final UUID id) {
 		this.id = id;
 	}
@@ -62,11 +53,6 @@ public final class PaisDomain {
 	private final void setCodigoiso3(final String codigoiso3) {
 		this.codigoiso3 = codigoiso3;
 	}
-
-	private final void setBandera(final Image bandera) {
-		this.bandera = bandera;
-	}
-	
 	
 
 }
