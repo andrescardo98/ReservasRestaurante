@@ -658,6 +658,51 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000180, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema en el método setFactoria de la clase ConsultarClienteUseCase,"
 				+ " debido a que la factoría con la que se desea eliminar está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000181, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo el registro de la información del nuevo país..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000182, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase RegistrarPaisUseCase, debido a que "
+				+ "la factoría con la que se desea crear está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000184, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase ModificarPaisUseCase, debido a que "
+				+ "la factoría con la que se desea crear está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000185, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase EliminarPaisUseCase, debido a que "
+				+ "la factoría con la que se desea crear está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000186, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase ConsultarPaisUseCase, debido a que "
+				+ "la factoría con la que se desea crear está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000183, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No existe un país a modificar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000187, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de consultar el tipo de identificación"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000188, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ConsultarTipoIdentificacionFacade, "
+						+ "tratando de consultar el tipo de identificación." + VERIFICAR_TRAZA));
+
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000189, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de modificar el tipo de identificación"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000190, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ModificarTipoIdentificacionFacade, "
+						+ "tratando de modificar el tipo de identificación." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000191, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de eliminar el tipo de identificación"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000192, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase EliminarTipoIdentificacionFacade, "
+						+ "tratando de eliminar el tipo de identificación." + VERIFICAR_TRAZA));
+
+		
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

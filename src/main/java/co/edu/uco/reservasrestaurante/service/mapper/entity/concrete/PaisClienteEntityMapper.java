@@ -1,5 +1,8 @@
 package co.edu.uco.reservasrestaurante.service.mapper.entity.concrete;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.ServiceReservasRestauranteException;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
@@ -44,6 +47,15 @@ public final class PaisClienteEntityMapper implements EntityMapper<PaisEntity, P
 	
 	public static final PaisEntity convertToEntity(final PaisDomain domain) {
 		return instancia.toEntity(domain);
+	}
+	
+	public static final List<PaisDomain> convertToListDomain(final List<PaisEntity> entity){
+		List<PaisDomain> resultados = new ArrayList<>();
+		
+		for (int indice = 0; indice < entity.size(); indice++) {
+			resultados.add(convertToDomain(entity.get(indice)));
+		}
+		return resultados;
 	}
 
 	
