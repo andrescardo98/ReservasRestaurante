@@ -15,6 +15,7 @@ import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
 import co.edu.uco.reservasrestaurante.data.dao.ClienteDAO;
 import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.ClienteEntity;
+import co.edu.uco.reservasrestaurante.data.entity.PaisEntity;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.IdentificacionClienteEntity;
@@ -44,7 +45,7 @@ public final class ClienteSQLServerDAO extends SQLDAO implements ClienteDAO{
 			sentenciaPreparada.setObject(3, entity.getNombreCompleto());
 			sentenciaPreparada.setObject(4, entity.getCorreoElectronico());
 			sentenciaPreparada.setDate(5, entity.getFechaNacimiento());
-			sentenciaPreparada.setString(6, entity.getPais());
+			sentenciaPreparada.setObject(6, entity.getPais());
 			sentenciaPreparada.setObject(7, entity.getNumeroCelular());
 			
 			sentenciaPreparada.executeUpdate();			
@@ -76,7 +77,7 @@ public final class ClienteSQLServerDAO extends SQLDAO implements ClienteDAO{
 			sentenciaPreparada.setObject(2, entity.getNombreCompleto());
 			sentenciaPreparada.setObject(3, entity.getCorreoElectronico());
 			sentenciaPreparada.setDate(4, entity.getFechaNacimiento());
-			sentenciaPreparada.setString(5, entity.getPais());
+			sentenciaPreparada.setObject(5, entity.getPais());
 			sentenciaPreparada.setObject(6, entity.getNumeroCelular());
 			sentenciaPreparada.setObject(7, entity.getId());
 			
@@ -184,8 +185,11 @@ public final class ClienteSQLServerDAO extends SQLDAO implements ClienteDAO{
 						NombreCompletoClienteEntity.crear(resultados.getString("primerNombre"), resultados.getString("segundoNombre"), 
 								resultados.getString("primerApellido"), resultados.getString("segundoApellido")),
 						CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"), resultados.getBoolean("correoElectronicoConfirmado"), resultados.getString("clave")),
-						resultados.getDate("fechaNacimiento"), resultados.getString("pais"),
-						NumeroCelularClienteEntity.crear(resultados.getInt("numeroCelular"), resultados.getBoolean("numeroCelularConfirmado")));
+						resultados.getDate("fechaNacimiento"), 
+						PaisEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
+								resultados.getString("nombre"), resultados.getString("codigoIndicativo"), 
+								resultados.getString("codigoIso3")),
+						NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"), resultados.getBoolean("numeroCelularConfirmado")));
 						
 				
 				resultado = Optional.of(clienteEntity);
@@ -343,8 +347,9 @@ public final class ClienteSQLServerDAO extends SQLDAO implements ClienteDAO{
 						NombreCompletoClienteEntity.crear(resultados.getString("primerNombre"), resultados.getString("segundoNombre"), 
 								resultados.getString("primerApellido"), resultados.getString("segundoApellido")),
 						CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"), resultados.getBoolean("correoElectronicoConfirmado"), resultados.getString("clave")),
-						resultados.getDate("fechaNacimiento"), resultados.getString("pais"),
-						NumeroCelularClienteEntity.crear(resultados.getInt("numeroCelular"), resultados.getBoolean("numeroCelularConfirmado")));
+						resultados.getDate("fechaNacimiento"), 
+						PaisEntity.crear(UUID.fromString((String) resultados.getObject("id")), resultados.getString("nombre"), resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
+						NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"), resultados.getBoolean("numeroCelularConfirmado")));
 						
 				
 				listaResultados.add(clienteEntity);

@@ -597,6 +597,67 @@ public final class CatalogoMensajes {
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000164, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"La fecha de nacimiento del cliente debe estar en formato dd/mm/aaaa"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000165, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No es posible llevar a cabo la operación deseada con el país del cliente, debido a"
+				+ " que no existen datos para llevarla a cabo..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000166, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del número de celular del cliente no es válido. La logitud máxima son 20 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000167, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El número de celular del cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000168, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El número de celular del cliente solo puede contener letras, digitos y espacios internos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000169, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id del País es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000170, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id del País no puede ser igual al id por defecto..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000171, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del nombre del país no es válida. La logitud mínima es de 5 caracteres y la "
+				+ "longitud máxima son 50 caracteres"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000172, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El nombre del país es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000173, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El nombre del país solo puede contener letras, digitos y espacios internos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000171, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del código indicativo del país no es válida. La logitud mínima es de 3 caracteres y la "
+				+ "longitud máxima son 5 caracteres"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000172, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El código indicativo del país es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000173, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El código indicativo del país solo puede contener digitos y espacios internos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000174, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud del código ISO 3 del país no es válida. La logitud máxima son 3 caracteres"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000175, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El nombre del país es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000176, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El nombre del país solo puede contener letras en mayúscula"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000177, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El número de identificación del cliente es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000178, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El número de identificación del cliente solo puede contener letras y digitos"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000179, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo la consulta de la información del cliente..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000180, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase ConsultarClienteUseCase,"
+				+ " debido a que la factoría con la que se desea eliminar está nula..."));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

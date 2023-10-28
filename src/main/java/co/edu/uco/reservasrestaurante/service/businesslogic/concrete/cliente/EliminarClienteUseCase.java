@@ -7,12 +7,10 @@ import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
 import co.edu.uco.reservasrestaurante.data.dao.ClienteDAO;
-import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.service.businesslogic.UseCase;
-import co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.tipoidentificacion.EliminarTipoIdentificacionValidator;
-import co.edu.uco.reservasrestaurante.service.domain.ClienteDomain;
-import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.TipoIdentificacionDomain;
+import co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.cliente.EliminarClienteValidator;
+import co.edu.uco.reservasrestaurante.service.domain.cliente.ClienteDomain;
 
 public class EliminarClienteUseCase implements UseCase<ClienteDomain> {
 	
@@ -25,7 +23,7 @@ public class EliminarClienteUseCase implements UseCase<ClienteDomain> {
 
 	@Override
 	public void execute(ClienteDomain domain) {
-		//EliminarClienteValidator.ejecutar(domain);
+		EliminarClienteValidator.ejecutar(domain);
 		validarRegistroExistente(domain.getId());
 		eliminar(domain.getId());
 	}

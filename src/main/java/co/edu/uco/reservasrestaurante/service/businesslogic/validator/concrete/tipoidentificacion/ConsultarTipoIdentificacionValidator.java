@@ -31,7 +31,7 @@ public final class ConsultarTipoIdentificacionValidator implements Validator<Tip
 				NombreTipoIdentificacionRule.ejecutarValidacion(data.getNombre());
 			}
 			
-			if (!UtilObjeto.esNulo(data.getId())) {
+			if (!UtilObjeto.esNulo(data.getCodigo())) {
 				CodigoTipoIdentificacionRule.ejecutarValidacion(data.getCodigo());
 			}
 		}

@@ -14,12 +14,12 @@ public final class ClienteEntity {
 	private NombreCompletoClienteEntity nombreCompleto;
 	private CorreoElectronicoClienteEntity correoElectronico;
 	private Date fechaNacimiento;
-	private String pais;
+	private PaisEntity pais;
 	private NumeroCelularClienteEntity numeroCelular;
 	
 	
 	private ClienteEntity(final UUID id, final IdentificacionClienteEntity identificacion, final NombreCompletoClienteEntity nombreCompleto,
-			final CorreoElectronicoClienteEntity correoElectronico, final Date fechaNacimiento, final String pais,
+			final CorreoElectronicoClienteEntity correoElectronico, final Date fechaNacimiento, final PaisEntity pais,
 			final NumeroCelularClienteEntity numeroCelular) {
 		super();
 		setId(id);
@@ -33,7 +33,7 @@ public final class ClienteEntity {
 
 	
 	public static final ClienteEntity crear(final UUID id, final IdentificacionClienteEntity identificacion, final NombreCompletoClienteEntity nombreCompleto,
-			final CorreoElectronicoClienteEntity correoElectronico, final Date fechaNacimiento, final String pais,
+			final CorreoElectronicoClienteEntity correoElectronico, final Date fechaNacimiento, final PaisEntity pais,
 			final NumeroCelularClienteEntity numeroCelular) {
 		return new ClienteEntity(id, identificacion, nombreCompleto, correoElectronico, fechaNacimiento, pais, numeroCelular);
 	}
@@ -63,7 +63,7 @@ public final class ClienteEntity {
 	}
 
 
-	public final String getPais() {
+	public final PaisEntity getPais() {
 		return pais;
 	}
 
@@ -98,7 +98,7 @@ public final class ClienteEntity {
 	}
 
 
-	private final void setPais(final String pais) {
+	private final void setPais(final PaisEntity pais) {
 		this.pais = pais;
 	}
 

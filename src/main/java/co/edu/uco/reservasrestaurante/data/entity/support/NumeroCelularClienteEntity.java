@@ -1,22 +1,22 @@
 package co.edu.uco.reservasrestaurante.data.entity.support;
 
 public final class NumeroCelularClienteEntity {
-	private int numeroCelular;
+	private String numeroCelular;
 	private boolean numeroCelularConfirmado;
 	
 	
-	private NumeroCelularClienteEntity(final int numeroCelular, final boolean numeroCelularConfirmado) {
+	private NumeroCelularClienteEntity(final String numeroCelular, final boolean numeroCelularConfirmado) {
 		setNumeroCelular(numeroCelular);
 		setNumeroCelularConfirmado(numeroCelularConfirmado);
 	}
 
 	
-	public static final NumeroCelularClienteEntity crear(final int numeroCelular, final boolean numeroCelularConfirmado) {
+	public static final NumeroCelularClienteEntity crear(final String numeroCelular, final boolean numeroCelularConfirmado) {
 		return new NumeroCelularClienteEntity(numeroCelular, numeroCelularConfirmado);
 	}
 
 	
-	public final int getNumeroCelular() {
+	public final String getNumeroCelular() {
 		return numeroCelular;
 	}
 
@@ -26,7 +26,7 @@ public final class NumeroCelularClienteEntity {
 	}
 
 
-	private final void setNumeroCelular(final int numeroCelular) {
+	private final void setNumeroCelular(final String numeroCelular) {
 		this.numeroCelular = numeroCelular;
 	}
 

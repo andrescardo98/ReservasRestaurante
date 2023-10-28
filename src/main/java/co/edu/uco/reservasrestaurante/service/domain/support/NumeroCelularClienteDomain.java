@@ -1,22 +1,22 @@
 package co.edu.uco.reservasrestaurante.service.domain.support;
 
 public final class NumeroCelularClienteDomain {
-	private int numeroCelular;
+	private String numeroCelular;
 	private boolean numeroCelularConfirmado;
 	
 	
-	private NumeroCelularClienteDomain(final int numeroCelular, final boolean numeroCelularConfirmado) {
+	private NumeroCelularClienteDomain(final String numeroCelular, final boolean numeroCelularConfirmado) {
 		setNumeroCelular(numeroCelular);
 		setNumeroCelularConfirmado(numeroCelularConfirmado);
 	}
 
 	
-	public static final NumeroCelularClienteDomain crear(final int numeroCelular, final boolean numeroCelularConfirmado) {
+	public static final NumeroCelularClienteDomain crear(final String numeroCelular, final boolean numeroCelularConfirmado) {
 		return new NumeroCelularClienteDomain(numeroCelular, numeroCelularConfirmado);
 	}
 
 	
-	public final int getNumeroCelular() {
+	public final String getNumeroCelular() {
 		return numeroCelular;
 	}
 
@@ -26,7 +26,7 @@ public final class NumeroCelularClienteDomain {
 	}
 
 
-	private final void setNumeroCelular(final int numeroCelular) {
+	private final void setNumeroCelular(final String numeroCelular) {
 		this.numeroCelular = numeroCelular;
 	}
 

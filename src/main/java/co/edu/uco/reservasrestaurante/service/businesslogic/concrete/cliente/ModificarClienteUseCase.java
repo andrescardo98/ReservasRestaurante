@@ -11,7 +11,7 @@ import co.edu.uco.reservasrestaurante.data.dao.ClienteDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.data.entity.ClienteEntity;
 import co.edu.uco.reservasrestaurante.service.businesslogic.UseCase;
-import co.edu.uco.reservasrestaurante.service.domain.ClienteDomain;
+import co.edu.uco.reservasrestaurante.service.domain.cliente.ClienteDomain;
 import co.edu.uco.reservasrestaurante.service.domain.support.CorreoElectronicoClienteDomain;
 import co.edu.uco.reservasrestaurante.service.domain.support.IdentificacionClienteDomain;
 import co.edu.uco.reservasrestaurante.service.domain.support.NombreCompletoClienteDomain;
@@ -38,7 +38,7 @@ public class ModificarClienteUseCase implements UseCase<ClienteDomain> {
 	}
 	
 	private final void actualizar(final ClienteDomain domain) {
-		getClienteDAO().modificar(ClienteEntityMapper.converttoEntity(domain));
+		getClienteDAO().modificar(ClienteEntityMapper.convertToEntity(domain));
 	}
 	
 	private final void validarExistenciaRegistro(final UUID id) {
@@ -67,7 +67,7 @@ public class ModificarClienteUseCase implements UseCase<ClienteDomain> {
 	
 	private final void validarNoExistenciaMismoNombre(final NombreCompletoClienteDomain nombre) {
 		final var domain = ClienteDomain.crear(null, null, nombre, null, null, null, null);
-		final var entity = ClienteEntityMapper.converttoEntity(domain);
+		final var entity = ClienteEntityMapper.convertToEntity(domain);
 		final var resultados = getClienteDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
@@ -78,7 +78,7 @@ public class ModificarClienteUseCase implements UseCase<ClienteDomain> {
 	
 	private final void validarNoExistenciaCorreoElectronico(final CorreoElectronicoClienteDomain correoElectronico) {
 		final var domain = ClienteDomain.crear(null, null, null, correoElectronico, null, null, null);
-		final var entity = ClienteEntityMapper.converttoEntity(domain);
+		final var entity = ClienteEntityMapper.convertToEntity(domain);
 		final var resultados = getClienteDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
@@ -89,7 +89,7 @@ public class ModificarClienteUseCase implements UseCase<ClienteDomain> {
 	
 	private final void validarNoExistenciaNumeroCelular(final NumeroCelularClienteDomain numeroCelular) {
 		final var domain = ClienteDomain.crear(null, null, null, null, null, null, numeroCelular);
-		final var entity = ClienteEntityMapper.converttoEntity(domain);
+		final var entity = ClienteEntityMapper.convertToEntity(domain);
 		final var resultados = getClienteDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
@@ -100,7 +100,7 @@ public class ModificarClienteUseCase implements UseCase<ClienteDomain> {
 	
 	private final void validarNoExistenciaMismoCodigo(final IdentificacionClienteDomain codigo) {
 		final var domain = ClienteDomain.crear(null, codigo, null, null, null, null, null);
-		final var entity = ClienteEntityMapper.converttoEntity(domain);
+		final var entity = ClienteEntityMapper.convertToEntity(domain);
 		final var resultados = getClienteDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {

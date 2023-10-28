@@ -3,6 +3,7 @@ package co.edu.uco.reservasrestaurante.service.domain.cliente;
 import java.sql.Date;
 import java.util.UUID;
 
+import co.edu.uco.reservasrestaurante.service.domain.pais.PaisDomain;
 import co.edu.uco.reservasrestaurante.service.domain.support.CorreoElectronicoClienteDomain;
 import co.edu.uco.reservasrestaurante.service.domain.support.IdentificacionClienteDomain;
 import co.edu.uco.reservasrestaurante.service.domain.support.NombreCompletoClienteDomain;
@@ -15,12 +16,12 @@ public final class ClienteDomain {
 	private NombreCompletoClienteDomain nombreCompleto;
 	private CorreoElectronicoClienteDomain correoElectronico;
 	private Date fechaNacimiento;
-	private String pais;
+	private PaisDomain pais;
 	private NumeroCelularClienteDomain numeroCelular;
 	
 	
 	private ClienteDomain(final UUID id, final IdentificacionClienteDomain identificacion, final NombreCompletoClienteDomain nombreCompleto,
-			final CorreoElectronicoClienteDomain correoElectronico, final Date fechaNacimiento, final String pais,
+			final CorreoElectronicoClienteDomain correoElectronico, final Date fechaNacimiento, final PaisDomain pais,
 			final NumeroCelularClienteDomain numeroCelular) {
 		setId(id);
 		setIdentificacion(identificacion);
@@ -33,7 +34,7 @@ public final class ClienteDomain {
 
 	
 	public static final ClienteDomain crear(final UUID id, final IdentificacionClienteDomain identificacion, final NombreCompletoClienteDomain nombreCompleto,
-			final CorreoElectronicoClienteDomain correoElectronico, final Date fechaNacimiento, final String pais,
+			final CorreoElectronicoClienteDomain correoElectronico, final Date fechaNacimiento, final PaisDomain pais,
 			final NumeroCelularClienteDomain numeroCelular) {
 		return new ClienteDomain(id, identificacion, nombreCompleto, correoElectronico, fechaNacimiento, pais, numeroCelular);
 	}
@@ -63,7 +64,7 @@ public final class ClienteDomain {
 	}
 
 
-	public final String getPais() {
+	public final PaisDomain getPais() {
 		return pais;
 	}
 
@@ -98,7 +99,7 @@ public final class ClienteDomain {
 	}
 
 
-	private final void setPais(final String pais) {
+	private final void setPais(final PaisDomain pais) {
 		this.pais = pais;
 	}
 

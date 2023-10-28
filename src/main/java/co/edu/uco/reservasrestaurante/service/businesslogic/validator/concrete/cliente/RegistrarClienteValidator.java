@@ -1,12 +1,15 @@
 package co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.cliente;
 
 import co.edu.uco.reservasrestaurante.service.businesslogic.validator.Validator;
-import co.edu.uco.reservasrestaurante.service.domain.ClienteDomain;
+import co.edu.uco.reservasrestaurante.service.domain.cliente.ClienteDomain;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.ClaveClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.CorreoElectronicoClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.FechaNacimientoClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.IdClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.IdentificacionClienteRule;
+import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.NumeroCelularClienteRule;
+import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.NumeroIdentificacionClienteRule;
+import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.PaisClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.PrimerApellidoClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.PrimerNombreClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.SegundoApellidoClienteRule;
@@ -29,6 +32,7 @@ public final class RegistrarClienteValidator implements Validator<ClienteDomain>
 	public final void execute(final ClienteDomain data) {
 		IdClienteRule.ejecutarValidacion(data.getId());
 		IdentificacionClienteRule.ejecutarValidacion(data.getIdentificacion());
+		NumeroIdentificacionClienteRule.ejecutarValidacion(data.getIdentificacion().getNumeroIdentificacion());
 		TipoIdentificacionRule.ejecutarValidacion(data.getIdentificacion().getTipoIdentificacion());
 		PrimerNombreClienteRule.ejecutarValidacion(data.getNombreCompleto().getPrimerNombre());
 		SegundoNombreClienteRule.ejecutarValidacion(data.getNombreCompleto().getSegundoNombre());
@@ -37,6 +41,8 @@ public final class RegistrarClienteValidator implements Validator<ClienteDomain>
 		CorreoElectronicoClienteRule.ejecutarValidacion(data.getCorreoElectronico().getCorreoElectronico());
 		ClaveClienteRule.ejecutarValidacion(data.getCorreoElectronico().getClave());
 		FechaNacimientoClienteRule.ejecutarValidacion(data.getFechaNacimiento());
+		PaisClienteRule.ejecutarValidacion(data.getPais());
+		NumeroCelularClienteRule.ejecutarValidacion(data.getNumeroCelular().getNumeroCelular());
 	}
 
 }

@@ -8,7 +8,7 @@ import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
 import co.edu.uco.reservasrestaurante.data.entity.ClienteEntity;
-import co.edu.uco.reservasrestaurante.service.domain.ClienteDomain;
+import co.edu.uco.reservasrestaurante.service.domain.cliente.ClienteDomain;
 import co.edu.uco.reservasrestaurante.service.mapper.entity.EntityMapper;
 
 public final class ClienteEntityMapper implements EntityMapper<ClienteEntity, ClienteDomain>{
@@ -32,7 +32,7 @@ public final class ClienteEntityMapper implements EntityMapper<ClienteEntity, Cl
 				NombreCompletoClienteEntityMapper.convertToDomain(entity.getNombreCompleto()), 
 				CorreoElectronicoClienteEntityMapper.convertToDomain(entity.getCorreoElectronico()), 
 				entity.getFechaNacimiento(), 
-				entity.getPais(), 
+				PaisClienteEntityMapper.convertToDomain(entity.getPais()), 
 				NumeroCelularClienteEntityMapper.convertToDomain(entity.getNumeroCelular()));
 	}
 
@@ -49,7 +49,7 @@ public final class ClienteEntityMapper implements EntityMapper<ClienteEntity, Cl
 				NombreCompletoClienteEntityMapper.convertToEntity(domain.getNombreCompleto()), 
 				CorreoElectronicoClienteEntityMapper.convertToEntity(domain.getCorreoElectronico()), 
 				domain.getFechaNacimiento(), 
-				domain.getPais(), 
+				PaisClienteEntityMapper.convertToEntity(domain.getPais()), 
 				NumeroCelularClienteEntityMapper.convertToEntity(domain.getNumeroCelular()));
 	}
 
@@ -57,7 +57,7 @@ public final class ClienteEntityMapper implements EntityMapper<ClienteEntity, Cl
 		return instancia.toDomain(entity);
 	}
 	
-	public static final ClienteEntity converttoEntity(final ClienteDomain domain) {
+	public static final ClienteEntity convertToEntity(final ClienteDomain domain) {
 		return instancia.toEntity(domain);
 	}
 	
