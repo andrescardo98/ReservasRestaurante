@@ -44,6 +44,10 @@ public class ClienteDTO {
 		setNumeroCelular(numeroCelular);
 	}
 	
+	public static final ClienteDTO crear() {
+		return new ClienteDTO();
+	}
+	
 	
 	public final UUID getId() {
 		return id;
@@ -96,7 +100,4 @@ public class ClienteDTO {
 		this.numeroCelular = numeroCelular;
 		return this;
 	}
-	
-	
-	
 }

@@ -52,20 +52,25 @@ public class PaisDTO {
 	}
 	
 	
-	public final void setId(final UUID id) {
+	public final PaisDTO setId(final UUID id) {
 		this.id = id;
+		return this;
 	}
-	public final void setNombre(final String nombre) {
+	public final PaisDTO setNombre(final String nombre) {
 		this.nombre = nombre;
+		return this;
 	}
-	public final void setCodigoIndicativo(final String codigoIndicativo) {
+	public final PaisDTO setCodigoIndicativo(final String codigoIndicativo) {
 		this.codigoIndicativo = codigoIndicativo;
+		return this;
 	}
-	public final void setCodigoiso3(final String codigoiso3) {
+	public final PaisDTO setCodigoiso3(final String codigoiso3) {
 		this.codigoiso3 = codigoiso3;
+		return this;
 	}
-	public final void setBandera(final Image bandera) {
+	public final PaisDTO setBandera(final Image bandera) {
 		this.bandera = bandera;
+		return this;
 	}
 	
 	

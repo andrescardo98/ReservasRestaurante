@@ -702,7 +702,63 @@ public final class CatalogoMensajes {
 				PROBLEMA_EXCEPCION + " en la el método execute de la clase EliminarTipoIdentificacionFacade, "
 						+ "tratando de eliminar el tipo de identificación." + VERIFICAR_TRAZA));
 
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000193, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo toDomain de la clase ClienteDTOMapper. No es "
+				+ "posible mapear un Cliente domain a partir de una entidad de Cliente dto nula..."));
 		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000194, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo toDto de la clase ClienteDTOMapper. No es "
+				+ "posible mapear un Cliente dto a partir de una entidad de Cliente domain nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000195, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo toDomain de la clase PaisDTOMapper. No es "
+				+ "posible mapear un Pais domain a partir de una entidad de Pais dto nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000196, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo toDto de la clase PaisDTOMapper. No es "
+				+ "posible mapear un Pais dto a partir de una entidad de Pais domain nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000197, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de registrar el nuevo Cliente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000198, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase RegistrarClienteFacade, "
+						+ "tratando de registrar el nuevo cliente." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000199, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de modificar el cliente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000200, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ModificarClienteFacade, "
+						+ "tratando de modificar el cliente." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000201, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de eliminar el cliente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000202, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase EliminarClienteFacade, "
+						+ "tratando de eliminar el cliente." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000207, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de consultar el cliente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000208, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ConsultarClienteFacade, "
+						+ "tratando de consultar el cliente." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000203, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de registrar el nuevo país"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000204, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase RegistrarPaisFacade, "
+						+ "tratando de registrar el nuevo país." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000205, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de modificar el nuevo país"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000206, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ModificarPaisFacade, "
+						+ "tratando de registrar el nuevo país." + VERIFICAR_TRAZA));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
