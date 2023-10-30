@@ -4,14 +4,14 @@ import java.util.UUID;
 
 public class UtilUUID {
 	
-	public static final UUID UUID_VACIO = new UUID(0L, 0L);
+	public static final UUID UUID_DEFECTO = new UUID(0L, 0L);
 	
 	private UtilUUID() {
 		super();
 	}
 	
 	public static final UUID obtenerUUIDDefecto(final UUID uuid) {
-		return UtilObjeto.obtenerValorDefecto(uuid, UUID_VACIO);
+		return UtilObjeto.obtenerValorDefecto(uuid, UUID_DEFECTO);
 	}
 	
 	public static final boolean uuidIgual(final UUID uuidUno, final UUID uuidDos) {
@@ -28,7 +28,7 @@ public class UtilUUID {
 	}
 	
 	public static final boolean esUUIDPorDefecto(final UUID uuid) {
-		return uuidIgual(uuid, UUID_VACIO);
+		return uuidIgual(uuid, UUID_DEFECTO);
 	}
 	
 	public static final UUID obtenerValorDefecto(final UUID valor, final UUID valorDefecto) {
@@ -36,11 +36,11 @@ public class UtilUUID {
 	}
 	
 	public static final UUID obtenerValorDefecto(final UUID valor) {
-		return obtenerValorDefecto(valor, UUID_VACIO);
+		return obtenerValorDefecto(valor, UUID_DEFECTO);
 	}
 	
 	public static final UUID generarUUIDVacio() {
-		return UUID_VACIO;
+		return UUID_DEFECTO;
 	}
 
 }

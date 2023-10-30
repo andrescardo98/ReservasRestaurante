@@ -45,15 +45,15 @@ public final class TipoIdentificacionDTO {
 	}
 	
 	public final TipoIdentificacionDTO setId(final UUID id) {
-		this.id = id;
+		this.id = UtilUUID.obtenerValorDefecto(id, UtilUUID.obtenerValorDefecto(id, UtilUUID.UUID_DEFECTO));
 		return this;
 	}
 	public final TipoIdentificacionDTO setNombre(final String nombre) {
-		this.nombre = nombre;
+		this.nombre = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(nombre), UtilTexto.VACIO);
 		return this;
 	}
 	public final TipoIdentificacionDTO setCodigo(final String codigo) {
-		this.codigo = codigo;
+		this.codigo = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(codigo), UtilTexto.VACIO);
 		return this;
 	}
 	public final TipoIdentificacionDTO setEstado(final boolean estado) {
