@@ -759,6 +759,96 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000206, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				PROBLEMA_EXCEPCION + " en la el método execute de la clase ModificarPaisFacade, "
 						+ "tratando de registrar el nuevo país." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000209, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de registar la información de la reserva."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000210, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase ReservaSQLServerDAO tratando de llevar "
+				+ "a cabo el registro de la nueva Reserva. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000211, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método crear de la clase ReservaSQLServerDAO tratando de llevar "
+				+ "a cabo el registro de la nueva Reserva. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000212, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de actualizar la información de la reserva deseada."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000213, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase ReservaSQLServerDAO tratando de llevar "
+				+ "a cabo la actualización de la Reserva deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000214, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método modificar de la clase ReservaSQLServerDAO tratando de llevar a "
+				+ "cabo la actualización de la Reserva deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000215, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de eliminar la información de la reserva por el identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000216, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase ReservaSQLServerDAO tratando de llevar "
+				+ "a cabo la eliminación de la Reserva deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000217, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método eliminar de la clase ReservaSQLServerDAO tratando de llevar a "
+				+ "cabo la eliminación de la Reserva deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000218, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información de la reserva por el "
+				+ "identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000219, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + "en el método consultarPorId de la clase ReservaSQLServerDAO tratando de "
+						+ "preparar la sentencia SQL de la consulta del Cliente deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000220, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + "en el método consultarPorId de la clase ReservaSQLServerDAO tratando de "
+						+ "preparar la sentencia SQL de la consulta del Cliente deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000221, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de llevar a cabo la consulta de la Reserva..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000222, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase ReservaSQLServerDAO tratando de "
+						+ "consultar la Reserva. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000223, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase ReservaSQLServerDAO tratando de "
+						+ "consultar la Reserva. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000224, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información de la reserva por el "
+				+ "identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000225, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + "en el método consultar de la clase ReservaSQLServerDAO tratando de "
+						+ "recuperar los datos de la consulta Reserva deseado. " + VERIFICAR_TRAZA));		
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000226, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + "en el método consultar de la clase ReservaSQLServerDAO tratando de "
+						+ "recuperar los datos de la consulta Reserva deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000227, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de consultar la información de la reserva deseada..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000228, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+			PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase ReservaSQLServerDAO "
+					+ "tratando de consultar la reserva." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000229, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase ReservaSQLServerDAO "
+						+ "tratando de consultar la reserva." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000230, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de consultar la información de la reserva deseada..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000231, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase ReservaSQLServerDAO tratando "
+						+ "de consultar la reserva. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000232, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase ReservaSQLServerDAO tratando "
+						+ "de consultar la reserva. " + VERIFICAR_TRAZA));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

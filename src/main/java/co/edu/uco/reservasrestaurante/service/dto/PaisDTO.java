@@ -1,6 +1,5 @@
 package co.edu.uco.reservasrestaurante.service.dto;
 
-import java.awt.Image;
 import java.util.UUID;
 
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
@@ -12,22 +11,19 @@ public class PaisDTO {
 	private String nombre;
 	private String codigoIndicativo;
 	private String codigoiso3;
-	private Image bandera;
 	
 	public PaisDTO() {
 		setId(UtilUUID.generarUUIDVacio());
 		setNombre(UtilTexto.VACIO);
 		setCodigoIndicativo(UtilTexto.VACIO);
 		setCodigoiso3(UtilTexto.VACIO);
-		setBandera(bandera); // TODO: Imagen por defecto
 	}
 	
-	public PaisDTO(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3, final Image bandera) {
+	public PaisDTO(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3) {
 		setId(id);
 		setNombre(nombre);
 		setCodigoIndicativo(codigoIndicativo);
 		setCodigoiso3(codigoiso3);
-		setBandera(bandera);
 	}
 	
 	public static final PaisDTO crear() {
@@ -47,9 +43,6 @@ public class PaisDTO {
 	public final String getCodigoiso3() {
 		return codigoiso3;
 	}
-	public final Image getBandera() {
-		return bandera;
-	}
 	
 	
 	public final PaisDTO setId(final UUID id) {
@@ -66,10 +59,6 @@ public class PaisDTO {
 	}
 	public final PaisDTO setCodigoiso3(final String codigoiso3) {
 		this.codigoiso3 = codigoiso3;
-		return this;
-	}
-	public final PaisDTO setBandera(final Image bandera) {
-		this.bandera = bandera;
 		return this;
 	}
 	

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.UUID;
 
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilFecha;
-import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilUUID;
 import co.edu.uco.reservasrestaurante.service.dto.support.CorreoElectronicoClienteDTO;
 import co.edu.uco.reservasrestaurante.service.dto.support.IdentificacionClienteDTO;
@@ -18,7 +17,7 @@ public class ClienteDTO {
 	private NombreCompletoClienteDTO nombreCompleto;
 	private CorreoElectronicoClienteDTO correoElectronico;
 	private Date fechaNacimiento;
-	private String pais;
+	private PaisDTO pais;
 	private NumeroCelularClienteDTO numeroCelular;
 	
 	
@@ -27,13 +26,13 @@ public class ClienteDTO {
 		setIdentificacion(new IdentificacionClienteDTO());
 		setNombreCompleto(new NombreCompletoClienteDTO());
 		setCorreoElectronico(new CorreoElectronicoClienteDTO());
-		setFechaNacimiento(UtilFecha.FECHA_NACIMIENTO_DEFECTO);
-		setPais(UtilTexto.VACIO);
+		setFechaNacimiento(UtilFecha.FECHA_DEFECTO);
+		setPais(pais);
 		setNumeroCelular(new NumeroCelularClienteDTO());
 	}
 	
 	public ClienteDTO(final UUID id, final IdentificacionClienteDTO identificacion, final NombreCompletoClienteDTO nombreCompleto,
-			final CorreoElectronicoClienteDTO correoElectronico, final Date fechaNacimiento, final String pais,
+			final CorreoElectronicoClienteDTO correoElectronico, final Date fechaNacimiento, final PaisDTO pais,
 			final NumeroCelularClienteDTO numeroCelular) {
 		setId(id);
 		setIdentificacion(identificacion);
@@ -64,7 +63,7 @@ public class ClienteDTO {
 	public final Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public final String getPais() {
+	public final PaisDTO getPais() {
 		return pais;
 	}
 	public final NumeroCelularClienteDTO getNumeroCelular() {
@@ -92,7 +91,7 @@ public class ClienteDTO {
 		this.fechaNacimiento = fechaNacimiento;
 		return this;
 	}
-	public final ClienteDTO setPais(final String pais) {
+	public final ClienteDTO setPais(final PaisDTO pais) {
 		this.pais = pais;
 		return this;
 	}

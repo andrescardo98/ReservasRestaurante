@@ -284,7 +284,7 @@ public final class ClienteSQLServerDAO extends SQLDAO implements ClienteDAO{
 						operadorCondicional = "AND";
 						parametros.add(entity.getCorreoElectronico().isCorreoElectronicoConfirmado());
 					}
-					if (!UtilObjeto.esNulo(entity.getCorreoElectronico().getCorreoElectronico())) {
+					if (!UtilObjeto.esNulo(entity.getCorreoElectronico().getClave())) {
 						sentencia.append(operadorCondicional).append(" clave = ? ");
 						operadorCondicional = "AND";
 						parametros.add(entity.getCorreoElectronico().getClave());

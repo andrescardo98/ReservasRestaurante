@@ -7,51 +7,50 @@ import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.ServiceRes
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
-import co.edu.uco.reservasrestaurante.service.domain.pais.PaisDomain;
-import co.edu.uco.reservasrestaurante.service.dto.PaisDTO;
+import co.edu.uco.reservasrestaurante.service.domain.reserva.ReservaDomain;
+import co.edu.uco.reservasrestaurante.service.dto.ReservaDTO;
 import co.edu.uco.reservasrestaurante.service.mapper.dto.DTOMapper;
 
-public final class PaisDTOMapper implements DTOMapper<PaisDTO, PaisDomain>{
+public final class ReservaDTOMapper implements DTOMapper<ReservaDTO, ReservaDomain>{
 	
-	private static final DTOMapper<PaisDTO, PaisDomain> instancia = new PaisDTOMapper();
+	private static final DTOMapper<ReservaDTO, ReservaDomain> instancia = new ReservaDTOMapper();
 	
-	private PaisDTOMapper() {
+	private ReservaDTOMapper() {
 		super();
 	}
 
 	@Override
-	public PaisDomain toDomain(final PaisDTO dto) {
+	public ReservaDomain toDomain(ReservaDTO dto) {
 		if (UtilObjeto.esNulo(null)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000195);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return PaisDomain.crear(dto.getId(), dto.getNombre(), dto.getCodigoIndicativo(), dto.getCodigoiso3());
+		return ReservaDomain.crear(dto.getId(), ClienteDTOMapper.convertToDomain(dto.getCliente()), 
+				dto.getFecha(), dto.getHora(), dto.getCantidadPersonas(), dto.isEstado());
 	}
 
 	@Override
-	public PaisDTO toDto(PaisDomain domain) {
+	public ReservaDTO toDto(ReservaDomain domain) {
 		if (UtilObjeto.esNulo(null)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000195);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return PaisDTO.crear().setId(domain.getId()).
-				setNombre(domain.getNombre()).
-				setCodigoIndicativo(domain.getCodigoIndicativo()).
-				setCodigoiso3(domain.getCodigoiso3());
+		return ReservaDTO.crear().setId(domain.getId()).setCliente(ClienteDTOMapper.convertToDTO(domain.getCliente())).
+				setHora(domain.getHora()).setCantidadPersonas(domain.getCantidadPersonas()).setEstado(domain.isEstado());
 	}
 
-	public static final PaisDomain convertToDomain(final PaisDTO dto) {
+	public static final ReservaDomain convertToDomain(final ReservaDTO dto) {
 		return instancia.toDomain(dto);
 	}
 	
-	public static final PaisDTO convertToDTO(final PaisDomain domain) {
+	public static final ReservaDTO convertToDTO(final ReservaDomain domain) {
 		return instancia.toDto(domain);
 	}
 	
-	public static final List<PaisDTO> convertToListDTO(final List<PaisDomain> dto){
-		List<PaisDTO> resultados = new ArrayList<>();
+	public static final List<ReservaDTO> convertToListDTO(final List<ReservaDomain> dto){
+		List<ReservaDTO> resultados = new ArrayList<>();
 		for (int indice = 0; indice < dto.size(); indice++) {
 			resultados.add(convertToDTO(dto.get(indice)));
 		}

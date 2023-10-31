@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class UtilFecha {
 	
-	public static final Date FECHA_NACIMIENTO_DEFECTO = new Date(0);
+	public static final Date FECHA_DEFECTO = new Date(0);
 	private static final String FORMATO_FECHA = "dd/MM/yyyy";
 	
 	private UtilFecha() {
@@ -17,11 +17,11 @@ public class UtilFecha {
 	}
 	
 	public static final Date obtenerValorDefecto(final Date valor) {
-		return obtenerFechaDefecto(valor, FECHA_NACIMIENTO_DEFECTO);
+		return obtenerFechaDefecto(valor, FECHA_DEFECTO);
 	}
 	
 	public static final boolean esFechaInvalida(final Date fecha) {
-		return fecha.equals(FECHA_NACIMIENTO_DEFECTO);
+		return fecha.equals(FECHA_DEFECTO);
 	}
 	
 	public static final boolean formatoFechaCorrecto(final String fecha) {
