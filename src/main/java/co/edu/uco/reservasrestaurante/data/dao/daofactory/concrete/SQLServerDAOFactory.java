@@ -1,8 +1,10 @@
 package co.edu.uco.reservasrestaurante.data.dao.daofactory.concrete;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.DataReservasRestauranteException;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
@@ -26,12 +28,22 @@ public final class SQLServerDAOFactory extends DAOFactory{
 
 	@Override
 	protected final void abrirConexion() {
-		final String url = Configuracion.obtenerURL();
-		final String usuario = Configuracion.obtenerUsuario();
-		final String contrasenia = Configuracion.obtenerContrasenia();
 		
 		try {
-			conexion = DriverManager.getConnection(url, usuario, contrasenia);
+			Properties prop = new Properties();
+			InputStream input = getClass().getResourceAsStream("/application.properties");
+			prop.load(input);
+			String url = prop.getProperty("db.url");
+			String usuario = prop.getProperty("db.user");
+			String contresenia = prop.getProperty("db.password");
+	        
+	        if (url == null || url.isEmpty() || usuario == null || usuario.isEmpty() || contresenia == null || contresenia.isEmpty()) {
+	        	var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
+				var mensajeTecnico = "No se pudieron obtener credenciales de la base de datos";
+				throw DataReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
+	        }
+			
+			conexion = DriverManager.getConnection(url, usuario, contresenia);
 		} catch (final SQLException excepcion) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000027);

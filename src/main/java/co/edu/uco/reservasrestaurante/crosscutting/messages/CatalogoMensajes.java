@@ -888,8 +888,8 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000244, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"El tipo de identificación fue registrado exitosamente"));
 		
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000245, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"Se ha presentado un problema inesperado tratando de registrar el tipo de identificación deseado."));
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000244, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		"Se ha presentado un problema inesperado tratando de registrar el tipo de identificación deseado."));
 
 	}
 	

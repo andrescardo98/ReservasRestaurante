@@ -27,6 +27,7 @@ public final class RegistrarTipoIdentificacionFacade implements Facade<TipoIdent
 			daoFactory.iniciarTransaccion();
 			
 			var useCase = new RegistrarTipoIdentificacionUseCase(daoFactory);
+			
 			useCase.execute(domain);
 			
 			daoFactory.confirmarTransaccion();
