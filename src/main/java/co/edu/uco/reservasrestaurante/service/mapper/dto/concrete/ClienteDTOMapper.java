@@ -41,7 +41,13 @@ public final class ClienteDTOMapper implements DTOMapper<ClienteDTO, ClienteDoma
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000194);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return ClienteDTO.crear();
+		return ClienteDTO.crear().setId(domain.getId()).
+				setIdentificacion(IdentificacionClienteDTOMapper.convertToDTO(domain.getIdentificacion())).
+				setNombreCompleto(NombreCompletoClienteDTOMapper.convertToDTO(domain.getNombreCompleto())).
+				setCorreoElectronico(CorreoElectronicoClienteDTOMapper.convertToDTO(domain.getCorreoElectronico())).
+				setFechaNacimiento(domain.getFechaNacimiento()).
+				setPais(PaisDTOMapper.convertToDTO(domain.getPais())).
+				setNumeroCelular(NumeroCelularClienteDTOMapper.convertToDTO(domain.getNumeroCelular()));
 	}
 	
 	public static final ClienteDomain convertToDomain(final ClienteDTO dto) {
