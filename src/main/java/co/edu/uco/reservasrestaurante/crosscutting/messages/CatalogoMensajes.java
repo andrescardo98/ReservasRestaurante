@@ -884,6 +884,12 @@ public final class CatalogoMensajes {
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000243, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"El número de personas ingresado es inválido. La cantidad máxima de personas por mesa es 4"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000244, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El tipo de identificación fue registrado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000245, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema inesperado tratando de registrar el tipo de identificación deseado."));
 
 	}
 	
