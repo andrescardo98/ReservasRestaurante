@@ -44,7 +44,6 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 			sentenciaPreparada.setDate(3, entity.getFecha());
 			sentenciaPreparada.setString(4, entity.getHora());
 			sentenciaPreparada.setInt(5, entity.getCantidadPersonas());
-			sentenciaPreparada.setBoolean(6, entity.isEstado());
 			
 			sentenciaPreparada.executeUpdate();
 		} catch (final SQLException excepcion) {
@@ -71,8 +70,7 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 			sentenciaPreparada.setDate(2, entity.getFecha());
 			sentenciaPreparada.setString(3, entity.getHora());
 			sentenciaPreparada.setInt(4, entity.getCantidadPersonas());
-			sentenciaPreparada.setBoolean(5, entity.isEstado());
-			sentenciaPreparada.setObject(6, entity.getId());
+			sentenciaPreparada.setObject(5, entity.getId());
 			
 			sentenciaPreparada.executeUpdate();
 			
@@ -183,7 +181,7 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
 										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
-						resultados.getString("hora"), resultados.getInt("cantidadPersonas"), resultados.getBoolean("estado"));
+						resultados.getString("hora"), resultados.getInt("cantidadPersonas"));
 				
 				resultado = Optional.of(reservaEntity);
 			}
@@ -343,11 +341,6 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 			operadorCondicional = "AND";
 			parametros.add(entity.getCantidadPersonas());
 		}
-		if (!UtilObjeto.esNulo(entity.isEstado())) {
-			sentencia.append(operadorCondicional).append(" estado = ? ");
-			operadorCondicional = "AND";
-			parametros.add(entity.isEstado());
-		}
 		sentencia.append("ORDER BY id");
 		return sentencia.toString();
 	}
@@ -390,7 +383,7 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
 										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
-						resultados.getString("hora"), resultados.getInt("cantidadPersonas"), resultados.getBoolean("estado"));
+						resultados.getString("hora"), resultados.getInt("cantidadPersonas"));
 						
 				
 				listaResultados.add(reservaEntity);

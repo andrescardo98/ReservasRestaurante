@@ -9,7 +9,7 @@ public final class UtilTexto {
 	public static final String PATTERN_CODIGO_INDICATIVO = "^[0-9 ]+$";
 	public static final String PATTERN_CODIGO_ISO3 = "^[A-Z]+$";
 	public static final String PATTERN_LETRAS_DIGITOS = "^[a-zA-Z0-9]+$";
-	public static final String PATTERN_HORA = "^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$";
+	public static final String PATTERN_HORA = "^([01]?[0-9]|2[0-3]):[0-5][0-9]$";
 
 	
 	
@@ -92,4 +92,9 @@ public final class UtilTexto {
 	public static final boolean contieneHora(final String valor) {
 		return obtenerValorDefecto(valor).matches(PATTERN_HORA);
 	}
+	
+	public static final boolean formatoHora(final String valor) {
+		return valor.matches(PATTERN_HORA);
+	}
+	
 }

@@ -1,6 +1,6 @@
 package co.edu.uco.reservasrestaurante.service.dto;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.UUID;
 
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilFecha;

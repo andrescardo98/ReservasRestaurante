@@ -1,6 +1,7 @@
 package co.edu.uco.reservasrestaurante.service.domain.cliente.rules;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.ServiceReservasRestauranteException;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
@@ -23,20 +24,21 @@ public final class FechaNacimientoClienteRule implements Rule<Date>{
 	@Override
 	public void validar(Date dato) {
 		validarObligatoriedad(dato);
-		validarFormato(dato);
+		validarFechaPosterior(dato);
 	}
 	
 	private final void validarObligatoriedad(final Date dato) {
-		if (dato == null || UtilFecha.esFechaInvalida(dato)) {
+		if (dato == null || UtilFecha.esNulo(dato)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000163);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
 	
-	private final void validarFormato(final Date dato) {
-		String fechaFormateada = UtilFecha.formatearFecha(dato);
-		if (!UtilFecha.formatoFechaCorrecto(fechaFormateada)) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000164);
+	private final void validarFechaPosterior(final Date dato) {
+		long tiempoActual = System.currentTimeMillis();
+		
+		if (dato.getTime() > tiempoActual) {
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000240);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}

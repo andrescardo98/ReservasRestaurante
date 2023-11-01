@@ -1,4 +1,4 @@
-package co.edu.uco.reservasrestaurante.service.domain.reserva.rules;
+package co.edu.uco.reservasrestaurante.service.domain.cliente.rules;
 
 import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.ServiceReservasRestauranteException;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
@@ -7,11 +7,11 @@ import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
 import co.edu.uco.reservasrestaurante.service.domain.Rule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.ClienteDomain;
 
-public final class ClienteReservaRule implements Rule<ClienteDomain>{
+public final class ClienteRule implements Rule<ClienteDomain>{
 	
-	private static final Rule<ClienteDomain> instancia = new ClienteReservaRule();
+	private static final Rule<ClienteDomain> instancia = new ClienteRule();
 	
-	private ClienteReservaRule() {
+	private ClienteRule() {
 		super();
 	}
 	

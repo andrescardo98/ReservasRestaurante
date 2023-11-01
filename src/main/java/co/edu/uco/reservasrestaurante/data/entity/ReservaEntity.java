@@ -10,22 +10,18 @@ public final class ReservaEntity {
 	private Date fecha;
 	private String hora;
 	private int cantidadPersonas;
-	private boolean estado;
 	
 	
-	private ReservaEntity(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, final int cantidadPersonas,
-			final boolean estado) {
+	private ReservaEntity(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, final int cantidadPersonas) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
 		setHora(hora);
 		setCantidadPersonas(cantidadPersonas);
-		setEstado(estado);
 	}
 	
-	public static final ReservaEntity crear(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, final int cantidadPersonas,
-			final boolean estado) {
-		return new ReservaEntity(id, cliente, fecha, hora, cantidadPersonas, estado);
+	public static final ReservaEntity crear(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, final int cantidadPersonas) {
+		return new ReservaEntity(id, cliente, fecha, hora, cantidadPersonas);
 	}
 
 
@@ -52,11 +48,7 @@ public final class ReservaEntity {
 	public final int getCantidadPersonas() {
 		return cantidadPersonas;
 	}
-
-
-	public final boolean isEstado() {
-		return estado;
-	}
+	
 
 
 	private final void setId(final UUID id) {
@@ -81,11 +73,6 @@ public final class ReservaEntity {
 
 	private final void setCantidadPersonas(final int cantidadPersonas) {
 		this.cantidadPersonas = cantidadPersonas;
-	}
-
-
-	private final void setEstado(final boolean estado) {
-		this.estado = estado;
 	}
 	
 	

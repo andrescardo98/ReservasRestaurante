@@ -849,6 +849,42 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000232, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase ReservaSQLServerDAO tratando "
 						+ "de consultar la reserva. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000233, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id de la reserva es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000234, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id dela reserva no puede ser igual al id por defecto..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000235, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La fecha para la reserva es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000236, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El formato de la hora es inválido. Use HH:mm (por ejemplo, 14:30)"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000237, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La hora en que desea hacer la reserva es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000238, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Los rangos para la hora son inválidos... El valor mínimo de las horas es 0 y el máximo es 23, "
+				+ "el valor mínimo de los mintos es 0 y el máximo 59."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000239, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Error. No se permiten reservas para horas pasadas"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000240, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Error. No se permiten reservas para fechas pasadas"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000241, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No es posible llevar a cabo la operación deseada con la reserva,"
+				+ " debido a que no existen datos para llevarla a cabo..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000242, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El número de personas ingresado es inválido. Intente de nuevo e ingrese un valor correcto"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000243, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El número de personas ingresado es inválido. La cantidad máxima de personas por mesa es 4"));
+
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
