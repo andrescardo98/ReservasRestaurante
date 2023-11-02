@@ -22,11 +22,11 @@ import co.edu.uco.reservasrestaurante.data.entity.support.IdentificacionClienteE
 import co.edu.uco.reservasrestaurante.data.entity.support.NombreCompletoClienteEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.NumeroCelularClienteEntity;
 
-public final class ClienteSQLServerDAO extends SQLDAO implements ClienteDAO{
+public final class ClientePostgreSQLDAO extends SQLDAO implements ClienteDAO{
 	
 	private static final String SENTENCIA_WHERE = "WHERE id = ? ";
 
-	public ClienteSQLServerDAO(final Connection conexion) {
+	public ClientePostgreSQLDAO(final Connection conexion) {
 		super(conexion);
 	}
 

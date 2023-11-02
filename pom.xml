@@ -34,6 +34,14 @@
 			<version>11.2.3.jre17</version>
 		</dependency>
 		
+		<dependency>
+    		<groupId>org.postgresql</groupId>
+    		<artifactId>postgresql</artifactId>
+    		<version>42.2.24</version> 
+		</dependency>
+		
+		
+		
 	</dependencies>
 
 	<build>

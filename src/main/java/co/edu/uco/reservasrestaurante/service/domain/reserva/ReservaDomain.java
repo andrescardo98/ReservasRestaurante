@@ -12,19 +12,25 @@ public class ReservaDomain {
 	private ClienteDomain cliente;
 	private Date fecha;
 	private String hora;
+	private int mesa;
 	private int cantidadPersonas;
+	private boolean estado;
 	
 	
-	private ReservaDomain(final UUID id, final ClienteDomain cliente, final Date fecha, final String hora, final int cantidadPersonas) {
+	private ReservaDomain(final UUID id, final ClienteDomain cliente, final Date fecha, final String hora, 
+			final int mesa, final int cantidadPersonas, final boolean estado) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
 		setHora(hora);
+		setMesa(mesa);
 		setCantidadPersonas(cantidadPersonas);
+		setEstado(estado);
 	}
 	
-	public static final ReservaDomain crear(final UUID id, final ClienteDomain cliente, final Date fecha, final String hora, final int cantidadPersonas) {
-		return new ReservaDomain(id, cliente, fecha, hora, cantidadPersonas);
+	public static final ReservaDomain crear(final UUID id, final ClienteDomain cliente, final Date fecha, 
+			final String hora, final int mesa, final int cantidadPersonas, final boolean estado) {
+		return new ReservaDomain(id, cliente, fecha, hora, mesa, cantidadPersonas, estado);
 	}
 
 
@@ -47,9 +53,16 @@ public class ReservaDomain {
 		return hora;
 	}
 
+	public int getMesa() {
+		return mesa;
+	}
 
 	public final int getCantidadPersonas() {
 		return cantidadPersonas;
+	}
+	
+	public boolean isEstado() {
+		return estado;
 	}
 
 
@@ -72,8 +85,15 @@ public class ReservaDomain {
 		this.hora = hora;
 	}
 
+	private void setMesa(final int mesa) {
+		this.mesa = mesa;
+	}
 
 	private final void setCantidadPersonas(final int cantidadPersonas) {
 		this.cantidadPersonas = cantidadPersonas;
+	}
+	
+	private final void setEstado(final boolean estado) {
+		this.estado = estado;
 	}
 }

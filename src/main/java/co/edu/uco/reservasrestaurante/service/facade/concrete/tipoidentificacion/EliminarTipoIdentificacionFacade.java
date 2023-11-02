@@ -21,7 +21,7 @@ public final class EliminarTipoIdentificacionFacade implements Facade<TipoIdenti
 		final TipoIdentificacionDomain domain = TipoIdentificacionDTOMapper.convertToDomain(dto); 
 		EliminarTipoIdentificacionValidator.ejecutar(domain);
 		
-		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.SQLSERVER);
+		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
 		
 		try {
 			daoFactory.iniciarTransaccion();

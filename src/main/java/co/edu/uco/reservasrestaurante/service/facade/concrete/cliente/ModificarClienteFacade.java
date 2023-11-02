@@ -20,7 +20,7 @@ public class ModificarClienteFacade implements Facade<ClienteDTO>{
 		final ClienteDomain domain =  ClienteDTOMapper.convertToDomain(dto);
 		ModificarClienteValidator.ejecutar(domain);
 		
-		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.SQLSERVER);
+		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
 		
 		try {
 			daoFactory.iniciarTransaccion();

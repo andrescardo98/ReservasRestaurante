@@ -9,19 +9,25 @@ public final class ReservaEntity {
 	private ClienteEntity cliente;
 	private Date fecha;
 	private String hora;
+	private int mesa;
 	private int cantidadPersonas;
+	private boolean estado;
 	
 	
-	private ReservaEntity(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, final int cantidadPersonas) {
+	private ReservaEntity(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, 
+			final int mesa, final int cantidadPersonas, final boolean estado) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
 		setHora(hora);
+		setMesa(mesa);
 		setCantidadPersonas(cantidadPersonas);
+		setEstado(estado);
 	}
 	
-	public static final ReservaEntity crear(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, final int cantidadPersonas) {
-		return new ReservaEntity(id, cliente, fecha, hora, cantidadPersonas);
+	public static final ReservaEntity crear(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, 
+			final int mesa, final int cantidadPersonas, final boolean estado) {
+		return new ReservaEntity(id, cliente, fecha, hora, mesa, cantidadPersonas, estado);
 	}
 
 
@@ -43,10 +49,18 @@ public final class ReservaEntity {
 	public final String getHora() {
 		return hora;
 	}
+	
+	public int getMesa() {
+		return mesa;
+	}
 
 
 	public final int getCantidadPersonas() {
 		return cantidadPersonas;
+	}
+	
+	public boolean isEstado() {
+		return estado;
 	}
 	
 
@@ -69,10 +83,18 @@ public final class ReservaEntity {
 	private final void setHora(final String hora) {
 		this.hora = hora;
 	}
+	
+	private void setMesa(final int mesa) {
+		this.mesa = mesa;
+	}
 
 
 	private final void setCantidadPersonas(final int cantidadPersonas) {
 		this.cantidadPersonas = cantidadPersonas;
+	}
+	
+	private void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	
 	

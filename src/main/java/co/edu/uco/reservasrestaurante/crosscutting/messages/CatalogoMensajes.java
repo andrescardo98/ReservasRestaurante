@@ -16,7 +16,7 @@ public final class CatalogoMensajes {
 				+ "diagnosticar con mayor certeza, qué sucedió...";
 	private static final String PROBLEMA_SQLEXCEPCION = "Se ha presentado un problema de tipo SQLException ";
 	private static final String PROBLEMA_EXCEPCION = "Se ha presentado un problema inesperado de tipo Exception ";
-	private static final String  METODO_CONSULTAR_POR_ID= " en el método consultarPorID de la clase TipoIdentificacionSQLServer tratando de ";
+	private static final String  METODO_CONSULTAR_POR_ID= " en el método consultarPorID de la clase TipoIdentificacionPostgreSQL tratando de ";
 	private static final Map<CodigoMensaje, Mensaje> MENSAJES = new HashMap<>();
 	
 	static {
@@ -129,11 +129,11 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema tratando de registar la información del nuevo tipo de identificación."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000033, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase TipoIdentificacionSQLServer tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase TipoIdentificacionPostgreSQL tratando de llevar "
 				+ "a cabo el registro del nuevo Tipo de Identificación. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000034, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método crear de la clase TipoIdentificacionSQLServer tratando de llevar a cabo "
+				PROBLEMA_EXCEPCION + " en el método crear de la clase TipoIdentificacionPostgreSQL tratando de llevar a cabo "
 				+ "el registro del nuevo Tipo de Identificación. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000035, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
@@ -144,11 +144,11 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema tratando de actualizar la información del tipo de identificación deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000037, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase TipoIdentificacionSQLServer tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase TipoIdentificacionPostgreSQL tratando de llevar "
 				+ "a cabo la actualización del Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000038, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método modificar de la clase TipoIdentificacionSQLServer tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método modificar de la clase TipoIdentificacionPostgreSQL tratando de llevar a "
 				+ "cabo la actualización del Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000039, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -171,11 +171,11 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema tratando de eliminar la información del tipo de identificación por el identificador deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000044, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase TipoIdentificacionSQLServer tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase TipoIdentificacionPostgreSQL tratando de llevar "
 				+ "a cabo la eliminación del Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000045, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método eliminar de la clase TipoIdentificacionSQLServer tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método eliminar de la clase TipoIdentificacionPostgreSQL tratando de llevar a "
 				+ "cabo la eliminación del Tipo de Identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000046, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
@@ -185,60 +185,60 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema tratando de llevar a cabo la consulta de los Tipos de Identificación..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000048, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase TipoIdentificacionSQLServerDAO "
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase TipoIdentificacionPostgreSQLDAO "
 						+ "tratando de consultar el tipo de identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000049, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método consultar de la clase TipoIdentificacionSQLServerDAO "
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase TipoIdentificacionPostgreSQLDAO "
 					+ "tratando de consultar el tipo de identificación deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000050, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase TipoIdentificacionSQLServerDAO "
+				PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase TipoIdentificacionPostgreSQLDAO "
 				+ "tratando de colocar los parámetros de la consulta SQL. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000051, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase TipoIdentificacionSQLServerDAO "
+				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase TipoIdentificacionPostgreSQLDAO "
 				+ "tratando de colocar los parámetros de la consulta SQL. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000052, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase TipoIdentificacionSQLServerDAO tratando "
+				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase TipoIdentificacionPostgreSQLDAO tratando "
 				+ "de ejecutar la consulta SQL. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000053, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase TipoIdentificacionSQLServerDAO tratando "
+				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase TipoIdentificacionPostgreSQLDAO tratando "
 				+ "de ejecutar la consulta SQL. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000054, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de registar la información del nuevo Cliente."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000055, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase ClienteSQLServerDAO tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase ClientePostgreSQLDAO tratando de llevar "
 				+ "a cabo el registro del nuevo Cliente. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000056, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método crear de la clase ClienteSQLServerDAO tratando de llevar a cabo "
+				PROBLEMA_EXCEPCION + " en el método crear de la clase ClientePostgreSQLDAO tratando de llevar a cabo "
 				+ "el registro del nuevo Cliente. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000057, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de actualizar la información del Cliente deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000058, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase ClienteSQLServerDAO tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase ClientePostgreSQLDAO tratando de llevar "
 				+ "a cabo la actualización del Cliente deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000059, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método modificar de la clase ClienteSQLServerDAO tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método modificar de la clase ClientePostgreSQLDAO tratando de llevar a "
 				+ "cabo la actualización del Cliente deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000060, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de eliminar la información del cliente por el identificador deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000061, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase ClienteSQLServerDAO tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase ClientePostgreSQLDAO tratando de llevar "
 				+ "a cabo la eliminación del Cliente deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000062, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método eliminar de la clase ClienteSQLServerDAO tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método eliminar de la clase ClientePostgreSQLDAO tratando de llevar a "
 				+ "cabo la eliminación del Cliente deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000063, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -316,30 +316,30 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema tratando de consultar la información del cliente deseado..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000084, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-			PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase ClienteSQLServerDAO "
+			PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase ClientePostgreSQLDAO "
 					+ "tratando de consultar el cliente." + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000085, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase ClienteSQLServerDAO "
+				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase ClientePostgreSQLDAO "
 						+ "tratando de consultar el cliente." + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000086, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase ClienteSQLServerDAO tratando "
+				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase ClientePostgreSQLDAO tratando "
 						+ "de consultar el cliente. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000087, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase ClienteSQLServerDAO tratando "
+				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase ClientePostgreSQLDAO tratando "
 						+ "de consultar el cliente. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000088, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de llevar a cabo la consulta del Cliente..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000089, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase ClienteSQLServerDAO tratando de "
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase ClientePostgreSQLDAO tratando de "
 						+ "consultar el Cliente. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000090, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método consultar de la clase ClienteSQLServerDAO tratando de "
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase ClientePostgreSQLDAO tratando de "
 						+ "consultar el Cliente. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000091, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
@@ -366,33 +366,33 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema tratando de registar la información del nuevo País."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000097, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase PaisSQLServer tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase PaisPostgreSQL tratando de llevar "
 				+ "a cabo el registro del nuevo País. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000098, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método crear de la clase PaisSQLServer tratando de llevar a cabo "
+				PROBLEMA_EXCEPCION + " en el método crear de la clase PaisPostgreSQL tratando de llevar a cabo "
 				+ "el registro del nuevo País. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000099, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de actualizar la información del País deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000100, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase PaisSQLServer tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase PaisPostgreSQL tratando de llevar "
 				+ "a cabo la actualización del País deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000101, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método modificar de la clase PaisSQLServer tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método modificar de la clase PaisPostgreSQL tratando de llevar a "
 				+ "cabo la actualización del País deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000102, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de eliminar la información del País por el identificador deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000103, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase PaisSQLServer tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase PaisPostgreSQL tratando de llevar "
 				+ "a cabo la eliminación del País deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000104, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método eliminar de la clase PaisSQLServer tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método eliminar de la clase PaisPostgreSQL tratando de llevar a "
 				+ "cabo la eliminación del País deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000105, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -400,22 +400,22 @@ public final class CatalogoMensajes {
 				+ "identificador deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000106, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método consultarPorId de la clase PaisSQLServer tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método consultarPorId de la clase PaisPostgreSQL tratando de llevar "
 						+ "a cabo la consulta del País deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000107, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método consultarPorId de la clase PaisSQLServer tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método consultarPorId de la clase PaisPostgreSQL tratando de llevar a "
 						+ "cabo la consulta del País deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000108, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de llevar a cabo la consulta de los Paises..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000109, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase PaisSQLServer "
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase PaisPostgreSQL "
 						+ "tratando de consultar el País deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000110, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método consultar de la clase PaisSQLServer "
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase PaisPostgreSQL "
 					+ "tratando de consultar el País deseado. " + VERIFICAR_TRAZA));
 
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000111, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -433,22 +433,22 @@ public final class CatalogoMensajes {
 				"Se ha presentado un problema tratando de llevar a cabo la consulta de los Paises..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000115, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase PaisSQLServer "
+				PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase PaisPostgreSQL "
 				+ "tratando de colocar los parámetros de la consulta SQL. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000116, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase PaisSQLServer "
+				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase PaisPostgreSQL "
 				+ "tratando de colocar los parámetros de la consulta SQL. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000117, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de consultar la información del País deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000118, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase PaisSQLServer tratando de "
+				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase PaisPostgreSQL tratando de "
 				+ "consultar tipos de identificación. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000119, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase PaisSQLServer tratando de "
+				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase PaisPostgreSQL tratando de "
 				+ "consultar tipos de identificación. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000120, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
@@ -754,43 +754,43 @@ public final class CatalogoMensajes {
 						+ "tratando de registrar el nuevo país." + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000205, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"Se presento un problema tratando de modificar el nuevo país"));
+				"Se presento un problema tratando de modificar el país"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000206, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				PROBLEMA_EXCEPCION + " en la el método execute de la clase ModificarPaisFacade, "
-						+ "tratando de registrar el nuevo país." + VERIFICAR_TRAZA));
+						+ "tratando de modificar el país." + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000209, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de registar la información de la reserva."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000210, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase ReservaSQLServerDAO tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase ReservaPostgreSQLDAO tratando de llevar "
 				+ "a cabo el registro de la nueva Reserva. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000211, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método crear de la clase ReservaSQLServerDAO tratando de llevar "
+				PROBLEMA_EXCEPCION + " en el método crear de la clase ReservaPostgreSQLDAO tratando de llevar "
 				+ "a cabo el registro de la nueva Reserva. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000212, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de actualizar la información de la reserva deseada."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000213, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase ReservaSQLServerDAO tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase ReservaPostgreSQLDAO tratando de llevar "
 				+ "a cabo la actualización de la Reserva deseada. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000214, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método modificar de la clase ReservaSQLServerDAO tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método modificar de la clase ReservaPostgreSQLDAO tratando de llevar a "
 				+ "cabo la actualización de la Reserva deseada. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000215, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de eliminar la información de la reserva por el identificador deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000216, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase ReservaSQLServerDAO tratando de llevar "
+				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase ReservaPostgreSQLDAO tratando de llevar "
 				+ "a cabo la eliminación de la Reserva deseada. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000217, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método eliminar de la clase ReservaSQLServerDAO tratando de llevar a "
+				PROBLEMA_EXCEPCION + " en el método eliminar de la clase ReservaPostgreSQLDAO tratando de llevar a "
 				+ "cabo la eliminación de la Reserva deseada. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000218, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -798,22 +798,22 @@ public final class CatalogoMensajes {
 				+ "identificador deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000219, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + "en el método consultarPorId de la clase ReservaSQLServerDAO tratando de "
+				PROBLEMA_SQLEXCEPCION + "en el método consultarPorId de la clase ReservaPostgreSQLDAO tratando de "
 						+ "preparar la sentencia SQL de la consulta del Cliente deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000220, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + "en el método consultarPorId de la clase ReservaSQLServerDAO tratando de "
+				PROBLEMA_EXCEPCION + "en el método consultarPorId de la clase ReservaPostgreSQLDAO tratando de "
 						+ "preparar la sentencia SQL de la consulta del Cliente deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000221, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema tratando de llevar a cabo la consulta de la Reserva..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000222, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase ReservaSQLServerDAO tratando de "
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase ReservaPostgreSQLDAO tratando de "
 						+ "consultar la Reserva. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000223, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + " en el método consultar de la clase ReservaSQLServerDAO tratando de "
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase ReservaPostgreSQLDAO tratando de "
 						+ "consultar la Reserva. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000224, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -821,33 +821,33 @@ public final class CatalogoMensajes {
 				+ "identificador deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000225, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_SQLEXCEPCION + "en el método consultar de la clase ReservaSQLServerDAO tratando de "
+				PROBLEMA_SQLEXCEPCION + "en el método consultar de la clase ReservaPostgreSQLDAO tratando de "
 						+ "recuperar los datos de la consulta Reserva deseado. " + VERIFICAR_TRAZA));		
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000226, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
-				PROBLEMA_EXCEPCION + "en el método consultar de la clase ReservaSQLServerDAO tratando de "
+				PROBLEMA_EXCEPCION + "en el método consultar de la clase ReservaPostgreSQLDAO tratando de "
 						+ "recuperar los datos de la consulta Reserva deseado. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000227, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de consultar la información de la reserva deseada..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000228, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-			PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase ReservaSQLServerDAO "
+			PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase ReservaPostgreSQLDAO "
 					+ "tratando de consultar la reserva." + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000229, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase ReservaSQLServerDAO "
+				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase ReservaPostgreSQLDAO "
 						+ "tratando de consultar la reserva." + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000230, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema tratando de consultar la información de la reserva deseada..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000231, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase ReservaSQLServerDAO tratando "
+				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase ReservaPostgreSQLDAO tratando "
 						+ "de consultar la reserva. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000232, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
-				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase ReservaSQLServerDAO tratando "
+				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase ReservaPostgreSQLDAO tratando "
 						+ "de consultar la reserva. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000233, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -890,7 +890,207 @@ public final class CatalogoMensajes {
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000244, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 		"Se ha presentado un problema inesperado tratando de registrar el tipo de identificación deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000245, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El número de mesa ingresado es inválido. Intente de nuevo e ingrese un valor correcto"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000246, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El número de mesa ingresado no es válido. La cantidad máxima de mesas es 15"));
 
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000247, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La mesa para la reserva es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000248, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+		"Ya existe una reserva para la fecha, hora y mesa indicada..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000249, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo el registro de la información de la nueva reserva..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000250, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase RegistrarReservaUseCase, debido a que "
+				+ "la factoría con la que se desea crear está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000251, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No existe una reserva a eliminar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000252, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de registrar la nueva reserva"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000253, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método execute de la clase RegistrarReservaFacade, "
+						+ "tratando de registrar la nueva reserva." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000254, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de modificar la reserva"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000255, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ModificarReservaFacade, "
+						+ "tratando de modificar la reserva." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000256, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de eliminar el país"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000257, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase EliminarPaisFacade, "
+						+ "tratando de eliminar el país." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000258, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de eliminar la reserva"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000259, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase EliminarReservaFacade, "
+						+ "tratando de eliminar la reserva." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000260, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de consular los países."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000261, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ConsultarPaisFacade, "
+						+ "tratando de consular los países." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000262, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de consular las reservas."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000263, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ConsultarReservaFacade, "
+						+ "tratando de consular las reservas." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000264, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de registar la información de la nueva mesa."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000265, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método crear de la clase MesaPostgreSQL tratando de llevar "
+				+ "a cabo el registro de la nueva mesa. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000266, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método crear de la clase MesaPostgreSQL tratando de llevar "
+				+ "a cabo el registro de la nueva mesa. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000267, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de actualizar la información de la mesa deseada."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000268, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método modificar de la clase MesaPostgreSQL tratando de llevar "
+				+ "a cabo la actualización de la mesa deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000269, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método modificar de la clase MesaPostgreSQL tratando de llevar a "
+				+ "cabo la actualización de la mesa deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000270, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de eliminar la información de la mesa por el identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000271, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método eliminar de la clase MesaPostgreSQL tratando de llevar "
+				+ "a cabo la eliminación de la mesa deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000272, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método eliminar de la clase MesaPostgreSQL tratando de llevar a "
+				+ "cabo la eliminación de la mesa deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000273, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información de la mesa por el "
+				+ "identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000274, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + METODO_CONSULTAR_POR_ID + "preparar la sentencia SQL de la consulta de la mesa por el "
+				+ "Identificación deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000275, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + METODO_CONSULTAR_POR_ID + "preparar la sentencia SQL de la consulta de la mesa por el "
+					+ "Identificación deseado. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000276, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de llevar a cabo la consulta de las mesas..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000277, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método consultar de la clase MesaPostgreSQL "
+						+ "tratando de consultar la mesa deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000278, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método consultar de la clase MesaPostgreSQL "
+					+ "tratando de consultar la mesa deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000279, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de consultar la información de la mesa por el "
+				+ "identificador deseado."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000280, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta Mesa "
+				+ "deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000281, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + METODO_CONSULTAR_POR_ID + "recuperar los datos de la consulta Mesa deseada. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000282, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema tratando de llevar a cabo la consulta de las mesas..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000283, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método colocarParametrosConsulta de la clase MesaPostgreSQL "
+				+ "tratando de colocar los parámetros de la consulta SQL. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000284, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método colocarParametrosConsulta de la clase MesaPostgreSQL "
+				+ "tratando de colocar los parámetros de la consulta SQL. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000285, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase MesaPostgreSQL tratando "
+				+ "de ejecutar la consulta SQL. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000286, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase MesaPostgreSQL tratando "
+				+ "de ejecutar la consulta SQL. " + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000287, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id de la mesa es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000288, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El id de la mesa no puede ser igual al id por defecto..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000289, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La longitud de la ubicación de la mesa no es válida. La logitud máxima "
+						+ "son 100 caracteres "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000290, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La ubicación de la mesa es un dato obligatorio..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000291, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"La ubicación de la mesa no puede ser igual al id por defecto..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000292, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"La capacidad ingresada de la mesa es inválido. Intente de nuevo e ingrese un valor correcto"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000293, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No es posible llevar a cabo la operación deseada con la mesa, debido a que no existen datos "
+				+ "para llevarla a cabo..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000294, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método toDomain en la clase MesaEntityMapper. No es posible "
+				+ "mappear una mesa dominio a partir de una entidad de mesa entity nula."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000295, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método toEntity en la clase MesaEntityMapper. No es posible "
+				+ "mappear una mesa entity a partir de un dominio de mesa domain nulo."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000296, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo el registro de la información de la nueva mesa..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000297, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase RegistrarMesaUseCase, debido a que "
+				+ "la factoría con la que se desea crear está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000298, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"No existe una mesa a modificar"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000299, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El número de la mesa debe estar entre 1 y 10."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000296, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema llevando a cabo la consulta de la información de la mesa..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000297, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				"Se ha presentado un problema en el método setFactoria de la clase ConsultarMesaUseCase, debido a que "
+				+ "la factoría con la que se desea crear está nula..."));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

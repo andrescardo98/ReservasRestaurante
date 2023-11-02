@@ -17,11 +17,11 @@ import co.edu.uco.reservasrestaurante.data.dao.PaisDAO;
 import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.PaisEntity;
 
-public class PaisSQLServerDAO extends SQLDAO implements PaisDAO {
+public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 	
 	private static final String SENTENCIA_WHERE = "WHERE id = ? ";
 
-	public PaisSQLServerDAO(final Connection conexion) {
+	public PaisPostgreSQLDAO(final Connection conexion) {
 		super(conexion);
 	}
 

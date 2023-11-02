@@ -4,9 +4,11 @@ import co.edu.uco.reservasrestaurante.crosscutting.exception.concrete.DataReserv
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.data.dao.ClienteDAO;
+import co.edu.uco.reservasrestaurante.data.dao.MesaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.PaisDAO;
+import co.edu.uco.reservasrestaurante.data.dao.ReservaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
-import co.edu.uco.reservasrestaurante.data.dao.daofactory.concrete.SQLServerDAOFactory;
+import co.edu.uco.reservasrestaurante.data.dao.daofactory.concrete.PostgreSQLDAOFactory;
 
 public abstract class DAOFactory {
 	
@@ -14,12 +16,12 @@ public abstract class DAOFactory {
 		
 		switch (factoria) {
 		case SQLSERVER: {
-			return new SQLServerDAOFactory();
-		}
-		case POSTGRESQL: {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000091);
 			throw DataReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
+		}
+		case POSTGRESQL: {
+			return new PostgreSQLDAOFactory();
 		}
 		case MYSQL: {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
@@ -53,5 +55,9 @@ public abstract class DAOFactory {
 	public abstract TipoIdentificacionDAO obtenerTipoIdentificacionDAO();
 	
 	public abstract PaisDAO obtenerPaisDAO();
+	
+	public abstract ReservaDAO obtenerReservaDAO();
+	
+	public abstract MesaDAO obtenerMesaDAO();
 	
 }

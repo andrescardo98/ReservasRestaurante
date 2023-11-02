@@ -17,11 +17,11 @@ import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
 import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
 
-public final class TipoIdentificacionSQLServerDAO extends SQLDAO implements TipoIdentificacionDAO {
+public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements TipoIdentificacionDAO {
 	
 	private static final String SENTENCIA_WHERE = "WHERE id = ? ";
 
-	public TipoIdentificacionSQLServerDAO(final Connection conexion) {
+	public TipoIdentificacionPostgreSQLDAO(final Connection conexion) {
 		super(conexion);
 	}
 

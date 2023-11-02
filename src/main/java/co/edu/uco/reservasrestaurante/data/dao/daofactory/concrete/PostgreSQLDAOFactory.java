@@ -11,18 +11,22 @@ import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilSQL;
 import co.edu.uco.reservasrestaurante.data.dao.ClienteDAO;
+import co.edu.uco.reservasrestaurante.data.dao.MesaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.PaisDAO;
+import co.edu.uco.reservasrestaurante.data.dao.ReservaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
-import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.ClienteSQLServerDAO;
-import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.PaisSQLServerDAO;
-import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.TipoIdentificacionSQLServerDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.ClientePostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.MesaPostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.PaisPostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.ReservaPostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.TipoIdentificacionPostgreSQLDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 
-public final class SQLServerDAOFactory extends DAOFactory{
+public final class PostgreSQLDAOFactory extends DAOFactory{
 	
 	private Connection conexion;
 	
-	public SQLServerDAOFactory() {
+	public PostgreSQLDAOFactory() {
 		abrirConexion();
 	}
 
@@ -77,17 +81,27 @@ public final class SQLServerDAOFactory extends DAOFactory{
 
 	@Override
 	public ClienteDAO obtenerClienteDAO() {
-		return new ClienteSQLServerDAO(conexion);
+		return new ClientePostgreSQLDAO(conexion);
 	}
 
 	@Override
 	public TipoIdentificacionDAO obtenerTipoIdentificacionDAO() {
-		return new TipoIdentificacionSQLServerDAO(conexion);
+		return new TipoIdentificacionPostgreSQLDAO(conexion);
 	}
 
 	@Override
 	public PaisDAO obtenerPaisDAO() {
-		return new PaisSQLServerDAO(conexion);
+		return new PaisPostgreSQLDAO(conexion);
+	}
+
+	@Override
+	public ReservaDAO obtenerReservaDAO() {
+		return new ReservaPostgreSQLDAO(conexion);
+	}
+
+	@Override
+	public MesaDAO obtenerMesaDAO() {
+		return new MesaPostgreSQLDAO(conexion);
 	}
 
 

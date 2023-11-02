@@ -23,11 +23,11 @@ import co.edu.uco.reservasrestaurante.data.entity.support.IdentificacionClienteE
 import co.edu.uco.reservasrestaurante.data.entity.support.NombreCompletoClienteEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.NumeroCelularClienteEntity;
 
-public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
+public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 	
 	private static final String SENTENCIA_WHERE = "WHERE id = ? ";
 
-	public ReservaSQLServerDAO(final Connection conexion) {
+	public ReservaPostgreSQLDAO(final Connection conexion) {
 		super(conexion);
 	}
 
@@ -43,7 +43,9 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 			sentenciaPreparada.setObject(2, entity.getCliente());
 			sentenciaPreparada.setDate(3, entity.getFecha());
 			sentenciaPreparada.setString(4, entity.getHora());
-			sentenciaPreparada.setInt(5, entity.getCantidadPersonas());
+			sentenciaPreparada.setInt(5, entity.getMesa());
+			sentenciaPreparada.setInt(6, entity.getCantidadPersonas());
+			sentenciaPreparada.setBoolean(7, entity.isEstado());
 			
 			sentenciaPreparada.executeUpdate();
 		} catch (final SQLException excepcion) {
@@ -70,7 +72,9 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 			sentenciaPreparada.setDate(2, entity.getFecha());
 			sentenciaPreparada.setString(3, entity.getHora());
 			sentenciaPreparada.setInt(4, entity.getCantidadPersonas());
-			sentenciaPreparada.setObject(5, entity.getId());
+			sentenciaPreparada.setInt(5, entity.getMesa());
+			sentenciaPreparada.setBoolean(6, entity.isEstado());
+			sentenciaPreparada.setObject(7, entity.getId());
 			
 			sentenciaPreparada.executeUpdate();
 			
@@ -181,7 +185,8 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
 										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
-						resultados.getString("hora"), resultados.getInt("cantidadPersonas"));
+						resultados.getString("hora"), resultados.getInt("mesa"), resultados.getInt("cantidadPersonas"),
+						resultados.getBoolean("estado"));
 				
 				resultado = Optional.of(reservaEntity);
 			}
@@ -336,10 +341,21 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 			operadorCondicional = "AND";
 			parametros.add(entity.getHora());
 		}
+		
+		if (!UtilObjeto.esNulo(entity.getMesa())) {
+			sentencia.append(operadorCondicional).append(" mesa = ? ");
+			operadorCondicional = "AND";
+			parametros.add(entity.getMesa());
+		}
 		if (!UtilObjeto.esNulo(entity.getCantidadPersonas())) {
 			sentencia.append(operadorCondicional).append(" cantidadPersonas = ? ");
 			operadorCondicional = "AND";
 			parametros.add(entity.getCantidadPersonas());
+		}
+		if (!UtilObjeto.esNulo(entity.isEstado())) {
+			sentencia.append(operadorCondicional).append(" estado = ? ");
+			operadorCondicional = "AND";
+			parametros.add(entity.isEstado());
 		}
 		sentencia.append("ORDER BY id");
 		return sentencia.toString();
@@ -383,7 +399,8 @@ public final class ReservaSQLServerDAO extends SQLDAO implements ReservaDAO{
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
 										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
-						resultados.getString("hora"), resultados.getInt("cantidadPersonas"));
+						resultados.getString("hora"), resultados.getInt("mesa"), resultados.getInt("cantidadPersonas"),
+						resultados.getBoolean("estado"));
 						
 				
 				listaResultados.add(reservaEntity);

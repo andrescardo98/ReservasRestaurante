@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.UUID;
 
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilFecha;
+import co.edu.uco.reservasrestaurante.crosscutting.util.UtilInt;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilUUID;
 
@@ -13,6 +14,7 @@ public class ReservaDTO {
 	private ClienteDTO cliente;
 	private Date fecha;
 	private String hora;
+	private int mesa;
 	private int cantidadPersonas;
 	private boolean estado;
 	
@@ -21,16 +23,18 @@ public class ReservaDTO {
 		setCliente(cliente);
 		setFecha(UtilFecha.FECHA_DEFECTO);
 		setHora(UtilTexto.PATTERN_HORA);
+		setMesa(mesa);
 		setCantidadPersonas(cantidadPersonas);
 		setEstado(false);
 	}
 	
-	public ReservaDTO(final UUID id, final ClienteDTO cliente, final Date fecha, final String hora, final int cantidadPersonas,
-			final boolean estado) {
+	public ReservaDTO(final UUID id, final ClienteDTO cliente, final Date fecha, final String hora, final int mesa, 
+			final int cantidadPersonas, final boolean estado) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
 		setHora(hora);
+		setMesa(mesa);
 		setCantidadPersonas(cantidadPersonas);
 		setEstado(estado);
 	}
@@ -57,6 +61,10 @@ public class ReservaDTO {
 
 	public final String getHora() {
 		return hora;
+	}
+	
+	public int getMesa() {
+		return mesa;
 	}
 
 
@@ -93,9 +101,13 @@ public class ReservaDTO {
 		return this;
 	}
 
+	public final ReservaDTO setMesa(int mesa) {
+		this.mesa = UtilInt.obtenerValorDefecto(mesa, UtilInt.DEFECTO_NUMERO);
+		return this;
+	}
 
 	public final ReservaDTO setCantidadPersonas(final int cantidadPersonas) {
-		this.cantidadPersonas = cantidadPersonas;
+		this.cantidadPersonas = UtilInt.obtenerValorDefecto(cantidadPersonas, UtilInt.DEFECTO_NUMERO);
 		return this;
 	}
 

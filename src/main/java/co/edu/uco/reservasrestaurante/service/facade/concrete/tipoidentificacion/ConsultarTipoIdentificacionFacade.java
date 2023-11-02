@@ -25,7 +25,7 @@ public final class ConsultarTipoIdentificacionFacade implements FacadeFind<TipoI
 		ConsultarTipoIdentificacionValidator.ejecutar(domain);
 		List<TipoIdentificacionDTO> resultados = new ArrayList<>();
 		
-		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.SQLSERVER);
+		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
 		
 		try {
 			daoFactory.iniciarTransaccion();

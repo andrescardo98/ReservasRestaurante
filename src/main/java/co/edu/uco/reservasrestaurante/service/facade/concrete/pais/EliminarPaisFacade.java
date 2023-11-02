@@ -20,7 +20,7 @@ public final class EliminarPaisFacade implements Facade<PaisDTO>{
 		final PaisDomain domain = PaisDTOMapper.convertToDomain(dto);
 		EliminarPaisValidator.ejecutar(domain);
 		
-		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.SQLSERVER);
+		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
 		
 		try {
 			daoFactory.iniciarTransaccion();
@@ -35,8 +35,8 @@ public final class EliminarPaisFacade implements Facade<PaisDTO>{
 		} catch (final Exception excepcion) {
 			daoFactory.cancelarTransaccion();
 			
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000205);
-			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000206);
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000256);
+			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000257);
 			throw ServiceReservasRestauranteException.crear(excepcion, mensajeUsuario, mensajeTecnico);
 		} finally {
 			daoFactory.cerrarConexion();

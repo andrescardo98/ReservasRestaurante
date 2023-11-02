@@ -20,7 +20,7 @@ public final class ModificarPaisFacade implements Facade<PaisDTO>{
 		final PaisDomain domain = PaisDTOMapper.convertToDomain(dto);
 		ModificarPaisValidator.ejecutar(domain);
 		
-		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.SQLSERVER);
+		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
 		
 		try {
 			daoFactory.iniciarTransaccion();
