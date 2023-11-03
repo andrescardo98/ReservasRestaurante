@@ -14,7 +14,7 @@ public class ReservaDTO {
 	private ClienteDTO cliente;
 	private Date fecha;
 	private String hora;
-	private int mesa;
+	private MesaDTO mesa;
 	private int cantidadPersonas;
 	private boolean estado;
 	
@@ -28,7 +28,7 @@ public class ReservaDTO {
 		setEstado(false);
 	}
 	
-	public ReservaDTO(final UUID id, final ClienteDTO cliente, final Date fecha, final String hora, final int mesa, 
+	public ReservaDTO(final UUID id, final ClienteDTO cliente, final Date fecha, final String hora, final MesaDTO mesa, 
 			final int cantidadPersonas, final boolean estado) {
 		setId(id);
 		setCliente(cliente);
@@ -63,7 +63,7 @@ public class ReservaDTO {
 		return hora;
 	}
 	
-	public int getMesa() {
+	public MesaDTO getMesa() {
 		return mesa;
 	}
 
@@ -101,8 +101,8 @@ public class ReservaDTO {
 		return this;
 	}
 
-	public final ReservaDTO setMesa(int mesa) {
-		this.mesa = UtilInt.obtenerValorDefecto(mesa, UtilInt.DEFECTO_NUMERO);
+	public final ReservaDTO setMesa(final MesaDTO mesa) {
+		this.mesa = mesa;
 		return this;
 	}
 

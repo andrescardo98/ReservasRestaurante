@@ -7,9 +7,7 @@ import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMen
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.TipoDAOFactory;
 import co.edu.uco.reservasrestaurante.service.businesslogic.concrete.mesa.EliminarMesaUseCase;
-import co.edu.uco.reservasrestaurante.service.businesslogic.concrete.mesa.ModificarMesaUseCase;
 import co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.mesa.EliminarMesaValidator;
-import co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.mesa.ModificarMesaValidator;
 import co.edu.uco.reservasrestaurante.service.domain.mesa.MesaDomain;
 import co.edu.uco.reservasrestaurante.service.dto.MesaDTO;
 import co.edu.uco.reservasrestaurante.service.facade.Facade;

@@ -15,6 +15,7 @@ import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
 import co.edu.uco.reservasrestaurante.data.dao.ReservaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.ClienteEntity;
+import co.edu.uco.reservasrestaurante.data.entity.MesaEntity;
 import co.edu.uco.reservasrestaurante.data.entity.PaisEntity;
 import co.edu.uco.reservasrestaurante.data.entity.ReservaEntity;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
@@ -43,7 +44,7 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 			sentenciaPreparada.setObject(2, entity.getCliente());
 			sentenciaPreparada.setDate(3, entity.getFecha());
 			sentenciaPreparada.setString(4, entity.getHora());
-			sentenciaPreparada.setInt(5, entity.getMesa());
+			sentenciaPreparada.setObject(5, entity.getMesa());
 			sentenciaPreparada.setInt(6, entity.getCantidadPersonas());
 			sentenciaPreparada.setBoolean(7, entity.isEstado());
 			
@@ -72,7 +73,7 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 			sentenciaPreparada.setDate(2, entity.getFecha());
 			sentenciaPreparada.setString(3, entity.getHora());
 			sentenciaPreparada.setInt(4, entity.getCantidadPersonas());
-			sentenciaPreparada.setInt(5, entity.getMesa());
+			sentenciaPreparada.setObject(5, entity.getMesa());
 			sentenciaPreparada.setBoolean(6, entity.isEstado());
 			sentenciaPreparada.setObject(7, entity.getId());
 			
@@ -185,7 +186,11 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
 										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
-						resultados.getString("hora"), resultados.getInt("mesa"), resultados.getInt("cantidadPersonas"),
+						resultados.getString("hora"), 
+						MesaEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
+								resultados.getInt("numero"), resultados.getString("ubicacion"), 
+								resultados.getInt("capacidad"), resultados.getBoolean("estado")), 
+						resultados.getInt("cantidadPersonas"),
 						resultados.getBoolean("estado"));
 				
 				resultado = Optional.of(reservaEntity);
@@ -205,160 +210,49 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 
 	private String formarSentenciaConsulta(final ReservaEntity entity, final List<Object> parametros) {
 		final var sentencia = new StringBuilder();
-		String operadorCondicional = "WHERE ";
-		
-		sentencia.append("SELECT id, cliente, fecha, hora, cantidadPersonas, estado ");
-		sentencia.append("FROM Reserva ");
-		
-		if (!UtilObjeto.esNulo(entity)) {
-			if (!UtilObjeto.esNulo(entity.getId())) {
-				sentencia.append(operadorCondicional).append(" id = ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getId());
-			}
-		} if (!UtilObjeto.esNulo(entity.getCliente())) {
-			if (!UtilObjeto.esNulo(entity.getCliente().getId())) {
-				sentencia.append(operadorCondicional).append(" id = ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getId());
-			}
-		}
-		
-		if (!UtilObjeto.esNulo(entity.getCliente().getIdentificacion())) {
-			if (!UtilObjeto.esNulo(entity.getCliente().getIdentificacion().getTipoIdentificacion())) {
-				if (!UtilObjeto.esNulo(entity.getCliente().getIdentificacion().getTipoIdentificacion().getId())) {
-					sentencia.append(operadorCondicional).append(" id = ");
-					operadorCondicional = "AND";
-					parametros.add(entity.getCliente().getIdentificacion().getTipoIdentificacion().getId());
-				}
-				if (!UtilObjeto.esNulo(entity.getCliente().getIdentificacion().getTipoIdentificacion().getNombre())) {
-					sentencia.append(operadorCondicional).append(" nombre = ");
-					operadorCondicional = "AND";
-					parametros.add(entity.getCliente().getIdentificacion().getTipoIdentificacion().getNombre());
-				}
-				if (!UtilObjeto.esNulo(entity.getCliente().getIdentificacion().getTipoIdentificacion().getCodigo())) {
-					sentencia.append(operadorCondicional).append(" codigo = ");
-					operadorCondicional = "AND";
-					parametros.add(entity.getCliente().getIdentificacion().getTipoIdentificacion().getCodigo());
-				}
-				if (!UtilObjeto.esNulo(entity.getCliente().getIdentificacion().getTipoIdentificacion().isEstado())) {
-					sentencia.append(operadorCondicional).append(" estado = ");
-					operadorCondicional = "AND";
-					parametros.add(entity.getCliente().getIdentificacion().getTipoIdentificacion().isEstado());
-				}
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getIdentificacion().getNumeroIdentificacion())) {
-				sentencia.append(operadorCondicional).append(" numeroIdentificacion = ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getIdentificacion().getNumeroIdentificacion());
-			}
-		}
-		if (!UtilObjeto.esNulo(entity.getCliente().getNombreCompleto())) {
-			if (!UtilObjeto.esNulo(entity.getCliente().getNombreCompleto().getPrimerNombre())) {
-				sentencia.append(operadorCondicional).append(" primerNombre = ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getNombreCompleto().getPrimerNombre());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getNombreCompleto().getSegundoNombre())) {
-				sentencia.append(operadorCondicional).append(" segundoNombre = ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getNombreCompleto().getSegundoNombre());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getNombreCompleto().getPrimerApellido())) {
-				sentencia.append(operadorCondicional).append(" primerApellido = ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getNombreCompleto().getPrimerApellido());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getNombreCompleto().getSegundoApellido())) {
-				sentencia.append(operadorCondicional).append(" segundoApellido = ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getNombreCompleto().getSegundoApellido());
-			}
-		}
-		if (!UtilObjeto.esNulo(entity.getCliente().getCorreoElectronico())) {
-			if (!UtilObjeto.esNulo(entity.getCliente().getCorreoElectronico().getCorreoElectronico())) {
-				sentencia.append(operadorCondicional).append(" correoElectronico = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getCorreoElectronico().getCorreoElectronico());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getCorreoElectronico().isCorreoElectronicoConfirmado())) {
-				sentencia.append(operadorCondicional).append(" correoElectronicoConfirmado = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getCorreoElectronico().isCorreoElectronicoConfirmado());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getCorreoElectronico().getClave())) {
-				sentencia.append(operadorCondicional).append(" clave = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getCorreoElectronico().getClave());
-			}
-		}
-		if (!UtilObjeto.esNulo(entity.getCliente().getFechaNacimiento())) {
-			sentencia.append(operadorCondicional).append(" fechaNacimiento = ? ");
-			operadorCondicional = "AND";
-			parametros.add(entity.getCliente().getFechaNacimiento());
-		}
-		if (!UtilObjeto.esNulo(entity.getCliente().getPais())) {
-			if (!UtilObjeto.esNulo(entity.getCliente().getPais().getId())) {
-				sentencia.append(operadorCondicional).append(" id = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getPais().getId());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getPais().getNombre())) {
-				sentencia.append(operadorCondicional).append(" nombre = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getPais().getNombre());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getPais().getCodigoIndicativo())) {
-				sentencia.append(operadorCondicional).append(" codigoIndicativo = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getPais().getCodigoIndicativo());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getPais().getCodigoiso3())) {
-				sentencia.append(operadorCondicional).append(" codigoiso3 = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getPais().getCodigoiso3());
-			}
-		}
-		if (!UtilObjeto.esNulo(entity.getCliente().getNumeroCelular())) {
-			if (!UtilObjeto.esNulo(entity.getCliente().getNumeroCelular().getNumeroCelular())) {
-				sentencia.append(operadorCondicional).append(" numeroCelular = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getNumeroCelular().getNumeroCelular());
-			}
-			if (!UtilObjeto.esNulo(entity.getCliente().getNumeroCelular().isNumeroCelularConfirmado())) {
-				sentencia.append(operadorCondicional).append(" numeroCelularConfirmado = ? ");
-				operadorCondicional = "AND";
-				parametros.add(entity.getCliente().getNumeroCelular().isNumeroCelularConfirmado());
-			}
-		}
-		if (!UtilObjeto.esNulo(entity.getFecha())) {
-			sentencia.append(operadorCondicional).append(" fecha = ? ");
-			operadorCondicional = "AND";
-			parametros.add(entity.getFecha());
-		}
-		if (!UtilObjeto.esNulo(entity.getHora())) {
-			sentencia.append(operadorCondicional).append(" hora = ? ");
-			operadorCondicional = "AND";
-			parametros.add(entity.getHora());
-		}
-		
-		if (!UtilObjeto.esNulo(entity.getMesa())) {
-			sentencia.append(operadorCondicional).append(" mesa = ? ");
-			operadorCondicional = "AND";
-			parametros.add(entity.getMesa());
-		}
-		if (!UtilObjeto.esNulo(entity.getCantidadPersonas())) {
-			sentencia.append(operadorCondicional).append(" cantidadPersonas = ? ");
-			operadorCondicional = "AND";
-			parametros.add(entity.getCantidadPersonas());
-		}
-		if (!UtilObjeto.esNulo(entity.isEstado())) {
-			sentencia.append(operadorCondicional).append(" estado = ? ");
-			operadorCondicional = "AND";
-			parametros.add(entity.isEstado());
-		}
-		sentencia.append("ORDER BY id");
-		return sentencia.toString();
+	    String operadorCondicional = "WHERE ";
+
+	    sentencia.append("SELECT id, cliente, fecha, hora, cantidadPersonas, estado ");
+	    sentencia.append("FROM Reserva ");
+
+	    operadorCondicional = agregarCondiciones(entity.getId(), "id", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getId(), "id", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().getId(), "id", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().getNombre(), "nombre", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().getCodigo(), "codigo", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().isEstado(), "estado", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getNumeroIdentificacion(), "numeroIdentificacion", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getNombreCompleto().getPrimerNombre(), "primerNombre", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getNombreCompleto().getSegundoNombre(), "segundoNombre", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getNombreCompleto().getPrimerApellido(), "primerApellido", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getNombreCompleto().getSegundoApellido(), "segundoApellido", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getCorreoElectronico().getCorreoElectronico(), "correoElectronico", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getCorreoElectronico().isCorreoElectronicoConfirmado(), "correoElectronicoConfirmado", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getCorreoElectronico().getClave(), "clave", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getFechaNacimiento(), "fechaNacimiento", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getId(), "id", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getNombre(), "nombre", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getCodigoIndicativo(), "codigoIndicativo", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getCodigoiso3(), "codigoiso3", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getNumeroCelular().getNumeroCelular(), "numeroCelular", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getNumeroCelular().isNumeroCelularConfirmado(), "numeroCelularConfirmado", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getFecha(), "fecha", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getHora(), "hora", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getMesa(), "mesa", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCantidadPersonas(), "cantidadPersonas", operadorCondicional, parametros, sentencia);
+	    agregarCondiciones(entity.isEstado(), "estado", operadorCondicional, parametros, sentencia);
+
+	    sentencia.append("ORDER BY id");
+	    return sentencia.toString();
+	}
+	
+	private String agregarCondiciones(Object valor, String campo, String operadorCondicional, List<Object> parametros, StringBuilder sentencia) {
+	    if (!UtilObjeto.esNulo(valor)) {
+	        sentencia.append(operadorCondicional).append(" ").append(campo).append(" = ? ");
+	        operadorCondicional = "AND";
+	        parametros.add(valor);
+	    }
+	    return operadorCondicional;
 	}
 	
 	private final void colocarParametrosConsulta(final PreparedStatement sentenciaPreparada, final List<Object> parametros) {
@@ -399,7 +293,11 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
 										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
-						resultados.getString("hora"), resultados.getInt("mesa"), resultados.getInt("cantidadPersonas"),
+						resultados.getString("hora"), 
+						MesaEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
+								resultados.getInt("numero"), resultados.getString("ubicacion"), 
+								resultados.getInt("capacidad"), resultados.getBoolean("estado")), 
+						resultados.getInt("cantidadPersonas"),
 						resultados.getBoolean("estado"));
 						
 				

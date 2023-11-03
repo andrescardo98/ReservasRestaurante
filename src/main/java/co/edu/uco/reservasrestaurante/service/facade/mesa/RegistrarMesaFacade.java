@@ -7,16 +7,11 @@ import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMen
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.TipoDAOFactory;
 import co.edu.uco.reservasrestaurante.service.businesslogic.concrete.mesa.RegistrarMesaUseCase;
-import co.edu.uco.reservasrestaurante.service.businesslogic.concrete.pais.RegistrarPaisUseCase;
 import co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.mesa.RegistrarMesaValidator;
-import co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.pais.RegistrarPaisValidator;
 import co.edu.uco.reservasrestaurante.service.domain.mesa.MesaDomain;
-import co.edu.uco.reservasrestaurante.service.domain.pais.PaisDomain;
 import co.edu.uco.reservasrestaurante.service.dto.MesaDTO;
-import co.edu.uco.reservasrestaurante.service.dto.PaisDTO;
 import co.edu.uco.reservasrestaurante.service.facade.Facade;
 import co.edu.uco.reservasrestaurante.service.mapper.dto.concrete.MesaDTOMapper;
-import co.edu.uco.reservasrestaurante.service.mapper.dto.concrete.PaisDTOMapper;
 
 public final class RegistrarMesaFacade implements Facade<MesaDTO>{
 

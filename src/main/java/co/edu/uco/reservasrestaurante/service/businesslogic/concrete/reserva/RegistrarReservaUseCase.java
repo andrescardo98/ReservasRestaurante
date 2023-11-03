@@ -12,6 +12,7 @@ import co.edu.uco.reservasrestaurante.data.dao.ReservaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.data.entity.ReservaEntity;
 import co.edu.uco.reservasrestaurante.service.businesslogic.UseCase;
+import co.edu.uco.reservasrestaurante.service.domain.mesa.MesaDomain;
 import co.edu.uco.reservasrestaurante.service.domain.reserva.ReservaDomain;
 import co.edu.uco.reservasrestaurante.service.mapper.entity.concrete.ReservaEntityMapper;
 
@@ -36,7 +37,7 @@ public class RegistrarReservaUseCase implements UseCase<ReservaDomain> {
 		getReservaDAO().crear(entity);
 	}
 	
-	private final void validarNoExistenciaMismaHoraFechaMesa(final Date fecha, final String hora, final int mesa) {
+	private final void validarNoExistenciaMismaHoraFechaMesa(final Date fecha, final String hora, final MesaDomain mesa) {
 		
 		var domain = ReservaDomain.crear(null, null, fecha, hora, mesa, 0, false);
 		var entity = ReservaEntityMapper.convertToEntity(domain);

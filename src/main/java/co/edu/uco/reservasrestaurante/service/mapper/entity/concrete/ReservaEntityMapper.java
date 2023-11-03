@@ -28,7 +28,7 @@ public final class ReservaEntityMapper implements EntityMapper<ReservaEntity, Re
 		}
 		 
 		return ReservaDomain.crear(entity.getId(), ClienteEntityMapper.convertToDomain(entity.getCliente()), 
-				entity.getFecha(), entity.getHora(), entity.getMesa(), entity.getCantidadPersonas(),
+				entity.getFecha(), entity.getHora(), MesaEntityMapper.convertToDomain(entity.getMesa()), entity.getCantidadPersonas(),
 				entity.isEstado());
 	}
 
@@ -41,7 +41,7 @@ public final class ReservaEntityMapper implements EntityMapper<ReservaEntity, Re
 		}
 		 
 		return ReservaEntity.crear(domain.getId(), ClienteEntityMapper.convertToEntity(domain.getCliente()), 
-				domain.getFecha(), domain.getHora(), domain.getMesa(), domain.getCantidadPersonas(), 
+				domain.getFecha(), domain.getHora(), MesaEntityMapper.convertToEntity(domain.getMesa()), domain.getCantidadPersonas(), 
 				domain.isEstado());
 	}
 	
