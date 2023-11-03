@@ -1,4 +1,4 @@
-package co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver;
+package co.edu.uco.reservasrestaurante.data.dao.concrete.postgresql;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -293,7 +293,7 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
 										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
-						resultados.getString("hora"), 
+						resultados.getString("hora"),
 						MesaEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
 								resultados.getInt("numero"), resultados.getString("ubicacion"), 
 								resultados.getInt("capacidad"), resultados.getBoolean("estado")), 

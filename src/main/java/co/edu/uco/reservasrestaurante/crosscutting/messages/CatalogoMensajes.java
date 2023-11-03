@@ -1112,6 +1112,41 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000305, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				PROBLEMA_EXCEPCION + " en la el método execute de la clase EliminarMesaFacade, "
 						+ "tratando de eliminar la mesa." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000306, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Ya existe un país con el nombre "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000307, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Ya existe un país con el código indicativo "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000308, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Ya existe un país con el código ISO 3 "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000309, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Ya existe una mesa con el número "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000310, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Ya existe un tipo de identificación con el nombre "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000311, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Ya existe un tipo de identificación con el codigo "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000312, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Tipo de identificación consultado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000313, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de llevar a cabo la consulta de datos de un tipo de identificación"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000314, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El tipo de identificación fue eliminado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000315, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema tratando de eliminar un tipo de identificación"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000316, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El tipo de identificación fue modificado exitosamente"));
+		
+		
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

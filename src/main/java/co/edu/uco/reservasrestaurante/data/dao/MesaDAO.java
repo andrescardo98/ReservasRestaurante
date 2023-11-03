@@ -8,7 +8,7 @@ import co.edu.uco.reservasrestaurante.data.entity.MesaEntity;
 
 public interface MesaDAO {
 	
-void crear(MesaEntity entity);
+	void crear(MesaEntity entity);
 	
 	void modificar(MesaEntity entity);
 	

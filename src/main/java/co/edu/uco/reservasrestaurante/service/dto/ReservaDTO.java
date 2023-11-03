@@ -97,7 +97,7 @@ public class ReservaDTO {
 
 
 	public final ReservaDTO setHora(final String hora) {
-		this.hora = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(hora), UtilTexto.VACIO);
+		this.hora = hora;
 		return this;
 	}
 

@@ -2,80 +2,56 @@ package co.edu.uco.reservasrestaurante.controller.tipoidentificacion;
 
 import java.util.UUID;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import co.edu.uco.reservasrestaurante.controller.support.request.SolicitarTipoIdentificacion;
 import co.edu.uco.reservasrestaurante.controller.support.response.Respuesta;
-import co.edu.uco.reservasrestaurante.crosscutting.exception.ReservasRestauranteException;
-import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
-import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.service.dto.TipoIdentificacionDTO;
-import co.edu.uco.reservasrestaurante.service.facade.concrete.tipoidentificacion.RegistrarTipoIdentificacionFacade;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
-@RestController
-@RequestMapping("/api/v1/tipoidentificacion")
-public final class TipoIdentificacionController {
+@Tag(name = "TipoIdentificacion", description = "Ofrece apis de consumo para el tipo de identificación")
+public interface TipoIdentificacionController {
+
+	@Operation(summary = "Obtener dummy", description = "Servicio encargado de obtener la estructura de un tipo de identificación")
+	SolicitarTipoIdentificacion obtenerDummy();
 	
-	@GetMapping("/dummy")
-	public final TipoIdentificacionDTO obtenerDummy() {
-		return TipoIdentificacionDTO.crear();
-	}
+	@Operation(summary = "Obtener tipo de identificación", description = "Servicio encargado de obtener la información de los tipo de identificación que cumplen los parámetros de consulta")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación consultado exitosamente"),
+			@ApiResponse(responseCode = "400", description = "Problema con consulta de tipo de identificación"),
+			@ApiResponse(responseCode = "500", description = "Problema inesperado") })
 	
-	@GetMapping
-	public final TipoIdentificacionDTO consultar(@RequestBody TipoIdentificacionDTO dto) {
-		return dto;
-	}
 	
-	@GetMapping("/{id}")
-	public final UUID consultarPorId(@PathVariable("id") UUID id) {
-		return id;
-	}
-	
-	@PostMapping
-	public final ResponseEntity<Respuesta<TipoIdentificacionDTO>> registrar(@RequestBody TipoIdentificacionDTO dto) {
+	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> consultar(
+			@RequestParam(name = "id", required = false) UUID id,
+			@RequestParam(name = "nombre", required = false) String codigo,
+			@RequestParam(name = "codigo", required = false) String nombre,
+			@RequestParam(name = "estado", required = false) Boolean estado);
 		
-		Respuesta<TipoIdentificacionDTO> respuesta = new Respuesta<>();
-		HttpStatusCode codigoHttp = HttpStatus.BAD_REQUEST;
-		
-		try {
-			RegistrarTipoIdentificacionFacade facade = new RegistrarTipoIdentificacionFacade();
-			facade.execute(dto);
-			codigoHttp = HttpStatus.OK;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000244));
-		} catch (final ReservasRestauranteException excepcion) {
-			respuesta.getMensajes().add(excepcion.getMensajeTecnico());
-			System.err.println(excepcion.getMensajeUsuario());
-			System.err.println(excepcion.getLugar());
-			excepcion.getExcepcionRaiz().printStackTrace();
-			
-			//TODO: Hacer logging de la excepcion presentada
-		} catch (final Exception e) {
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000245));
-			
-			//TODO: Hacer logging de la excepcion presentada
-		}
-		
-		return new ResponseEntity<>(respuesta, codigoHttp);
-	}
 	
-	@PutMapping("/{id}")
-	public final TipoIdentificacionDTO modificar(@PathVariable("id") UUID id, @RequestBody TipoIdentificacionDTO dto) {
-		dto.setId(id);
-		return dto;
-	}
+	@Operation(summary = "Registrar tipo de identificación", description = "Servicio encargado de registrar la información de un tipo de identificación")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación registrado exitosamente"),
+			@ApiResponse(responseCode = "400", description = "Tipo identificación no registrado"),
+			@ApiResponse(responseCode = "500", description = "Problema inesperado al registrar tipo de identificación") })
+	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> registrar(@RequestBody TipoIdentificacionDTO dto);
 	
-	@DeleteMapping("/{id}")
-	public final UUID eliminar(@PathVariable("id") UUID id) {
-		return id;
-	}
+	
+	@Operation(summary = "Modificar tipo de identificación", description = "Servicio encargado de modificar la información de un tipo de identificación")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación modificado exitosamente"),
+			@ApiResponse(responseCode = "400", description = "Tipo identificación no modificado"),
+			@ApiResponse(responseCode = "500", description = "Problema inesperado al modificar tipo de identificación") })
+	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> modificar(@PathVariable("id") UUID id, @RequestBody SolicitarTipoIdentificacion req);
+	
+	
+	@Operation(summary = "Eliminar tipo de identificación", description = "Servicio encargado de eliminar de forma definitiva un tipo de identificación")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación eliminado exitosamente"),
+			@ApiResponse(responseCode = "400", description = "Tipo identificación no eliminado"),
+			@ApiResponse(responseCode = "500", description = "Problema inesperado al eliminar tipo de identificación") })
+	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> eliminar(@PathVariable("id") UUID id);
 
 }

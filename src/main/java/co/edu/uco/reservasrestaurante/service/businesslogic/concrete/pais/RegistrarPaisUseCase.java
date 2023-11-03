@@ -45,7 +45,7 @@ public class RegistrarPaisUseCase implements UseCase<PaisDomain>{
 		var resultados = getPaisDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = "Ya existe un país con el nombre " + nombre;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000306) + nombre;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
@@ -56,7 +56,7 @@ public class RegistrarPaisUseCase implements UseCase<PaisDomain>{
 		var resultados = getPaisDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = "Ya existe un país con el código indicativo " + codigoIndicativo;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000307) + codigoIndicativo;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
@@ -67,7 +67,7 @@ public class RegistrarPaisUseCase implements UseCase<PaisDomain>{
 		var resultados = getPaisDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = "Ya existe un país con el código ISO 3 " + codigoIso3;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000308) + codigoIso3;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}

@@ -42,7 +42,7 @@ public class RegistrarMesaUseCase implements UseCase<MesaDomain> {
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = "Ya existe un tipo de identificación con el codigo " + numero;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000309) + numero;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}

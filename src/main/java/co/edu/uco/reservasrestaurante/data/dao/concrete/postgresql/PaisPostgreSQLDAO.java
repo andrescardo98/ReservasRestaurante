@@ -1,4 +1,4 @@
-package co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver;
+package co.edu.uco.reservasrestaurante.data.dao.concrete.postgresql;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

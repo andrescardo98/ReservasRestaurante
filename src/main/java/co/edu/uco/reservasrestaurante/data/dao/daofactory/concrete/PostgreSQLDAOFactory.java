@@ -15,11 +15,11 @@ import co.edu.uco.reservasrestaurante.data.dao.MesaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.PaisDAO;
 import co.edu.uco.reservasrestaurante.data.dao.ReservaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
-import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.ClientePostgreSQLDAO;
-import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.MesaPostgreSQLDAO;
-import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.PaisPostgreSQLDAO;
-import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.ReservaPostgreSQLDAO;
-import co.edu.uco.reservasrestaurante.data.dao.concrete.sqlserver.TipoIdentificacionPostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.postgresql.ClientePostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.postgresql.MesaPostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.postgresql.PaisPostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.postgresql.ReservaPostgreSQLDAO;
+import co.edu.uco.reservasrestaurante.data.dao.concrete.postgresql.TipoIdentificacionPostgreSQLDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 
 public final class PostgreSQLDAOFactory extends DAOFactory{

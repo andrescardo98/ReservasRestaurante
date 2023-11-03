@@ -38,26 +38,24 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 	
 	private final void validarNoExistenciaTipoIdentificacionConMismoNombre(final String nombre) {
 		
-		//TODO: ¿Cómo lograr que esto no quede tan feo?
 		var domain = TipoIdentificacionDomain.crear(null, nombre, null, false);
 		var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = "Ya existe un tipo de identificación con el nombre " + nombre;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000310) + nombre;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
 	
 	private final void validarNoExistenciaTipoIdentificacionConMismoCodigo(final String codigo) {
 		
-		//TODO: ¿Cómo lograr que esto no quede tan feo?
 		var domain = TipoIdentificacionDomain.crear(null, null, codigo, false);
 		var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = "Ya existe un tipo de identificación con el codigo " + codigo;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000310) + codigo;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
