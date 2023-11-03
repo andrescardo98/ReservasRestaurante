@@ -9,13 +9,13 @@ public final class ReservaEntity {
 	private ClienteEntity cliente;
 	private Date fecha;
 	private String hora;
-	private int mesa;
+	private MesaEntity mesa;
 	private int cantidadPersonas;
 	private boolean estado;
 	
 	
 	private ReservaEntity(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, 
-			final int mesa, final int cantidadPersonas, final boolean estado) {
+			final MesaEntity mesa, final int cantidadPersonas, final boolean estado) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
@@ -26,7 +26,7 @@ public final class ReservaEntity {
 	}
 	
 	public static final ReservaEntity crear(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, 
-			final int mesa, final int cantidadPersonas, final boolean estado) {
+			final MesaEntity mesa, final int cantidadPersonas, final boolean estado) {
 		return new ReservaEntity(id, cliente, fecha, hora, mesa, cantidadPersonas, estado);
 	}
 
@@ -50,7 +50,7 @@ public final class ReservaEntity {
 		return hora;
 	}
 	
-	public int getMesa() {
+	public MesaEntity getMesa() {
 		return mesa;
 	}
 
@@ -84,7 +84,7 @@ public final class ReservaEntity {
 		this.hora = hora;
 	}
 	
-	private void setMesa(final int mesa) {
+	private void setMesa(final MesaEntity mesa) {
 		this.mesa = mesa;
 	}
 

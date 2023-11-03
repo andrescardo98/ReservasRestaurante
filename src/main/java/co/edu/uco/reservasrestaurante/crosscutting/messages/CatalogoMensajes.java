@@ -1091,6 +1091,27 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000297, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
 				"Se ha presentado un problema en el método setFactoria de la clase ConsultarMesaUseCase, debido a que "
 				+ "la factoría con la que se desea crear está nula..."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000300, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de registrar la nueva mesa"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000301, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase RegistrarMesaFacade, "
+						+ "tratando de registrar la nueva mesa." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000302, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de modificar la mesa."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000303, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase ModificarMesaFacade, "
+						+ "tratando de modificar la mesa." + VERIFICAR_TRAZA));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000304, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se presento un problema tratando de eliminar la mesa."));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000305, TipoMensaje.TECNICO, CategoriaMensaje.ERROR, 
+				PROBLEMA_EXCEPCION + " en la el método execute de la clase EliminarMesaFacade, "
+						+ "tratando de eliminar la mesa." + VERIFICAR_TRAZA));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

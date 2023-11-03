@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.UUID;
 
 import co.edu.uco.reservasrestaurante.service.domain.cliente.ClienteDomain;
+import co.edu.uco.reservasrestaurante.service.domain.mesa.MesaDomain;
 
 
 public class ReservaDomain {
@@ -12,13 +13,13 @@ public class ReservaDomain {
 	private ClienteDomain cliente;
 	private Date fecha;
 	private String hora;
-	private int mesa;
+	private MesaDomain mesa;
 	private int cantidadPersonas;
 	private boolean estado;
 	
 	
 	private ReservaDomain(final UUID id, final ClienteDomain cliente, final Date fecha, final String hora, 
-			final int mesa, final int cantidadPersonas, final boolean estado) {
+			final MesaDomain mesa, final int cantidadPersonas, final boolean estado) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
@@ -29,7 +30,7 @@ public class ReservaDomain {
 	}
 	
 	public static final ReservaDomain crear(final UUID id, final ClienteDomain cliente, final Date fecha, 
-			final String hora, final int mesa, final int cantidadPersonas, final boolean estado) {
+			final String hora, final MesaDomain mesa, final int cantidadPersonas, final boolean estado) {
 		return new ReservaDomain(id, cliente, fecha, hora, mesa, cantidadPersonas, estado);
 	}
 
@@ -53,7 +54,7 @@ public class ReservaDomain {
 		return hora;
 	}
 
-	public int getMesa() {
+	public MesaDomain getMesa() {
 		return mesa;
 	}
 
@@ -85,7 +86,7 @@ public class ReservaDomain {
 		this.hora = hora;
 	}
 
-	private void setMesa(final int mesa) {
+	private void setMesa(final MesaDomain mesa) {
 		this.mesa = mesa;
 	}
 

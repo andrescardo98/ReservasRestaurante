@@ -9,12 +9,14 @@ import co.edu.uco.reservasrestaurante.crosscutting.util.UtilUUID;
 public final class MesaDTO {
 	
 	private UUID id;
+	private int numero;
 	private String ubicacion;
 	private int capacidad;
 	private boolean estado;
 	
 	public MesaDTO() {
 		setId(UtilUUID.generarUUIDVacio());
+		setNumero(UtilInt.DEFECTO_NUMERO);
 		setUbicacion(UtilTexto.VACIO);
 		setCapacidad(UtilInt.DEFECTO_NUMERO);
 		setEstado(false);
@@ -23,6 +25,7 @@ public final class MesaDTO {
 	
 	public MesaDTO(final UUID id, final String ubicacion, final int capacidad, final boolean estado) {
 		setId(id);
+		setNumero(numero);
 		setUbicacion(ubicacion);
 		setCapacidad(capacidad);
 		setEstado(estado);
@@ -35,6 +38,10 @@ public final class MesaDTO {
 
 	public final UUID getId() {
 		return id;
+	}
+	
+	public int getNumero() {
+		return numero;
 	}
 
 
@@ -58,6 +65,10 @@ public final class MesaDTO {
 		return this;
 	}
 
+	public final MesaDTO setNumero(final int numero) {
+		this.numero = UtilInt.obtenerValorDefecto(capacidad, UtilInt.DEFECTO_NUMERO);
+		return this;
+	}
 
 	public final MesaDTO setUbicacion(final String ubicacion) {
 		this.ubicacion = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(ubicacion), UtilTexto.VACIO);
