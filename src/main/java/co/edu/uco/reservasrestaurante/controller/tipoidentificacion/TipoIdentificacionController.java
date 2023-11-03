@@ -31,7 +31,7 @@ public interface TipoIdentificacionController {
 			@RequestParam(name = "id", required = false) UUID id,
 			@RequestParam(name = "nombre", required = false) String codigo,
 			@RequestParam(name = "codigo", required = false) String nombre,
-			@RequestParam(name = "estado", required = false) Boolean estado);
+			@RequestParam(name = "estado", required = false) boolean estado);
 		
 	
 	@Operation(summary = "Registrar tipo de identificación", description = "Servicio encargado de registrar la información de un tipo de identificación")

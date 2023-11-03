@@ -1,6 +1,8 @@
 package co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.tipoidentificacion;
 
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
+import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
+import co.edu.uco.reservasrestaurante.crosscutting.util.UtilUUID;
 import co.edu.uco.reservasrestaurante.service.businesslogic.validator.Validator;
 import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.rules.CodigoTipoIdentificacionRule;
@@ -23,15 +25,15 @@ public final class ConsultarTipoIdentificacionValidator implements Validator<Tip
 	public final void execute(final TipoIdentificacionDomain data) {
 
 		if (!UtilObjeto.esNulo(data)) {
-			if (!UtilObjeto.esNulo(data.getId())) {
+			if (!UtilUUID.esUUIDPorDefecto(data.getId())) {
 				IdTipoIdentificacionRule.ejecutarValidacion(data.getId());
 			}
 			
-			if (!UtilObjeto.esNulo(data.getNombre())) {
+			if (!UtilTexto.estaVacio(data.getNombre())) {
 				NombreTipoIdentificacionRule.ejecutarValidacion(data.getNombre());
 			}
 			
-			if (!UtilObjeto.esNulo(data.getCodigo())) {
+			if (!UtilTexto.estaVacio(data.getCodigo())) {
 				CodigoTipoIdentificacionRule.ejecutarValidacion(data.getCodigo());
 			}
 		}

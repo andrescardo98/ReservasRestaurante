@@ -23,15 +23,7 @@ public final class IdTipoIdentificacionRule implements Rule<UUID> {
 	
 	@Override
 	public void validar(final UUID dato) {
-		validarObligatoriedad(dato);
 		validarIdPorDefecto(dato);
-	}
-	
-	private final void validarObligatoriedad(final UUID dato) {
-		if (UtilObjeto.esNulo(dato)) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000078);
-			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
-		}
 	}
 	
 	private final void validarIdPorDefecto(final UUID dato) {

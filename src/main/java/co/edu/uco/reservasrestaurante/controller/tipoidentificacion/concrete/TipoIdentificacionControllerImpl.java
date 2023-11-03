@@ -45,9 +45,9 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 	@GetMapping
 	public ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> consultar(
 			@RequestParam(name = "id", required = false) UUID id,
-			@RequestParam(name = "nombre", required = false) String codigo,
-			@RequestParam(name = "codigo", required = false) String nombre,
-			@RequestParam(name = "estado", required = false) Boolean estado) {
+			@RequestParam(name = "nombre", required = false) String nombre,
+			@RequestParam(name = "codigo", required = false) String codigo,
+			@RequestParam(name = "estado", required = false) boolean estado) {
 		
 		final Respuesta<SolicitarTipoIdentificacion> respuesta = new Respuesta<>();
 		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
@@ -56,7 +56,6 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 				.setNombre(nombre)
 				.setCodigo(codigo)
 				.setEstado(estado);
-		
 		try {
 			ConsultarTipoIdentificacionFacade facade = new ConsultarTipoIdentificacionFacade();
 			respuesta.setDatos(TipoIdentificacionResponse.convertListToResponse(facade.execute(dto)));

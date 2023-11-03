@@ -13,6 +13,7 @@ import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilObjeto;
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
+import co.edu.uco.reservasrestaurante.crosscutting.util.UtilUUID;
 import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
 import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
@@ -195,7 +196,7 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 		
 		if (!UtilObjeto.esNulo(entity)) {
 			
-			if (!UtilObjeto.esNulo(entity.getId())) {
+			if (!UtilUUID.esUUIDPorDefecto(entity.getId())) {
 				sentencia.append(operadorCondicional).append(" id = ? ");
 				operadorCondicional = "AND";
 				parametros.add(entity.getId());

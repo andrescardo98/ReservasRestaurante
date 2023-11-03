@@ -29,7 +29,6 @@ public final class ConsultarTipoIdentificacionFacade implements FacadeFind<TipoI
 		
 		try {
 			daoFactory.iniciarTransaccion();
-			
 			var useCase = new ConsultarTipoIdentificacionUseCase(daoFactory);
 			resultados = TipoIdentificacionDTOMapper.convertToListDTO(useCase.execute(domain));
 			

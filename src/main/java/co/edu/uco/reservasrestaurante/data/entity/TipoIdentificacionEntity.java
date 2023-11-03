@@ -13,8 +13,8 @@ public final class TipoIdentificacionEntity {
 	private TipoIdentificacionEntity(final UUID id, final String nombre, final String codigo, final boolean estado) {
 		super();
 		setId(id);
-		setNombre(nombre);
 		setCodigo(codigo);
+		setNombre(nombre);
 		setEstado(estado);
 	}
 

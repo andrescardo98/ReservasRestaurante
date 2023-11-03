@@ -26,7 +26,7 @@ public final class TipoIdentificacionDTOMapper implements DTOMapper<TipoIdentifi
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000092);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return TipoIdentificacionDomain.crear(dto.getId(), dto.getNombre(), dto.getCodigo(), dto.isEstado());
+		return TipoIdentificacionDomain.crear(dto.getId(), dto.getCodigo(), dto.getNombre(), dto.isEstado());
 	}
 
 	@Override
