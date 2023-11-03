@@ -1146,6 +1146,12 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000316, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"El tipo de identificación fue modificado exitosamente"));
 		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000318, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El cliente fue modificado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000319, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El cliente fue consultado exitosamente"));
+		
 		
 	}
 	

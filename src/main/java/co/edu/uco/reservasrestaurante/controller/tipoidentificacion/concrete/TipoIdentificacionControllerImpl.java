@@ -73,11 +73,6 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 		return new ResponseEntity<>(respuesta,codigoHttp);
 	}
 	
-	@GetMapping("/{id}")
-	public final UUID consultarPorId(@PathVariable("id") UUID id) {
-		return id;
-	}
-	
 	@PostMapping
 	public final ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> registrar(@RequestBody TipoIdentificacionDTO dto) {
 		
