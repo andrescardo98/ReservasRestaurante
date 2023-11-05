@@ -13,7 +13,7 @@ public class TipoIdentificacionResponse {
 	}
 	
 	public static final List<SolicitarTipoIdentificacion> convertListToResponse(List<TipoIdentificacionDTO> dto){
-		List<SolicitarTipoIdentificacion> resultados = new ArrayList<SolicitarTipoIdentificacion>();
+		List<SolicitarTipoIdentificacion> resultados = new ArrayList<>();
 		
 		for (int indice = 0; indice < dto.size(); indice++) {
 			resultados.add(convertToResponse(dto.get(indice)));

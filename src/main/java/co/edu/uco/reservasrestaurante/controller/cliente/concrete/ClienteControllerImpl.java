@@ -46,13 +46,51 @@ public class ClienteControllerImpl implements ClienteController{
 	@GetMapping("/dummy")
 	@Override
 	public SolicitarCliente obtenerDummy() {
-		logger.info(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000321));
 		return new SolicitarCliente();
 	}
+	
+	
+	@Override
+	@PostMapping
+	public ResponseEntity<Respuesta<SolicitarCliente>> registrar(@RequestBody SolicitarCliente request) {
+		final Respuesta<SolicitarCliente> respuesta = new Respuesta<>();
+		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
+		
+		try {
+			RegistrarClienteFacade facade = new RegistrarClienteFacade();
+			var dto = ClienteDTO.crear().
+					setIdentificacion(IdentificacionClienteDTO.crear().
+							setTipoIdentificacion(TipoIdentificacionDTO.crear().setId(request.getId())))
+					.setNombreCompleto(NombreCompletoClienteDTO.crear().setPrimerNombre(request.getPrimerNombre()).
+							setSegundoNombre(request.getSegundoNombre()).setPrimerApellido(request.getPrimerApellido()).
+							setSegundoApellido(request.getSegundoApellido()))
+					.setCorreoElectronico(CorreoElectronicoClienteDTO.crear().setCorreoElectronico(request.getCorreoElectronico())
+							.setCorreoElectronicoConfirmado(true))
+					.setFechaNacimiento(request.getFechaNacimiento()).
+					setPais(PaisDTO.crear().setId(request.getId()))
+					.setNumeroCelular(NumeroCelularClienteDTO.crear()
+							.setNumeroCelular(request.getNumeroCelular())
+							.setNumeroCelularConfirmado(true));
+			
+			facade.execute(dto);
+			codigoHttp = HttpStatus.OK;
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000320));
+			logger.info(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000320));
+		} catch (final ReservasRestauranteException excepcion) {
+			respuesta.getMensajes().add(excepcion.getMensajeUsuario());
+			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
+		} catch (final Exception excepcion) {
+			codigoHttp = HttpStatus.INTERNAL_SERVER_ERROR;
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000054));
+			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000054), excepcion);
+		}
+		return new ResponseEntity<>(respuesta, codigoHttp);
+	}
+	
 
 	@PutMapping("/id")
 	@Override
-	public ResponseEntity<Respuesta<SolicitarCliente>> modificar(@PathVariable("id") UUID id, @RequestBody SolicitarCliente req) {
+	public ResponseEntity<Respuesta<SolicitarCliente>> modificar(@PathVariable("id") UUID id, @RequestBody SolicitarCliente request) {
 		final Respuesta<SolicitarCliente> respuesta = new Respuesta<>();
 		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
 		
@@ -60,18 +98,18 @@ public class ClienteControllerImpl implements ClienteController{
 			ModificarClienteFacade facade = new ModificarClienteFacade();
 			var dto = ClienteDTO.crear().setId(id).
 					setIdentificacion(IdentificacionClienteDTO.crear().
-							setTipoIdentificacion(TipoIdentificacionDTO.crear().setId(req.getId()))).
-					setNombreCompleto(NombreCompletoClienteDTO.crear().setPrimerNombre(req.getPrimerNombre()).
-							setSegundoNombre(req.getSegundoNombre()).
-							setPrimerApellido(req.getPrimerApellido()).
-							setSegundoApellido(req.getSegundoApellido())).
+							setTipoIdentificacion(TipoIdentificacionDTO.crear().setId(request.getId()))).
+					setNombreCompleto(NombreCompletoClienteDTO.crear().setPrimerNombre(request.getPrimerNombre()).
+							setSegundoNombre(request.getSegundoNombre()).
+							setPrimerApellido(request.getPrimerApellido()).
+							setSegundoApellido(request.getSegundoApellido())).
 					setCorreoElectronico(CorreoElectronicoClienteDTO.crear().
-							setCorreoElectronico(req.getCorreoElectronico()).
-							setCorreoElectronicoConfirmado(req.isCorreoElectronicoConfirmado()).setClave(req.getClave())).
-					setFechaNacimiento(req.getFechaNacimiento()).
-					setPais(PaisDTO.crear().setId(req.getId())).setNumeroCelular(NumeroCelularClienteDTO.crear().
-							setNumeroCelular(req.getNumeroCelular()).
-							setNumeroCelularConfirmado(req.getNumeroCelularConfirmado()));
+							setCorreoElectronico(request.getCorreoElectronico()).
+							setCorreoElectronicoConfirmado(request.isCorreoElectronicoConfirmado()).setClave(request.getClave())).
+					setFechaNacimiento(request.getFechaNacimiento()).
+					setPais(PaisDTO.crear().setId(request.getId())).setNumeroCelular(NumeroCelularClienteDTO.crear().
+							setNumeroCelular(request.getNumeroCelular()).
+							setNumeroCelularConfirmado(request.getNumeroCelularConfirmado()));
 									
 			facade.execute(dto);
 			codigoHttp = HttpStatus.OK;
@@ -139,42 +177,6 @@ public class ClienteControllerImpl implements ClienteController{
 		return new ResponseEntity<>(respuesta, codigoHttp);
 	}
 
-	@Override
-	@PostMapping
-	public ResponseEntity<Respuesta<SolicitarCliente>> registrar(@RequestBody SolicitarCliente req) {
-		final Respuesta<SolicitarCliente> respuesta = new Respuesta<>();
-		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
-		
-		try {
-			RegistrarClienteFacade facade = new RegistrarClienteFacade();
-			var dto = ClienteDTO.crear().
-					setIdentificacion(IdentificacionClienteDTO.crear().
-							setTipoIdentificacion(TipoIdentificacionDTO.crear().setId(req.getId())))
-					.setNombreCompleto(NombreCompletoClienteDTO.crear().setPrimerNombre(req.getPrimerNombre()).
-							setSegundoNombre(req.getSegundoNombre()).setPrimerApellido(req.getPrimerApellido()).
-							setSegundoApellido(req.getSegundoApellido()))
-					.setCorreoElectronico(CorreoElectronicoClienteDTO.crear().setCorreoElectronico(req.getCorreoElectronico())
-							.setCorreoElectronicoConfirmado(true))
-					.setFechaNacimiento(req.getFechaNacimiento()).
-					setPais(PaisDTO.crear().setId(req.getId()))
-					.setNumeroCelular(NumeroCelularClienteDTO.crear()
-							.setNumeroCelular(req.getNumeroCelular())
-							.setNumeroCelularConfirmado(true));
-			
-			facade.execute(dto);
-			codigoHttp = HttpStatus.OK;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000320));
-			logger.info(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000320));
-		} catch (final ReservasRestauranteException excepcion) {
-			respuesta.getMensajes().add(excepcion.getMensajeUsuario());
-			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
-		} catch (final Exception excepcion) {
-			codigoHttp = HttpStatus.INTERNAL_SERVER_ERROR;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000054));
-			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000054), excepcion);
-		}
-		return new ResponseEntity<>(respuesta, codigoHttp);
-	}
 
 	@Override
 	@DeleteMapping("/{id}")

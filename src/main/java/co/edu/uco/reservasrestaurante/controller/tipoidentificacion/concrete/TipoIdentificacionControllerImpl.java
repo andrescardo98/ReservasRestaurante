@@ -41,6 +41,59 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 		return new SolicitarTipoIdentificacion();
 	}
 	
+	
+	@PostMapping
+	public final ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> registrar(@RequestBody TipoIdentificacionDTO dto) {
+		
+		Respuesta<SolicitarTipoIdentificacion> respuesta = new Respuesta<>();
+		HttpStatusCode codigoHttp = HttpStatus.BAD_REQUEST;
+		
+		try {
+			RegistrarTipoIdentificacionFacade facade = new RegistrarTipoIdentificacionFacade();
+			facade.execute(dto);
+			codigoHttp = HttpStatus.OK;
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000244));
+		} catch (final ReservasRestauranteException excepcion) {
+			respuesta.getMensajes().add(excepcion.getMensajeTecnico());
+			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
+
+		} catch (final Exception excepcion) {
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000081));
+			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000032), excepcion);
+		}
+		
+		return new ResponseEntity<>(respuesta, codigoHttp);
+	}
+	
+	
+	@PutMapping("/{id}")
+	@Override
+	public final ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> modificar(@PathVariable("id") UUID id, @RequestBody SolicitarTipoIdentificacion request) {
+		final Respuesta<SolicitarTipoIdentificacion> respuesta = new Respuesta<>();
+		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
+		
+		try {
+			ModificarTipoIdentificacionFacade facade = new ModificarTipoIdentificacionFacade();
+			var dto = TipoIdentificacionDTO.crear()
+			.setId(id)
+			.setNombre(request.getNombre())
+			.setCodigo(request.getCodigo())
+			.setEstado(false);
+			facade.execute(dto);
+			codigoHttp = HttpStatus.OK;
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000316));
+		} catch (final ReservasRestauranteException excepcion) {
+			respuesta.getMensajes().add(excepcion.getMensajeTecnico());
+			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
+		} catch (Exception excepcion) {
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000190));
+			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000190), excepcion);
+		}
+		
+		return new ResponseEntity<>(respuesta, codigoHttp);
+	}
+	
+	
 	@Override
 	@GetMapping
 	public ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> consultar(
@@ -70,56 +123,6 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000313), excepcion);
 		}
 		return new ResponseEntity<>(respuesta,codigoHttp);
-	}
-	
-	@PostMapping
-	public final ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> registrar(@RequestBody TipoIdentificacionDTO dto) {
-		
-		Respuesta<SolicitarTipoIdentificacion> respuesta = new Respuesta<>();
-		HttpStatusCode codigoHttp = HttpStatus.BAD_REQUEST;
-		
-		try {
-			RegistrarTipoIdentificacionFacade facade = new RegistrarTipoIdentificacionFacade();
-			facade.execute(dto);
-			codigoHttp = HttpStatus.OK;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000244));
-		} catch (final ReservasRestauranteException excepcion) {
-			respuesta.getMensajes().add(excepcion.getMensajeTecnico());
-			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
-
-		} catch (final Exception excepcion) {
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000081));
-			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000032), excepcion);
-		}
-		
-		return new ResponseEntity<>(respuesta, codigoHttp);
-	}
-	
-	@PutMapping("/{id}")
-	@Override
-	public final ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> modificar(@PathVariable("id") UUID id, @RequestBody SolicitarTipoIdentificacion request) {
-		final Respuesta<SolicitarTipoIdentificacion> respuesta = new Respuesta<>();
-		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
-		
-		try {
-			ModificarTipoIdentificacionFacade facade = new ModificarTipoIdentificacionFacade();
-			var dto = TipoIdentificacionDTO.crear()
-			.setId(id)
-			.setNombre(request.getNombre())
-			.setCodigo(request.getCodigo())
-			.setEstado(false);
-			facade.execute(dto);
-			codigoHttp = HttpStatus.OK;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000189));
-		} catch (final ReservasRestauranteException excepcion) {
-			respuesta.getMensajes().add(excepcion.getMensajeTecnico());
-			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
-		} catch (Exception excepcion) {
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000190));
-			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000190), excepcion);
-		}
-		
-		return new ResponseEntity<>(respuesta, codigoHttp);
 	}
 	
 	@DeleteMapping("/{id}")

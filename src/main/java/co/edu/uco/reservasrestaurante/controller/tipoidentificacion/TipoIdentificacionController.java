@@ -21,16 +21,15 @@ public interface TipoIdentificacionController {
 	@Operation(summary = "Obtener dummy", description = "Servicio encargado de obtener la estructura de un tipo de identificación")
 	SolicitarTipoIdentificacion obtenerDummy();
 	
+	
 	@Operation(summary = "Obtener tipo de identificación", description = "Servicio encargado de obtener la información de los tipo de identificación que cumplen los parámetros de consulta")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación consultado exitosamente"),
 			@ApiResponse(responseCode = "400", description = "Problema con consulta de tipo de identificación"),
 			@ApiResponse(responseCode = "500", description = "Problema inesperado") })
-	
-	
 	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> consultar(
 			@RequestParam(name = "id", required = false) UUID id,
-			@RequestParam(name = "nombre", required = false) String codigo,
-			@RequestParam(name = "codigo", required = false) String nombre,
+			@RequestParam(name = "nombre", required = false) String nombre,
+			@RequestParam(name = "codigo", required = false) String codigo,
 			@RequestParam(name = "estado", required = false) boolean estado);
 		
 	

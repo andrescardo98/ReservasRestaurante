@@ -1160,6 +1160,18 @@ public final class CatalogoMensajes {
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000322, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"El cliente fue eliminado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000323, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El país fue modificado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000324, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El país fue registrado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000325, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El país fue consultado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000326, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El país fue eliminado exitosamente"));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {
