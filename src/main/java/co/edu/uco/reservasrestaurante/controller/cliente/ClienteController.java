@@ -49,8 +49,8 @@ public interface ClienteController {
 
 	@Operation(summary = "Registrar Cliente", description = "Servicio encargado de registrar un cliente")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Cliente registrado exitosamente"),
-			@ApiResponse(responseCode = "400", description = "Cliente no registrado"),
-			@ApiResponse(responseCode = "500", description = "Problema inesperado al registrar cliente") })
+			@ApiResponse(responseCode = "400", description = "Cliente no registrado exitosamente por un problema conocido"),
+			@ApiResponse(responseCode = "500", description = "Cliente no registrado exitosamente por un problema inesperado") })
 	ResponseEntity<Respuesta<SolicitarCliente>> registrar(@RequestBody SolicitarCliente req);
 	
 	@Operation(summary = "Eliminar Cliente", description = "Servicio encargado de eliminar de forma definitiva un Cliente")

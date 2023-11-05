@@ -500,7 +500,7 @@ public final class CatalogoMensajes {
 				+ "identificación registrado"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000134, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"Se ha presentado un problema tratando de llevar a cabo el registro de datos de un nuevo cliente"));
+				"Se ha presentado un problema tratando de llevar a cabo el registro de datos del nuevo cliente"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000135, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				"Se ha presentado un problema en el metodo setFactoria de la clase RegistrarClienteUseCase, debido a "
@@ -889,7 +889,7 @@ public final class CatalogoMensajes {
 				"El tipo de identificación fue registrado exitosamente"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000244, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-		"Se ha presentado un problema inesperado tratando de registrar el tipo de identificación deseado."));
+				"Se ha presentado un problema inesperado tratando de registrar el tipo de identificación deseado."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000245, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"El número de mesa ingresado es inválido. Intente de nuevo e ingrese un valor correcto"));
@@ -1152,7 +1152,14 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000319, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"El cliente fue consultado exitosamente"));
 		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000320, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El cliente fue registrado exitosamente"));
 		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000321, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El dummy de cliente se generó exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000322, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"El cliente fue eliminado exitosamente"));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

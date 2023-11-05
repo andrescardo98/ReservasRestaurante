@@ -35,6 +35,7 @@ public class SolicitarCliente {
 		setSegundoApellido(UtilTexto.VACIO);
 		setCorreoElectronico(UtilTexto.VACIO);
 		setCorreoElectronicoConfirmado(false);
+		setClave(UtilTexto.VACIO);
 		setFechaNacimiento(UtilFecha.FECHA_DEFECTO);
 		setPais(UtilUUID.UUID_DEFECTO);
 		setNumeroCelular(UtilTexto.VACIO);
@@ -54,6 +55,7 @@ public class SolicitarCliente {
 		setSegundoApellido(segundoApellido);
 		setCorreoElectronico(correoElectronico);
 		setCorreoElectronicoConfirmado(correoElectronicoConfirmado);
+		setClave(clave);
 		setFechaNacimiento(fechaNacimiento);
 		setPais(pais);
 		setNumeroCelular(numeroCelular);
@@ -152,7 +154,7 @@ public class SolicitarCliente {
 		this.correoElectronicoConfirmado = correoElectronicoConfirmado;
 	}
 	
-	public void setClave(String clave) {
+	public void setClave(final String clave) {
 		this.clave = clave;
 	}
 

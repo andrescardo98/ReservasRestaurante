@@ -7,8 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,11 +32,13 @@ import co.edu.uco.reservasrestaurante.service.dto.support.IdentificacionClienteD
 import co.edu.uco.reservasrestaurante.service.dto.support.NombreCompletoClienteDTO;
 import co.edu.uco.reservasrestaurante.service.dto.support.NumeroCelularClienteDTO;
 import co.edu.uco.reservasrestaurante.service.facade.concrete.cliente.ConsultarClienteFacade;
+import co.edu.uco.reservasrestaurante.service.facade.concrete.cliente.EliminarClienteFacade;
 import co.edu.uco.reservasrestaurante.service.facade.concrete.cliente.ModificarClienteFacade;
+import co.edu.uco.reservasrestaurante.service.facade.concrete.cliente.RegistrarClienteFacade;
 
 
 @RestController
-@RequestMapping("/api/cliente")
+@RequestMapping("/api/v1/cliente")
 public class ClienteControllerImpl implements ClienteController{
 	
 	private final Logger logger = LoggerFactory.getLogger(ClienteControllerImpl.class);
@@ -42,6 +46,7 @@ public class ClienteControllerImpl implements ClienteController{
 	@GetMapping("/dummy")
 	@Override
 	public SolicitarCliente obtenerDummy() {
+		logger.info(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000321));
 		return new SolicitarCliente();
 	}
 
@@ -83,6 +88,7 @@ public class ClienteControllerImpl implements ClienteController{
 	}
 
 	@Override
+	@GetMapping
 	public ResponseEntity<Respuesta<SolicitarCliente>> consultar(@RequestParam(name = "id", required = false) UUID id,
 	        @RequestParam(name = "tipoIdentificacion", required = false) UUID tipoIdentificacion,
 	        @RequestParam(name = "identificacion", required = false) String identificacion,
@@ -134,14 +140,62 @@ public class ClienteControllerImpl implements ClienteController{
 	}
 
 	@Override
+	@PostMapping
 	public ResponseEntity<Respuesta<SolicitarCliente>> registrar(@RequestBody SolicitarCliente req) {
-		return null;
+		final Respuesta<SolicitarCliente> respuesta = new Respuesta<>();
+		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
+		
+		try {
+			RegistrarClienteFacade facade = new RegistrarClienteFacade();
+			var dto = ClienteDTO.crear().
+					setIdentificacion(IdentificacionClienteDTO.crear().
+							setTipoIdentificacion(TipoIdentificacionDTO.crear().setId(req.getId())))
+					.setNombreCompleto(NombreCompletoClienteDTO.crear().setPrimerNombre(req.getPrimerNombre()).
+							setSegundoNombre(req.getSegundoNombre()).setPrimerApellido(req.getPrimerApellido()).
+							setSegundoApellido(req.getSegundoApellido()))
+					.setCorreoElectronico(CorreoElectronicoClienteDTO.crear().setCorreoElectronico(req.getCorreoElectronico())
+							.setCorreoElectronicoConfirmado(true))
+					.setFechaNacimiento(req.getFechaNacimiento()).
+					setPais(PaisDTO.crear().setId(req.getId()))
+					.setNumeroCelular(NumeroCelularClienteDTO.crear()
+							.setNumeroCelular(req.getNumeroCelular())
+							.setNumeroCelularConfirmado(true));
+			
+			facade.execute(dto);
+			codigoHttp = HttpStatus.OK;
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000320));
+			logger.info(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000320));
+		} catch (final ReservasRestauranteException excepcion) {
+			respuesta.getMensajes().add(excepcion.getMensajeUsuario());
+			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
+		} catch (final Exception excepcion) {
+			codigoHttp = HttpStatus.INTERNAL_SERVER_ERROR;
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000054));
+			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000054), excepcion);
+		}
+		return new ResponseEntity<>(respuesta, codigoHttp);
 	}
 
 	@Override
-	public ResponseEntity<Respuesta<SolicitarCliente>> eliminar(UUID id) {
-		// TODO Auto-generated method stub
-		return null;
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Respuesta<SolicitarCliente>> eliminar(@PathVariable("id") UUID id) {
+		final Respuesta<SolicitarCliente> respuesta = new Respuesta<>();
+		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
+		
+		try {
+			EliminarClienteFacade facade = new EliminarClienteFacade();
+			var dto = ClienteDTO.crear().setId(id);
+			facade.execute(dto);
+			codigoHttp = HttpStatus.OK;
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000322));
+		} catch (final ReservasRestauranteException excepcion) {
+			respuesta.getMensajes().add(excepcion.getMensajeTecnico());
+			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
+		} catch (final Exception excepcion) {
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000060));
+			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000060), excepcion);
+		}
+		return new ResponseEntity<>(respuesta, codigoHttp);
 	}
 
 }

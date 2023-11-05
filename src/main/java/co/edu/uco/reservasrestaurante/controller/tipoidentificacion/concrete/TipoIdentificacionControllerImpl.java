@@ -88,7 +88,7 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 			logger.error(excepcion.getMensajeTecnico(), excepcion.getExcepcionRaiz());
 
 		} catch (final Exception excepcion) {
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000245));
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000081));
 			logger.error(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000032), excepcion);
 		}
 		
