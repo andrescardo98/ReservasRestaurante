@@ -23,9 +23,8 @@ public final class ConsultarPaisFacade implements FacadeFind<PaisDTO>{
 		final PaisDomain domain = PaisDTOMapper.convertToDomain(dto);
 		ConsultarPaisValidator.ejecutar(domain);
 		List<PaisDTO> resultados = new ArrayList<>();
-		
 		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
-		
+
 		try {
 			daoFactory.iniciarTransaccion();
 			

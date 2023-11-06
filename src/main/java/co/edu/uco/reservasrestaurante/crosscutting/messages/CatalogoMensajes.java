@@ -445,11 +445,11 @@ public final class CatalogoMensajes {
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000118, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				PROBLEMA_SQLEXCEPCION + " en el método ejecutarConsulta de la clase PaisPostgreSQL tratando de "
-				+ "consultar tipos de identificación. " + VERIFICAR_TRAZA));
+				+ "consultar país. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000119, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
 				PROBLEMA_EXCEPCION + " en el método ejecutarConsulta de la clase PaisPostgreSQL tratando de "
-				+ "consultar tipos de identificación. " + VERIFICAR_TRAZA));
+				+ "consultar país. " + VERIFICAR_TRAZA));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000120, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"No existe un tipo de identificación a modificar"));
@@ -618,7 +618,7 @@ public final class CatalogoMensajes {
 				"El id del País no puede ser igual al id por defecto..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000171, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
-				"La longitud del nombre del país no es válida. La logitud mínima es de 5 caracteres y la "
+				"La longitud del nombre del país no es válida. La logitud mínima es de 4 caracteres y la "
 				+ "longitud máxima son 50 caracteres"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000172, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -628,14 +628,15 @@ public final class CatalogoMensajes {
 				"El nombre del país solo puede contener letras, digitos y espacios internos"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000171, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
-				"La longitud del código indicativo del país no es válida. La logitud mínima es de 3 caracteres y la "
-				+ "longitud máxima son 5 caracteres"));
+				"La longitud del código indicativo del país no es válida. La logitud mínima es de 2 caracteres y la "
+				+ "longitud máxima son 6 caracteres"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000172, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"El código indicativo del país es un dato obligatorio..."));
 		
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000173, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
-				"El código indicativo del país solo puede contener digitos y espacios internos"));
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000327, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+				"El código indicativo del país solo puede contener +, seguido de dígitos, por ejemplo: "
+				+ "+57, +54, +880"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000174, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"La longitud del código ISO 3 del país no es válida. La logitud máxima son 3 caracteres"));

@@ -21,7 +21,7 @@ public final class PaisDTOMapper implements DTOMapper<PaisDTO, PaisDomain>{
 
 	@Override
 	public PaisDomain toDomain(final PaisDTO dto) {
-		if (UtilObjeto.esNulo(null)) {
+		if (UtilObjeto.esNulo(dto)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000195);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
@@ -31,7 +31,7 @@ public final class PaisDTOMapper implements DTOMapper<PaisDTO, PaisDomain>{
 
 	@Override
 	public PaisDTO toDto(PaisDomain domain) {
-		if (UtilObjeto.esNulo(null)) {
+		if (UtilObjeto.esNulo(domain)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000004);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000195);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);

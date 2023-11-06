@@ -6,7 +6,7 @@ public final class UtilTexto {
 	public static final String PATTERN_SOLO_LETRAS = "^[A-Za-záéíóúÁÉÍÓÚ]+$";
 	public static final String PATTERN_SOLO_LETRAS_DIGITOS_ESPACIOS = "^[0-9A-Za-záéíóúÁÉÍÓÚ ]+$";
 	public static final String PATTERN_CLAVE = "^[A-Za-z0-9\\\\s#\\\\-\\\\/]+$";
-	public static final String PATTERN_CODIGO_INDICATIVO = "^[0-9 ]+$";
+	public static final String PATTERN_CODIGO_INDICATIVO = "^\\+\\d+$";
 	public static final String PATTERN_CODIGO_ISO3 = "^[A-Z]+$";
 	public static final String PATTERN_LETRAS_DIGITOS = "^[a-zA-Z0-9]+$";
 	public static final String PATTERN_HORA = "^([01]?[0-9]|2[0-3]):[0-5][0-9]$";
@@ -77,7 +77,7 @@ public final class UtilTexto {
 		return obtenerValorDefecto(valor).matches(PATTERN_CLAVE);
 	}
 	
-	public static final boolean contieneDigitosEpacios(final String valor) {
+	public static final boolean contieneMasYDigitos(final String valor) {
 		return obtenerValorDefecto(valor).matches(PATTERN_CODIGO_INDICATIVO);
 	}
 	

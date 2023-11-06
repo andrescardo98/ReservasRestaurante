@@ -46,19 +46,21 @@ public class PaisDTO {
 	
 	
 	public final PaisDTO setId(final UUID id) {
-		this.id = id;
+		this.id = UtilUUID.obtenerValorDefecto(id, UtilUUID.obtenerValorDefecto(id, UtilUUID.UUID_DEFECTO));
 		return this;
 	}
 	public final PaisDTO setNombre(final String nombre) {
-		this.nombre = nombre;
+		this.nombre = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(nombre), UtilTexto.VACIO);
 		return this;
 	}
 	public final PaisDTO setCodigoIndicativo(final String codigoIndicativo) {
-		this.codigoIndicativo = codigoIndicativo;
+		this.codigoIndicativo = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(codigoIndicativo), 
+				UtilTexto.VACIO);
 		return this;
 	}
 	public final PaisDTO setCodigoiso3(final String codigoiso3) {
-		this.codigoiso3 = codigoiso3;
+		this.codigoiso3 = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(codigoiso3), 
+				UtilTexto.VACIO);
 		return this;
 	}
 	

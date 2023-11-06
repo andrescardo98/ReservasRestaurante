@@ -26,7 +26,7 @@ private static final Rule<String> instancia = new CodigoIndicativoPaisRule();
 	}
 	
 	private final void validarLongitud(final String dato) {
-		if (!UtilTexto.longitudValida(dato, 3, 5)) {
+		if (!UtilTexto.longitudValida(dato, 2, 6)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000171);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
@@ -40,8 +40,8 @@ private static final Rule<String> instancia = new CodigoIndicativoPaisRule();
 	}
 	
 	private final void validarFormato(final String dato) {
-		if (!UtilTexto.contieneDigitosEpacios(dato)) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000173);
+		if (!UtilTexto.contieneMasYDigitos(dato)) {
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000327);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}

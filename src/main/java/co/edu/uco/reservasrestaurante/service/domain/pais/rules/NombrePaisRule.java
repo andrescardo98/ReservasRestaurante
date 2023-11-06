@@ -26,7 +26,7 @@ private static final Rule<String> instancia = new NombrePaisRule();
 	}
 	
 	private final void validarLongitud(final String dato) {
-		if (!UtilTexto.longitudValida(dato, 5, 50)) {
+		if (!UtilTexto.longitudValida(dato, 4, 50)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000171);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}

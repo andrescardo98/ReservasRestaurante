@@ -3,6 +3,7 @@ package co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.
 import co.edu.uco.reservasrestaurante.service.businesslogic.validator.Validator;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.ClienteDomain;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.ClaveClienteRule;
+import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.ClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.CorreoElectronicoClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.FechaNacimientoClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.IdClienteRule;
@@ -14,6 +15,7 @@ import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.PrimerApellid
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.PrimerNombreClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.SegundoApellidoClienteRule;
 import co.edu.uco.reservasrestaurante.service.domain.cliente.rules.SegundoNombreClienteRule;
+import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.rules.IdTipoIdentificacionRule;
 import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.rules.TipoIdentificacionRule;
 
 public final class RegistrarClienteValidator implements Validator<ClienteDomain>{
@@ -30,7 +32,9 @@ public final class RegistrarClienteValidator implements Validator<ClienteDomain>
 	
 	@Override
 	public final void execute(final ClienteDomain data) {
+		ClienteRule.ejecutarValidacion(data);
 		IdClienteRule.ejecutarValidacion(data.getId());
+		IdTipoIdentificacionRule.ejecutarValidacion(data.getIdentificacion().getTipoIdentificacion().getId());
 		IdentificacionClienteRule.ejecutarValidacion(data.getIdentificacion());
 		NumeroIdentificacionClienteRule.ejecutarValidacion(data.getIdentificacion().getNumeroIdentificacion());
 		TipoIdentificacionRule.ejecutarValidacion(data.getIdentificacion().getTipoIdentificacion());

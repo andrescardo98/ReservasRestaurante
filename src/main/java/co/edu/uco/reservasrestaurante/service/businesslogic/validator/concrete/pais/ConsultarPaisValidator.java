@@ -18,6 +18,7 @@ public class ConsultarPaisValidator implements Validator<PaisDomain>{
 	
 	public static final void ejecutar(final PaisDomain data) {
 		instancia.execute(data);
+
 	}
 	
 	@Override

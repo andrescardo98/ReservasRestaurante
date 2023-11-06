@@ -29,7 +29,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 	public final void crear(final PaisEntity entity) {
 		final var sentencia = new StringBuilder();
 		
-		sentencia.append("INSERT INTO Pais (id, nombre, codigoIndicativo, codigoiso3, bandera)");
+		sentencia.append("INSERT INTO Pais (id, nombre, codigo_indicativo, codigo_iso3) ");
 		sentencia.append("VALUES (?, ?, ?, ?)");
 		
 		try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString()) ) {
@@ -58,7 +58,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 		final var sentencia = new StringBuilder();
 		
 		sentencia.append("UPDATE Pais ");
-		sentencia.append("SET nombre = ?, codigoIndicativo = ?, codigoiso3 = ? ");
+		sentencia.append("SET nombre = ?, codigo_indicativo = ?, codigo_iso3 = ? ");
 		sentencia.append(SENTENCIA_WHERE);
 		
 		try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString())) {
@@ -110,7 +110,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 	@Override
 	public final Optional<PaisEntity> consultarPorId(final UUID id) {
 		final var sentencia = new StringBuilder();
-		sentencia.append("SELECT id, nombre, codigoIndicativo, codigoiso3 ");
+		sentencia.append("SELECT id, nombre, codigo_indicativo, codigo_iso3 ");
 		sentencia.append("FROM Pais ");
 		sentencia.append(SENTENCIA_WHERE);
 		
@@ -166,7 +166,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 		try(final var resultados = sentenciaPreparada.executeQuery()) {
 			if (resultados.next()) {
 				var paisEntity = PaisEntity.crear(UUID.fromString((String) resultados.getObject("id")),
-						resultados.getString("nombre"), resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3"));
+						resultados.getString("nombre"), resultados.getString("codigo_indicativo"), resultados.getString("codigo_iso3"));
 				
 				resultado = Optional.of(paisEntity);
 			}
@@ -189,7 +189,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 		final var sentencia = new StringBuilder();
 		String operadorCondicional = "WHERE ";
 		
-		sentencia.append("SELECT id, nombre, codigoIndicativo, codigoIso3 ");
+		sentencia.append("SELECT id, nombre, codigo_indicativo, codigo_iso3 ");
 		sentencia.append("FROM Pais ");
 		
 		if (!UtilObjeto.esNulo(entity)) {
@@ -207,16 +207,16 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 			}
 			
 			if (!UtilObjeto.esNulo(entity.getCodigoIndicativo())) {
-				sentencia.append(operadorCondicional).append(" codigoIndicativo = ? ");
+				sentencia.append(operadorCondicional).append(" codigo_indicativo = ? ");
 				parametros.add(entity.getCodigoIndicativo());
 			}
 			
 			if (!UtilObjeto.esNulo(entity.getCodigoiso3())) {
-				sentencia.append(operadorCondicional).append(" codigoIso3 = ? ");
+				sentencia.append(operadorCondicional).append(" codigo_iso3 = ? ");
 				parametros.add(entity.getCodigoiso3());
 			}
 		}
-		sentencia.append("ORDER BY codigoIndicativo ASC ");
+		sentencia.append("ORDER BY codigo_indicativo ASC ");
 		return sentencia.toString();
 	}
 	
@@ -243,7 +243,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 		try(final var resultados = sentenciaPreparada.executeQuery()) {
 			while (resultados.next()) {
 				var paisEntity = PaisEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
-						resultados.getString("nombre"), resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3"));
+						resultados.getString("nombre"), resultados.getString("codigo_indicativo"), resultados.getString("codigo_iso3"));
 				
 				listaResultados.add(paisEntity);
 			}
