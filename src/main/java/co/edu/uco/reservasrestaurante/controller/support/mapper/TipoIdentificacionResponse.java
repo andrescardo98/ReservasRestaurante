@@ -9,7 +9,7 @@ import co.edu.uco.reservasrestaurante.service.dto.TipoIdentificacionDTO;
 public class TipoIdentificacionResponse {
 
 	public static final SolicitarTipoIdentificacion convertToResponse(TipoIdentificacionDTO dto) {
-		return new SolicitarTipoIdentificacion(dto.getId(),dto.getNombre(),dto.getCodigo(),dto.isEstado());
+		return new SolicitarTipoIdentificacion(dto.getId(),dto.getNombre(),dto.getCodigo(),dto.isEstado().isValor());
 	}
 	
 	public static final List<SolicitarTipoIdentificacion> convertListToResponse(List<TipoIdentificacionDTO> dto){

@@ -26,7 +26,7 @@ public final class TipoIdentificacionDTOMapper implements DTOMapper<TipoIdentifi
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000092);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return TipoIdentificacionDomain.crear(dto.getId(), dto.getCodigo(), dto.getNombre(), dto.isEstado());
+		return TipoIdentificacionDomain.crear(dto.getId(), dto.getCodigo(), dto.getNombre(), BooleanDTOMapper.convertToDomain(dto.isEstado()));
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public final class TipoIdentificacionDTOMapper implements DTOMapper<TipoIdentifi
 		}
 		return TipoIdentificacionDTO.crear().setId(domain.getId())
 				.setNombre(domain.getNombre()).setCodigo(domain.getCodigo())
-				.setEstado(domain.isEstado());
+				.setEstado(BooleanDTOMapper.convertToDTO(domain.isEstado()));
 	}
 
 	public static final TipoIdentificacionDomain convertToDomain(final TipoIdentificacionDTO dto) {

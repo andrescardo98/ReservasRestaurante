@@ -9,17 +9,17 @@ public final class TipoIdentificacionDTO {
 	private UUID id;
 	private String nombre;
 	private String codigo;
-	private boolean estado;
+	private BooleanDTO estado;
 	
 	public TipoIdentificacionDTO() {
 		setId(UtilUUID.generarUUIDVacio());
 		setCodigo(UtilTexto.VACIO);
 		setNombre(UtilTexto.VACIO);
-		setEstado(false);
+		setEstado(new BooleanDTO());
 	}
 	
 	
-	public TipoIdentificacionDTO(final UUID id, final String nombre, final String codigo, final boolean estado) {
+	public TipoIdentificacionDTO(final UUID id, final String nombre, final String codigo, final BooleanDTO estado) {
 		setId(id);
 		setCodigo(codigo);
 		setNombre(nombre);
@@ -40,7 +40,7 @@ public final class TipoIdentificacionDTO {
 	public final String getCodigo() {
 		return codigo;
 	}
-	public final boolean isEstado() {
+	public final BooleanDTO isEstado() {
 		return estado;
 	}
 	
@@ -56,11 +56,10 @@ public final class TipoIdentificacionDTO {
 		this.codigo = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(codigo), UtilTexto.VACIO);
 		return this;
 	}
-	public final TipoIdentificacionDTO setEstado(final boolean estado) {
-		this.estado = estado;
+	public final TipoIdentificacionDTO setEstado(final BooleanDTO estado) {
+		this.estado = estado.isValorDefecto() ? new BooleanDTO() : new BooleanDTO().
+				setValor(estado.isValor()).setValorDefecto(false);
 		return this;
 	}
-	
-	
 
 }

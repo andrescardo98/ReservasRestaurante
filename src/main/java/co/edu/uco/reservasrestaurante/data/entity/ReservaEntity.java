@@ -3,6 +3,8 @@ package co.edu.uco.reservasrestaurante.data.entity;
 import java.sql.Date;
 import java.util.UUID;
 
+import co.edu.uco.reservasrestaurante.data.entity.support.BooleanEntity;
+
 public final class ReservaEntity {
 
 	private UUID id;
@@ -11,11 +13,11 @@ public final class ReservaEntity {
 	private String hora;
 	private MesaEntity mesa;
 	private int cantidadPersonas;
-	private boolean estado;
+	private BooleanEntity estado;
 	
 	
 	private ReservaEntity(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, 
-			final MesaEntity mesa, final int cantidadPersonas, final boolean estado) {
+			final MesaEntity mesa, final int cantidadPersonas, final BooleanEntity estado) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
@@ -26,7 +28,7 @@ public final class ReservaEntity {
 	}
 	
 	public static final ReservaEntity crear(final UUID id, final ClienteEntity cliente, final Date fecha, final String hora, 
-			final MesaEntity mesa, final int cantidadPersonas, final boolean estado) {
+			final MesaEntity mesa, final int cantidadPersonas, final BooleanEntity estado) {
 		return new ReservaEntity(id, cliente, fecha, hora, mesa, cantidadPersonas, estado);
 	}
 
@@ -59,7 +61,7 @@ public final class ReservaEntity {
 		return cantidadPersonas;
 	}
 	
-	public boolean isEstado() {
+	public BooleanEntity isEstado() {
 		return estado;
 	}
 	
@@ -93,7 +95,7 @@ public final class ReservaEntity {
 		this.cantidadPersonas = cantidadPersonas;
 	}
 	
-	private void setEstado(boolean estado) {
+	private void setEstado(final BooleanEntity estado) {
 		this.estado = estado;
 	}
 	

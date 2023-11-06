@@ -1173,6 +1173,20 @@ public final class CatalogoMensajes {
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000326, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
 				"El país fue eliminado exitosamente"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000328, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+			"Se ha presentado un problema en el metodo toDomain de la clase BooleanDTOMapper. No es posible "
+			+ "mapear un Boolean domain a partir de una de un Boolean dto nula"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000329, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
+				"Se ha presentado un problema en el metodo toDTO de la clase BooleanDTOMapper.No es posible "
+				+ "mapear un tipo de identificación dto a partir de un Boolean domain nula"));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000330, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Ya existe un tipo de identificación con el nombre "));
+		
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000331, TipoMensaje.TECNICO, CategoriaMensaje.ERROR,
+				"Ya existe un tipo de identificación con el código "));
 	}
 	
 	private static final void agregarMensaje(final Mensaje mensaje) {

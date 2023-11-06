@@ -1,19 +1,20 @@
 package co.edu.uco.reservasrestaurante.service.dto.support;
 
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
+import co.edu.uco.reservasrestaurante.service.dto.BooleanDTO;
 
 public class NumeroCelularClienteDTO {
 
 	private String numeroCelular;
-	private boolean numeroCelularConfirmado;
+	private BooleanDTO numeroCelularConfirmado;
 	
 	public NumeroCelularClienteDTO() {
 		setNumeroCelular(UtilTexto.VACIO);
-		setNumeroCelularConfirmado(false);
+		setNumeroCelularConfirmado(new BooleanDTO());
 	}
 	
 	
-	public NumeroCelularClienteDTO(final String numeroCelular, final boolean numeroCelularConfirmado) {
+	public NumeroCelularClienteDTO(final String numeroCelular, final BooleanDTO numeroCelularConfirmado) {
 		setNumeroCelular(numeroCelular);
 		setNumeroCelularConfirmado(numeroCelularConfirmado);
 	}
@@ -23,7 +24,7 @@ public class NumeroCelularClienteDTO {
 	}
 
 	
-	public static final NumeroCelularClienteDTO crear(final String numeroCelular, final boolean numeroCelularConfirmado) {
+	public static final NumeroCelularClienteDTO crear(final String numeroCelular, final BooleanDTO numeroCelularConfirmado) {
 		return new NumeroCelularClienteDTO(numeroCelular, numeroCelularConfirmado);
 	}
 
@@ -33,7 +34,7 @@ public class NumeroCelularClienteDTO {
 	}
 
 
-	public final boolean isNumeroCelularConfirmado() {
+	public final BooleanDTO isNumeroCelularConfirmado() {
 		return numeroCelularConfirmado;
 	}
 
@@ -44,8 +45,9 @@ public class NumeroCelularClienteDTO {
 	}
 
 
-	public final NumeroCelularClienteDTO setNumeroCelularConfirmado(final boolean numeroCelularConfirmado) {
-		this.numeroCelularConfirmado = numeroCelularConfirmado;
+	public final NumeroCelularClienteDTO setNumeroCelularConfirmado(final BooleanDTO numeroCelularConfirmado) {
+		this.numeroCelularConfirmado = numeroCelularConfirmado.isValorDefecto() ? BooleanDTO.crear() : 
+			BooleanDTO.crear().setValor(numeroCelularConfirmado.isValor()).setValorDefecto(false);
 		return this;
 	}
 }

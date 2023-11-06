@@ -19,6 +19,7 @@ import co.edu.uco.reservasrestaurante.data.entity.MesaEntity;
 import co.edu.uco.reservasrestaurante.data.entity.PaisEntity;
 import co.edu.uco.reservasrestaurante.data.entity.ReservaEntity;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
+import co.edu.uco.reservasrestaurante.data.entity.support.BooleanEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.IdentificacionClienteEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.NombreCompletoClienteEntity;
@@ -46,7 +47,7 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 			sentenciaPreparada.setString(4, entity.getHora());
 			sentenciaPreparada.setObject(5, entity.getMesa());
 			sentenciaPreparada.setInt(6, entity.getCantidadPersonas());
-			sentenciaPreparada.setBoolean(7, entity.isEstado());
+			sentenciaPreparada.setBoolean(7, entity.isEstado().isValor());
 			
 			sentenciaPreparada.executeUpdate();
 		} catch (final SQLException excepcion) {
@@ -74,7 +75,7 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 			sentenciaPreparada.setString(3, entity.getHora());
 			sentenciaPreparada.setInt(4, entity.getCantidadPersonas());
 			sentenciaPreparada.setObject(5, entity.getMesa());
-			sentenciaPreparada.setBoolean(6, entity.isEstado());
+			sentenciaPreparada.setBoolean(6, entity.isEstado().isValor());
 			sentenciaPreparada.setObject(7, entity.getId());
 			
 			sentenciaPreparada.executeUpdate();
@@ -174,24 +175,27 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 								IdentificacionClienteEntity.crear(TipoIdentificacionEntity.crear
 										(UUID.fromString((String) resultados.getObject("id")), 
 												resultados.getString("nombre"), 
-												resultados.getString("codigo"), resultados.getBoolean("estado")),
+												resultados.getString("codigo"), 
+												BooleanEntity.crear(resultados.getBoolean("estado"), false)),
 										resultados.getString("numeroIdentificacion")), 
 								NombreCompletoClienteEntity.crear(resultados.getString("primerNombre"),
 										resultados.getString("segundoNombre"), 
 										resultados.getString("primerApellido"), resultados.getString("segundoApellido")),
 								CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"),
-										resultados.getBoolean("correoElectronicoConfirmado"), resultados.getString("clave")),
+										BooleanEntity.crear(resultados.getBoolean("correoElectronicoConfirmado"), false),
+										resultados.getString("clave")),
 								resultados.getDate("fechaNacimiento"), PaisEntity.crear(UUID.fromString(
 										(String) resultados.getObject("id")), resultados.getString("nombre"),
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
-										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
+										BooleanEntity.crear(resultados.getBoolean("numeroCelularConfirmado"), false))),
+						resultados.getDate("fecha"),
 						resultados.getString("hora"), 
 						MesaEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
 								resultados.getInt("numero"), resultados.getString("ubicacion"), 
-								resultados.getInt("capacidad"), resultados.getBoolean("estado")), 
+								resultados.getInt("capacidad"), BooleanEntity.crear(resultados.getBoolean("estado"), false)), 
 						resultados.getInt("cantidadPersonas"),
-						resultados.getBoolean("estado"));
+						BooleanEntity.crear(resultados.getBoolean("estado"), false));
 				
 				resultado = Optional.of(reservaEntity);
 			}
@@ -220,14 +224,14 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().getId(), "id", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().getNombre(), "nombre", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().getCodigo(), "codigo", operadorCondicional, parametros, sentencia);
-	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().isEstado(), "estado", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getTipoIdentificacion().isEstado().isValor(), "estado", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getIdentificacion().getNumeroIdentificacion(), "numeroIdentificacion", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getNombreCompleto().getPrimerNombre(), "primerNombre", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getNombreCompleto().getSegundoNombre(), "segundoNombre", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getNombreCompleto().getPrimerApellido(), "primerApellido", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getNombreCompleto().getSegundoApellido(), "segundoApellido", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getCorreoElectronico().getCorreoElectronico(), "correoElectronico", operadorCondicional, parametros, sentencia);
-	    operadorCondicional = agregarCondiciones(entity.getCliente().getCorreoElectronico().isCorreoElectronicoConfirmado(), "correoElectronicoConfirmado", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getCorreoElectronico().isCorreoElectronicoConfirmado().isValor(), "correoElectronicoConfirmado", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getCorreoElectronico().getClave(), "clave", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getFechaNacimiento(), "fechaNacimiento", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getId(), "id", operadorCondicional, parametros, sentencia);
@@ -235,7 +239,7 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getCodigoIndicativo(), "codigoIndicativo", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getCodigoiso3(), "codigoiso3", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getNumeroCelular().getNumeroCelular(), "numeroCelular", operadorCondicional, parametros, sentencia);
-	    operadorCondicional = agregarCondiciones(entity.getCliente().getNumeroCelular().isNumeroCelularConfirmado(), "numeroCelularConfirmado", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getNumeroCelular().isNumeroCelularConfirmado().isValor(), "numeroCelularConfirmado", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getFecha(), "fecha", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getHora(), "hora", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getMesa(), "mesa", operadorCondicional, parametros, sentencia);
@@ -281,24 +285,27 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 								IdentificacionClienteEntity.crear(TipoIdentificacionEntity.crear
 										(UUID.fromString((String) resultados.getObject("id")), 
 												resultados.getString("nombre"), 
-												resultados.getString("codigo"), resultados.getBoolean("estado")),
+												resultados.getString("codigo"), 
+												BooleanEntity.crear(resultados.getBoolean("estado"), false)),
 										resultados.getString("numeroIdentificacion")), 
 								NombreCompletoClienteEntity.crear(resultados.getString("primerNombre"),
 										resultados.getString("segundoNombre"), 
 										resultados.getString("primerApellido"), resultados.getString("segundoApellido")),
 								CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"),
-										resultados.getBoolean("correoElectronicoConfirmado"), resultados.getString("clave")),
+										BooleanEntity.crear(resultados.getBoolean("correoElectronicoConfirmado"), false),
+										resultados.getString("clave")),
 								resultados.getDate("fechaNacimiento"), PaisEntity.crear(UUID.fromString(
 										(String) resultados.getObject("id")), resultados.getString("nombre"),
 										resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
 								NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"),
-										resultados.getBoolean("numeroCelularConfirmado"))), resultados.getDate("fecha"),
-						resultados.getString("hora"),
+										BooleanEntity.crear(resultados.getBoolean("numeroCelularConfirmado"), false))),
+						resultados.getDate("fecha"),
+						resultados.getString("hora"), 
 						MesaEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
 								resultados.getInt("numero"), resultados.getString("ubicacion"), 
-								resultados.getInt("capacidad"), resultados.getBoolean("estado")), 
+								resultados.getInt("capacidad"), BooleanEntity.crear(resultados.getBoolean("estado"), false)), 
 						resultados.getInt("cantidadPersonas"),
-						resultados.getBoolean("estado"));
+						BooleanEntity.crear(resultados.getBoolean("estado"), false));
 						
 				
 				listaResultados.add(reservaEntity);

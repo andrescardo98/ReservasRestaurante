@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import co.edu.uco.reservasrestaurante.service.domain.cliente.ClienteDomain;
 import co.edu.uco.reservasrestaurante.service.domain.mesa.MesaDomain;
+import co.edu.uco.reservasrestaurante.service.domain.support.BooleanDomain;
 
 
 public class ReservaDomain {
@@ -15,11 +16,11 @@ public class ReservaDomain {
 	private String hora;
 	private MesaDomain mesa;
 	private int cantidadPersonas;
-	private boolean estado;
+	private BooleanDomain estado;
 	
 	
 	private ReservaDomain(final UUID id, final ClienteDomain cliente, final Date fecha, final String hora, 
-			final MesaDomain mesa, final int cantidadPersonas, final boolean estado) {
+			final MesaDomain mesa, final int cantidadPersonas, final BooleanDomain estado) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
@@ -30,7 +31,7 @@ public class ReservaDomain {
 	}
 	
 	public static final ReservaDomain crear(final UUID id, final ClienteDomain cliente, final Date fecha, 
-			final String hora, final MesaDomain mesa, final int cantidadPersonas, final boolean estado) {
+			final String hora, final MesaDomain mesa, final int cantidadPersonas, final BooleanDomain estado) {
 		return new ReservaDomain(id, cliente, fecha, hora, mesa, cantidadPersonas, estado);
 	}
 
@@ -62,7 +63,7 @@ public class ReservaDomain {
 		return cantidadPersonas;
 	}
 	
-	public boolean isEstado() {
+	public BooleanDomain isEstado() {
 		return estado;
 	}
 
@@ -94,7 +95,7 @@ public class ReservaDomain {
 		this.cantidadPersonas = cantidadPersonas;
 	}
 	
-	private final void setEstado(final boolean estado) {
+	private final void setEstado(final BooleanDomain estado) {
 		this.estado = estado;
 	}
 }

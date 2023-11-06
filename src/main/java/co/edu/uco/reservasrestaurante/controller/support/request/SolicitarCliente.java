@@ -18,12 +18,12 @@ public class SolicitarCliente {
 	private String primerApellido;
 	private String segundoApellido;
 	private String correoElectronico;
-	private boolean correoElectronicoConfirmado;
+	private Boolean correoElectronicoConfirmado;
 	private String clave;
 	private Date fechaNacimiento;
 	private UUID pais;
 	private String numeroCelular;
-	private boolean numeroCelularConfirmado;
+	private Boolean numeroCelularConfirmado;
 	
 	public SolicitarCliente() {
 		setId(UtilUUID.UUID_DEFECTO);
@@ -44,8 +44,8 @@ public class SolicitarCliente {
 	
 	public SolicitarCliente(UUID id, UUID tipoIdentificacion, String identificacion, String primerNombre,
 			String segundoNombre, String primerApellido, String segundoApellido, String correoElectronico,
-			boolean correoElectronicoConfirmado, String clave, Date fechaNacimiento, UUID pais, String numeroCelular,
-			boolean numeroCelularConfirmado) {
+			Boolean correoElectronicoConfirmado, String clave, Date fechaNacimiento, UUID pais, String numeroCelular,
+			Boolean numeroCelularConfirmado) {
 		setId(id);
 		setTipoIdentificacion(tipoIdentificacion);
 		setIdentificacion(identificacion);
@@ -94,7 +94,7 @@ public class SolicitarCliente {
 		return correoElectronico;
 	}
 
-	public final boolean isCorreoElectronicoConfirmado() {
+	public final Boolean isCorreoElectronicoConfirmado() {
 		return correoElectronicoConfirmado;
 	}
 	
@@ -114,7 +114,7 @@ public class SolicitarCliente {
 		return numeroCelular;
 	}
 
-	public final boolean getNumeroCelularConfirmado() {
+	public final Boolean getNumeroCelularConfirmado() {
 		return numeroCelularConfirmado;
 	}
 
@@ -150,7 +150,7 @@ public class SolicitarCliente {
 		this.correoElectronico = correoElectronico;
 	}
 
-	public final void setCorreoElectronicoConfirmado(final boolean correoElectronicoConfirmado) {
+	public final void setCorreoElectronicoConfirmado(final Boolean correoElectronicoConfirmado) {
 		this.correoElectronicoConfirmado = correoElectronicoConfirmado;
 	}
 	

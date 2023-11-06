@@ -17,6 +17,7 @@ import co.edu.uco.reservasrestaurante.crosscutting.util.UtilUUID;
 import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
 import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
+import co.edu.uco.reservasrestaurante.data.entity.support.BooleanEntity;
 
 public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements TipoIdentificacionDAO {
 	
@@ -38,7 +39,7 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 			sentenciaPreparada.setObject(1, entity.getId());
 			sentenciaPreparada.setString(2, entity.getCodigo());
 			sentenciaPreparada.setString(3, entity.getNombre());
-			sentenciaPreparada.setBoolean(4, entity.isEstado());
+			sentenciaPreparada.setBoolean(4, entity.isEstado().isValor());
 			
 			sentenciaPreparada.executeUpdate();
 			
@@ -66,7 +67,7 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 			
 			sentenciaPreparada.setString(1, entity.getCodigo());
 			sentenciaPreparada.setString(2, entity.getNombre());
-			sentenciaPreparada.setBoolean(3, entity.isEstado());
+			sentenciaPreparada.setBoolean(3, entity.isEstado().isValor());
 			sentenciaPreparada.setObject(4, entity.getId());
 			
 			sentenciaPreparada.executeUpdate();
@@ -167,8 +168,10 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 		
 		try(final var resultados = sentenciaPreparada.executeQuery()) {
 			if (resultados.next()) {
-				var tipoIdentificacionEntity = TipoIdentificacionEntity.crear(UUID.fromString(resultados.getObject("id").toString()), 
-						resultados.getString("codigo"), resultados.getString("nombre"), resultados.getBoolean("estado"));
+				var tipoIdentificacionEntity = TipoIdentificacionEntity.crear(
+						UUID.fromString(resultados.getObject("id").toString()), 
+						resultados.getString("codigo"), resultados.getString("nombre"), 
+						BooleanEntity.crear(resultados.getBoolean("estado"), false));
 				
 				resultado = Optional.of(tipoIdentificacionEntity);
 			}
@@ -216,7 +219,7 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 			
 			if (!UtilObjeto.esNulo(entity.isEstado())) {
 				sentencia.append(operadorCondicional).append(" estado = ? ");
-				parametros.add(entity.isEstado());
+				parametros.add(entity.isEstado().isValor());
 			}	
 		}
 		sentencia.append("ORDER BY codigo ASC ");
@@ -245,8 +248,10 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 		
 		try(final var resultados = sentenciaPreparada.executeQuery()) {
 			while (resultados.next()) {
-				var tipoIdentificacionEntity = TipoIdentificacionEntity.crear(UUID.fromString(resultados.getObject("id").toString()), 
-						resultados.getString("codigo"), resultados.getString("nombre"), resultados.getBoolean("estado"));
+				var tipoIdentificacionEntity = TipoIdentificacionEntity.crear(
+						UUID.fromString(resultados.getObject("id").toString()), 
+						resultados.getString("codigo"), resultados.getString("nombre"),
+						BooleanEntity.crear(resultados.getBoolean("estado"), false));
 				
 				listaResultados.add(tipoIdentificacionEntity);
 			}

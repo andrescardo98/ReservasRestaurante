@@ -26,7 +26,8 @@ public final class MesaDTOMapper implements DTOMapper<MesaDTO, MesaDomain> {
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000092);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return MesaDomain.crear(dto.getId(), dto.getNumero(), dto.getUbicacion(), dto.getCapacidad(), dto.isEstado());
+		return MesaDomain.crear(dto.getId(), dto.getNumero(), dto.getUbicacion(), dto.getCapacidad(),
+				BooleanDTOMapper.convertToDomain(dto.isEstado()));
 	}
 
 	@Override
@@ -36,9 +37,8 @@ public final class MesaDTOMapper implements DTOMapper<MesaDTO, MesaDomain> {
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000093);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return MesaDTO.crear().setId(domain.getId()).setNumero(domain.getNumero()).
-				setUbicacion(domain.getUbicacion()).setCapacidad(domain.getCapacidad()).
-				setEstado(domain.isEstado());
+		return MesaDTO.crear().setId(domain.getId()).setNumero(domain.getNumero()).setUbicacion(domain.getUbicacion())
+				.setCapacidad(domain.getCapacidad()).setEstado(BooleanDTOMapper.convertToDTO(domain.isEstado()));
 	}
 
 	public static final MesaDomain convertToDomain(final MesaDTO dto) {

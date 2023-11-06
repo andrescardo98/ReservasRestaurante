@@ -10,6 +10,7 @@ import co.edu.uco.reservasrestaurante.data.dao.MesaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.service.businesslogic.UseCase;
 import co.edu.uco.reservasrestaurante.service.domain.mesa.MesaDomain;
+import co.edu.uco.reservasrestaurante.service.domain.support.BooleanDomain;
 import co.edu.uco.reservasrestaurante.service.mapper.entity.concrete.MesaEntityMapper;
 
 public class ModificarMesaUseCase implements UseCase<MesaDomain> {
@@ -34,7 +35,7 @@ public class ModificarMesaUseCase implements UseCase<MesaDomain> {
 	
 	private final void validarNoExistenciaMismoNumero(final int numero) {
 		
-		var domain = MesaDomain.crear(null, numero, null, 0, false);
+		var domain = MesaDomain.crear(null, numero, null, 0, BooleanDomain.crear(false, true));
 		var entity = MesaEntityMapper.convertToEntity(domain);
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		

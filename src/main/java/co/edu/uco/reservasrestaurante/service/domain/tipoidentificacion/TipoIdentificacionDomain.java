@@ -2,22 +2,24 @@ package co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion;
 
 import java.util.UUID;
 
+import co.edu.uco.reservasrestaurante.service.domain.support.BooleanDomain;
+
 public final class TipoIdentificacionDomain {
 	
 	private UUID id;
 	private String nombre;
 	private String codigo;
-	private boolean estado;
+	private BooleanDomain estado;
 	
 	
-	private TipoIdentificacionDomain(final UUID id, final String nombre, final String codigo, final boolean estado) {
+	private TipoIdentificacionDomain(final UUID id, final String nombre, final String codigo, final BooleanDomain estado) {
 		setId(id);
 		setCodigo(codigo);
 		setNombre(nombre);
 		setEstado(estado);
 	}
 
-	public static final TipoIdentificacionDomain crear(final UUID id, final String nombre, final String codigo, final boolean estado) {
+	public static final TipoIdentificacionDomain crear(final UUID id, final String nombre, final String codigo, final BooleanDomain estado) {
 		return new TipoIdentificacionDomain(id, nombre, codigo, estado);
 	}
 	
@@ -44,7 +46,7 @@ public final class TipoIdentificacionDomain {
 
 
 
-	public final boolean isEstado() {
+	public final BooleanDomain isEstado() {
 		return estado;
 	}
 
@@ -66,7 +68,7 @@ public final class TipoIdentificacionDomain {
 	}
 
 
-	private final void setEstado(final boolean estado) {
+	private final void setEstado(final BooleanDomain estado) {
 		this.estado = estado;
 	}
 

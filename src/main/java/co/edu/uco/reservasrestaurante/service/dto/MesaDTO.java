@@ -12,18 +12,18 @@ public final class MesaDTO {
 	private int numero;
 	private String ubicacion;
 	private int capacidad;
-	private boolean estado;
+	private BooleanDTO estado;
 	
 	public MesaDTO() {
 		setId(UtilUUID.generarUUIDVacio());
 		setNumero(UtilInt.DEFECTO_NUMERO);
 		setUbicacion(UtilTexto.VACIO);
 		setCapacidad(UtilInt.DEFECTO_NUMERO);
-		setEstado(false);
+		setEstado(new BooleanDTO());
 	}
 	
 	
-	public MesaDTO(final UUID id, final String ubicacion, final int capacidad, final boolean estado) {
+	public MesaDTO(final UUID id, final String ubicacion, final int capacidad, final BooleanDTO estado) {
 		setId(id);
 		setNumero(numero);
 		setUbicacion(ubicacion);
@@ -55,7 +55,7 @@ public final class MesaDTO {
 	}
 
 
-	public final boolean isEstado() {
+	public final BooleanDTO isEstado() {
 		return estado;
 	}
 
@@ -82,7 +82,7 @@ public final class MesaDTO {
 	}
 
 
-	public final MesaDTO setEstado(final boolean estado) {
+	public final MesaDTO setEstado(final BooleanDTO estado) {
 		this.estado = estado;
 		return this;
 	}

@@ -25,7 +25,8 @@ public final class NumeroCelularClienteEntityMapper implements EntityMapper<Nume
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return NumeroCelularClienteDomain.crear(entity.getNumeroCelular(), entity.isNumeroCelularConfirmado());
+		return NumeroCelularClienteDomain.crear(entity.getNumeroCelular(), 
+				BooleanEntityMapper.convertToDomain(entity.isNumeroCelularConfirmado()));
 	}
 
 	@Override
@@ -36,7 +37,8 @@ public final class NumeroCelularClienteEntityMapper implements EntityMapper<Nume
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return NumeroCelularClienteEntity.crear(domain.getNumeroCelular(), domain.isNumeroCelularConfirmado());
+		return NumeroCelularClienteEntity.crear(domain.getNumeroCelular(), 
+				BooleanEntityMapper.convertToEntity(domain.isNumeroCelularConfirmado()));
 	}
 	
 	public static final NumeroCelularClienteDomain convertToDomain(final NumeroCelularClienteEntity entity) {

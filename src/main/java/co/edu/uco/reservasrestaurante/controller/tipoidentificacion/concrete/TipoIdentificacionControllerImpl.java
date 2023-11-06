@@ -24,6 +24,7 @@ import co.edu.uco.reservasrestaurante.controller.tipoidentificacion.TipoIdentifi
 import co.edu.uco.reservasrestaurante.crosscutting.exception.ReservasRestauranteException;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
+import co.edu.uco.reservasrestaurante.service.dto.BooleanDTO;
 import co.edu.uco.reservasrestaurante.service.dto.TipoIdentificacionDTO;
 import co.edu.uco.reservasrestaurante.service.facade.concrete.tipoidentificacion.ConsultarTipoIdentificacionFacade;
 import co.edu.uco.reservasrestaurante.service.facade.concrete.tipoidentificacion.EliminarTipoIdentificacionFacade;
@@ -78,7 +79,7 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 			.setId(id)
 			.setNombre(request.getNombre())
 			.setCodigo(request.getCodigo())
-			.setEstado(false);
+			.setEstado(BooleanDTO.crear().setValor(request.isEstado()).setValorDefecto(false));
 			facade.execute(dto);
 			codigoHttp = HttpStatus.OK;
 			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000316));
@@ -100,7 +101,7 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 			@RequestParam(name = "id", required = false) UUID id,
 			@RequestParam(name = "nombre", required = false) String nombre,
 			@RequestParam(name = "codigo", required = false) String codigo,
-			@RequestParam(name = "estado", required = false) boolean estado) {
+			@RequestParam(name = "estado", required = false) Boolean estado) {
 		
 		final Respuesta<SolicitarTipoIdentificacion> respuesta = new Respuesta<>();
 		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
@@ -108,7 +109,7 @@ public final class TipoIdentificacionControllerImpl implements TipoIdentificacio
 				.setId(id)
 				.setNombre(nombre)
 				.setCodigo(codigo)
-				.setEstado(estado);
+				.setEstado(BooleanDTO.crear().setValor(estado != null && estado).setValorDefecto(estado == null));
 		try {
 			ConsultarTipoIdentificacionFacade facade = new ConsultarTipoIdentificacionFacade();
 			respuesta.setDatos(TipoIdentificacionResponse.convertListToResponse(facade.execute(dto)));

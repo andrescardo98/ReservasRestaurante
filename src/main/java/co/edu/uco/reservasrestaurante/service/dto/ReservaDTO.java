@@ -16,7 +16,7 @@ public class ReservaDTO {
 	private String hora;
 	private MesaDTO mesa;
 	private int cantidadPersonas;
-	private boolean estado;
+	private BooleanDTO estado;
 	
 	public ReservaDTO() {
 		setId(UtilUUID.generarUUIDVacio());
@@ -25,11 +25,11 @@ public class ReservaDTO {
 		setHora(UtilTexto.PATTERN_HORA);
 		setMesa(mesa);
 		setCantidadPersonas(cantidadPersonas);
-		setEstado(false);
+		setEstado(new BooleanDTO());
 	}
 	
 	public ReservaDTO(final UUID id, final ClienteDTO cliente, final Date fecha, final String hora, final MesaDTO mesa, 
-			final int cantidadPersonas, final boolean estado) {
+			final int cantidadPersonas, final BooleanDTO estado) {
 		setId(id);
 		setCliente(cliente);
 		setFecha(fecha);
@@ -73,7 +73,7 @@ public class ReservaDTO {
 	}
 
 
-	public final boolean isEstado() {
+	public final BooleanDTO isEstado() {
 		return estado;
 	}
 
@@ -112,8 +112,9 @@ public class ReservaDTO {
 	}
 
 
-	public final ReservaDTO setEstado(final boolean estado) {
-		this.estado = estado;
+	public final ReservaDTO setEstado(final BooleanDTO estado) {
+		this.estado = estado.isValorDefecto() ? new BooleanDTO() : new BooleanDTO().
+				setValor(estado.isValor()).setValorDefecto(false);
 		return this;
 	}
 }

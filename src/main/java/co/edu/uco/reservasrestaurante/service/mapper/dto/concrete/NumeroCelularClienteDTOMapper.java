@@ -26,7 +26,7 @@ public final class NumeroCelularClienteDTOMapper implements DTOMapper<NumeroCelu
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000092);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return NumeroCelularClienteDomain.crear(dto.getNumeroCelular(), dto.isNumeroCelularConfirmado());
+		return NumeroCelularClienteDomain.crear(dto.getNumeroCelular(), BooleanDTOMapper.convertToDomain(dto.isNumeroCelularConfirmado()));
 	}
 
 	@Override
@@ -36,7 +36,8 @@ public final class NumeroCelularClienteDTOMapper implements DTOMapper<NumeroCelu
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000093);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return NumeroCelularClienteDTO.crear(domain.getNumeroCelular(), domain.isNumeroCelularConfirmado());
+		return NumeroCelularClienteDTO.crear().setNumeroCelular(domain.getNumeroCelular()).
+				setNumeroCelularConfirmado(BooleanDTOMapper.convertToDTO(domain.isNumeroCelularConfirmado()));
 	}
 
 	public static final NumeroCelularClienteDomain convertToDomain(final NumeroCelularClienteDTO dto) {

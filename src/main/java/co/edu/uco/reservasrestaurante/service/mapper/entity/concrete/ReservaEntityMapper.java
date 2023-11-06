@@ -29,7 +29,7 @@ public final class ReservaEntityMapper implements EntityMapper<ReservaEntity, Re
 		 
 		return ReservaDomain.crear(entity.getId(), ClienteEntityMapper.convertToDomain(entity.getCliente()), 
 				entity.getFecha(), entity.getHora(), MesaEntityMapper.convertToDomain(entity.getMesa()), entity.getCantidadPersonas(),
-				entity.isEstado());
+				BooleanEntityMapper.convertToDomain(entity.isEstado()));
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public final class ReservaEntityMapper implements EntityMapper<ReservaEntity, Re
 		 
 		return ReservaEntity.crear(domain.getId(), ClienteEntityMapper.convertToEntity(domain.getCliente()), 
 				domain.getFecha(), domain.getHora(), MesaEntityMapper.convertToEntity(domain.getMesa()), domain.getCantidadPersonas(), 
-				domain.isEstado());
+				BooleanEntityMapper.convertToEntity(domain.isEstado()));
 	}
 	
 	public static final ReservaDomain convertToDomain(final ReservaEntity entity) {

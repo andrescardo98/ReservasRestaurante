@@ -2,16 +2,16 @@ package co.edu.uco.reservasrestaurante.data.entity.support;
 
 public final class NumeroCelularClienteEntity {
 	private String numeroCelular;
-	private boolean numeroCelularConfirmado;
+	private BooleanEntity numeroCelularConfirmado;
 	
 	
-	private NumeroCelularClienteEntity(final String numeroCelular, final boolean numeroCelularConfirmado) {
+	private NumeroCelularClienteEntity(final String numeroCelular, final BooleanEntity numeroCelularConfirmado) {
 		setNumeroCelular(numeroCelular);
 		setNumeroCelularConfirmado(numeroCelularConfirmado);
 	}
 
 	
-	public static final NumeroCelularClienteEntity crear(final String numeroCelular, final boolean numeroCelularConfirmado) {
+	public static final NumeroCelularClienteEntity crear(final String numeroCelular, final BooleanEntity numeroCelularConfirmado) {
 		return new NumeroCelularClienteEntity(numeroCelular, numeroCelularConfirmado);
 	}
 
@@ -21,7 +21,7 @@ public final class NumeroCelularClienteEntity {
 	}
 
 
-	public final boolean isNumeroCelularConfirmado() {
+	public final BooleanEntity isNumeroCelularConfirmado() {
 		return numeroCelularConfirmado;
 	}
 
@@ -31,7 +31,7 @@ public final class NumeroCelularClienteEntity {
 	}
 
 
-	private final void setNumeroCelularConfirmado(final boolean numeroCelularConfirmado) {
+	private final void setNumeroCelularConfirmado(final BooleanEntity numeroCelularConfirmado) {
 		this.numeroCelularConfirmado = numeroCelularConfirmado;
 	}
 	

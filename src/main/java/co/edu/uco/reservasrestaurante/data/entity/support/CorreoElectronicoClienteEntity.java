@@ -2,11 +2,11 @@ package co.edu.uco.reservasrestaurante.data.entity.support;
 
 public final class CorreoElectronicoClienteEntity {
 	private String correoElectronico;
-	private boolean correoElectronicoConfirmado;
+	private BooleanEntity correoElectronicoConfirmado;
 	private String clave;
 	
 	
-	private CorreoElectronicoClienteEntity(final String correoElectronico, final boolean correoElectronicoConfirmado, final String clave) {
+	private CorreoElectronicoClienteEntity(final String correoElectronico, final BooleanEntity correoElectronicoConfirmado, final String clave) {
 		setCorreoElectronico(correoElectronico);
 		setCorreoElectronicoConfirmado(correoElectronicoConfirmado);
 		setClave(clave);
@@ -14,7 +14,7 @@ public final class CorreoElectronicoClienteEntity {
 	
 	
 	public static final CorreoElectronicoClienteEntity crear(final String correoElectronico, 
-			final boolean correoElectronicoConfirmado, final String clave) {
+			final BooleanEntity correoElectronicoConfirmado, final String clave) {
 		return new CorreoElectronicoClienteEntity(correoElectronico, correoElectronicoConfirmado, clave);
 	}
 
@@ -28,7 +28,7 @@ public final class CorreoElectronicoClienteEntity {
 		return clave;
 	}
 
-	public final boolean isCorreoElectronicoConfirmado() {
+	public final BooleanEntity isCorreoElectronicoConfirmado() {
 		return correoElectronicoConfirmado;
 	}
 
@@ -37,7 +37,7 @@ public final class CorreoElectronicoClienteEntity {
 		this.correoElectronico = correoElectronico;
 	}
 
-	private final void setCorreoElectronicoConfirmado(final boolean correoElectronicoConfirmado) {
+	private final void setCorreoElectronicoConfirmado(final BooleanEntity correoElectronicoConfirmado) {
 		this.correoElectronicoConfirmado = correoElectronicoConfirmado;
 	}
 

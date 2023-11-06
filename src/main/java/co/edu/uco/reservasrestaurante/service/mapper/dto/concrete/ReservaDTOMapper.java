@@ -27,7 +27,8 @@ public final class ReservaDTOMapper implements DTOMapper<ReservaDTO, ReservaDoma
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		return ReservaDomain.crear(dto.getId(), ClienteDTOMapper.convertToDomain(dto.getCliente()), dto.getFecha(),
-				dto.getHora(), MesaDTOMapper.convertToDomain(dto.getMesa()), dto.getCantidadPersonas(), dto.isEstado());
+				dto.getHora(), MesaDTOMapper.convertToDomain(dto.getMesa()), dto.getCantidadPersonas(), 
+				BooleanDTOMapper.convertToDomain(dto.isEstado()));
 	}
 
 	@Override
@@ -37,9 +38,9 @@ public final class ReservaDTOMapper implements DTOMapper<ReservaDTO, ReservaDoma
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000195);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return ReservaDTO.crear().setId(domain.getId()).setCliente(ClienteDTOMapper.convertToDTO(domain.getCliente())).
-				setHora(domain.getHora()).setMesa(MesaDTOMapper.convertToDTO(domain.getMesa())).setCantidadPersonas(domain.getCantidadPersonas()).
-				setEstado(domain.isEstado());
+		return ReservaDTO.crear().setId(domain.getId()).setCliente(ClienteDTOMapper.convertToDTO(domain.getCliente()))
+				.setFecha(domain.getFecha()).setHora(domain.getHora()).setMesa(MesaDTOMapper.convertToDTO(domain.getMesa())).
+				setCantidadPersonas(domain.getCantidadPersonas()).setEstado(BooleanDTOMapper.convertToDTO(domain.isEstado()));
 	}
 
 	public static final ReservaDomain convertToDomain(final ReservaDTO dto) {

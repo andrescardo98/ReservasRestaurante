@@ -19,7 +19,7 @@ public class SolicitarTipoIdentificacion {
 	}
 	
 	
-	public SolicitarTipoIdentificacion(final UUID id, final String nombre, final String codigo, final boolean estado) {
+	public SolicitarTipoIdentificacion(final UUID id, final String nombre, final String codigo, final Boolean estado) {
 		setId(id);
 		setCodigo(codigo);
 		setNombre(nombre);
@@ -36,7 +36,7 @@ public class SolicitarTipoIdentificacion {
 	public final String getCodigo() {
 		return codigo;
 	}
-	public final boolean isEstado() {
+	public final Boolean isEstado() {
 		return estado;
 	}
 	
@@ -52,7 +52,7 @@ public class SolicitarTipoIdentificacion {
 		this.codigo = codigo;
 	}
 	
-	public final void setEstado(final boolean estado) {
+	public final void setEstado(final Boolean estado) {
 		this.estado = estado;
 	}
 	

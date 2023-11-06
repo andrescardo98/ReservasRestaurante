@@ -24,6 +24,7 @@ import co.edu.uco.reservasrestaurante.controller.support.response.Respuesta;
 import co.edu.uco.reservasrestaurante.crosscutting.exception.ReservasRestauranteException;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.reservasrestaurante.crosscutting.messages.enumerator.CodigoMensaje;
+import co.edu.uco.reservasrestaurante.service.dto.BooleanDTO;
 import co.edu.uco.reservasrestaurante.service.dto.ClienteDTO;
 import co.edu.uco.reservasrestaurante.service.dto.PaisDTO;
 import co.edu.uco.reservasrestaurante.service.dto.TipoIdentificacionDTO;
@@ -65,12 +66,12 @@ public class ClienteControllerImpl implements ClienteController{
 							setSegundoNombre(request.getSegundoNombre()).setPrimerApellido(request.getPrimerApellido()).
 							setSegundoApellido(request.getSegundoApellido()))
 					.setCorreoElectronico(CorreoElectronicoClienteDTO.crear().setCorreoElectronico(request.getCorreoElectronico())
-							.setCorreoElectronicoConfirmado(true))
+							.setCorreoElectronicoConfirmado(BooleanDTO.crear().setValor(false).setValorDefecto(true)))
 					.setFechaNacimiento(request.getFechaNacimiento()).
 					setPais(PaisDTO.crear().setId(request.getId()))
 					.setNumeroCelular(NumeroCelularClienteDTO.crear()
 							.setNumeroCelular(request.getNumeroCelular())
-							.setNumeroCelularConfirmado(true));
+							.setNumeroCelularConfirmado(BooleanDTO.crear().setValor(false).setValorDefecto(true)));
 			
 			facade.execute(dto);
 			codigoHttp = HttpStatus.OK;
@@ -105,11 +106,14 @@ public class ClienteControllerImpl implements ClienteController{
 							setSegundoApellido(request.getSegundoApellido())).
 					setCorreoElectronico(CorreoElectronicoClienteDTO.crear().
 							setCorreoElectronico(request.getCorreoElectronico()).
-							setCorreoElectronicoConfirmado(request.isCorreoElectronicoConfirmado()).setClave(request.getClave())).
+							setCorreoElectronicoConfirmado(BooleanDTO.crear().setValor(request.
+									isCorreoElectronicoConfirmado()).setValorDefecto(false)).
+							setClave(request.getClave())).
 					setFechaNacimiento(request.getFechaNacimiento()).
 					setPais(PaisDTO.crear().setId(request.getId())).setNumeroCelular(NumeroCelularClienteDTO.crear().
 							setNumeroCelular(request.getNumeroCelular()).
-							setNumeroCelularConfirmado(request.getNumeroCelularConfirmado()));
+							setNumeroCelularConfirmado(BooleanDTO.crear().setValor(request.isCorreoElectronicoConfirmado()).
+									setValorDefecto(false)));
 									
 			facade.execute(dto);
 			codigoHttp = HttpStatus.OK;
@@ -156,11 +160,16 @@ public class ClienteControllerImpl implements ClienteController{
 							setSegundoApellido(segundoApellido)).
 					setCorreoElectronico(CorreoElectronicoClienteDTO.crear().
 							setCorreoElectronico(correoElectronico).
-							setCorreoElectronicoConfirmado(correoElectronicoConfirmado).setClave(clave)).
+							setCorreoElectronicoConfirmado(BooleanDTO.crear().
+									setValor(correoElectronicoConfirmado != null ? correoElectronicoConfirmado 
+											: false).setValorDefecto(correoElectronicoConfirmado == null)).
+							setClave(clave)).
 					setFechaNacimiento(fechaNacimiento).
 					setPais(PaisDTO.crear().setId(id)).setNumeroCelular(NumeroCelularClienteDTO.crear().
 							setNumeroCelular(numeroCelular).
-							setNumeroCelularConfirmado(numeroCelularConfirmado));
+							setNumeroCelularConfirmado(BooleanDTO.crear().setValor(numeroCelularConfirmado != null ?
+									numeroCelularConfirmado : false).setValorDefecto(
+											numeroCelularConfirmado == null)));
 			
 			ConsultarClienteFacade facade = new ConsultarClienteFacade();
 			respuesta.setDatos(ClienteResponse.convertListToResponse(facade.execute(dto)));

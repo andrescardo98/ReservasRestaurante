@@ -1,17 +1,18 @@
 package co.edu.uco.reservasrestaurante.service.domain.support;
 
+
 public final class NumeroCelularClienteDomain {
 	private String numeroCelular;
-	private boolean numeroCelularConfirmado;
+	private BooleanDomain numeroCelularConfirmado;
 	
 	
-	private NumeroCelularClienteDomain(final String numeroCelular, final boolean numeroCelularConfirmado) {
+	private NumeroCelularClienteDomain(final String numeroCelular, final BooleanDomain numeroCelularConfirmado) {
 		setNumeroCelular(numeroCelular);
 		setNumeroCelularConfirmado(numeroCelularConfirmado);
 	}
 
 	
-	public static final NumeroCelularClienteDomain crear(final String numeroCelular, final boolean numeroCelularConfirmado) {
+	public static final NumeroCelularClienteDomain crear(final String numeroCelular, final BooleanDomain numeroCelularConfirmado) {
 		return new NumeroCelularClienteDomain(numeroCelular, numeroCelularConfirmado);
 	}
 
@@ -21,7 +22,7 @@ public final class NumeroCelularClienteDomain {
 	}
 
 
-	public final boolean isNumeroCelularConfirmado() {
+	public final BooleanDomain isNumeroCelularConfirmado() {
 		return numeroCelularConfirmado;
 	}
 
@@ -31,7 +32,7 @@ public final class NumeroCelularClienteDomain {
 	}
 
 
-	private final void setNumeroCelularConfirmado(final boolean numeroCelularConfirmado) {
+	private final void setNumeroCelularConfirmado(final BooleanDomain numeroCelularConfirmado) {
 		this.numeroCelularConfirmado = numeroCelularConfirmado;
 	}
 	

@@ -17,6 +17,7 @@ import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.ClienteEntity;
 import co.edu.uco.reservasrestaurante.data.entity.PaisEntity;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
+import co.edu.uco.reservasrestaurante.data.entity.support.BooleanEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.IdentificacionClienteEntity;
 import co.edu.uco.reservasrestaurante.data.entity.support.NombreCompletoClienteEntity;
@@ -180,16 +181,22 @@ public final class ClientePostgreSQLDAO extends SQLDAO implements ClienteDAO{
 		try(final var resultados = sentenciaPreparada.executeQuery()) {
 			if (resultados.next()) {
 				var clienteEntity = ClienteEntity.crear(UUID.fromString(resultados.getObject("id").toString()), 
-						IdentificacionClienteEntity.crear(TipoIdentificacionEntity.crear(UUID.fromString(resultados.getObject("id").toString()),
-								resultados.getString("nombre"), resultados.getString("codigo"), resultados.getBoolean("estado")),resultados.getString("numeroIdentificacion")),								
-						NombreCompletoClienteEntity.crear(resultados.getString("primerNombre"), resultados.getString("segundoNombre"), 
+						IdentificacionClienteEntity.crear(TipoIdentificacionEntity.crear(
+								UUID.fromString(resultados.getObject("id").toString()),
+								resultados.getString("nombre"), resultados.getString("codigo"), 
+								BooleanEntity.crear(resultados.getBoolean("estado"), false)),
+								resultados.getString("numeroIdentificacion")),								
+						NombreCompletoClienteEntity.crear(resultados.getString("primerNombre"), 
+								resultados.getString("segundoNombre"), 
 								resultados.getString("primerApellido"), resultados.getString("segundoApellido")),
-						CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"), resultados.getBoolean("correoElectronicoConfirmado"), resultados.getString("clave")),
+						CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"), 
+								BooleanEntity.crear(resultados.getBoolean("correoElectronicoConfirmado"), false), resultados.getString("clave")),
 						resultados.getDate("fechaNacimiento"), 
 						PaisEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
 								resultados.getString("nombre"), resultados.getString("codigoIndicativo"), 
 								resultados.getString("codigoIso3")),
-						NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"), resultados.getBoolean("numeroCelularConfirmado")));
+						NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"), 
+								BooleanEntity.crear(resultados.getBoolean("numeroCelularConfirmado"), false)));
 						
 				
 				resultado = Optional.of(clienteEntity);
@@ -240,10 +247,10 @@ public final class ClientePostgreSQLDAO extends SQLDAO implements ClienteDAO{
 						operadorCondicional = "AND";
 						parametros.add(entity.getIdentificacion().getTipoIdentificacion().getCodigo());
 					}
-					if (!UtilObjeto.esNulo(entity.getIdentificacion().getTipoIdentificacion().isEstado())) {
+					if (!UtilObjeto.esNulo(entity.getIdentificacion().getTipoIdentificacion().isEstado().isValorDefecto())) {
 						sentencia.append(operadorCondicional).append(" estado = ? ");
 						operadorCondicional = "AND";
-						parametros.add(entity.getIdentificacion().getTipoIdentificacion().isEstado());
+						parametros.add(entity.getIdentificacion().getTipoIdentificacion().isEstado().isValor());
 					}
 				if (!UtilObjeto.esNulo(entity.getIdentificacion().getNumeroIdentificacion())) {
 					sentencia.append(operadorCondicional).append(" numeroIdentificacion = ? ");
@@ -279,10 +286,10 @@ public final class ClientePostgreSQLDAO extends SQLDAO implements ClienteDAO{
 						operadorCondicional = "AND";
 						parametros.add(entity.getCorreoElectronico().getCorreoElectronico());
 					}
-					if (!UtilObjeto.esNulo(entity.getCorreoElectronico().isCorreoElectronicoConfirmado())) {
+					if (!UtilObjeto.esNulo(entity.getCorreoElectronico().isCorreoElectronicoConfirmado().isValorDefecto())) {
 						sentencia.append(operadorCondicional).append(" correoElectronicoConfirmado = ? ");
 						operadorCondicional = "AND";
-						parametros.add(entity.getCorreoElectronico().isCorreoElectronicoConfirmado());
+						parametros.add(entity.getCorreoElectronico().isCorreoElectronicoConfirmado().isValor());
 					}
 					if (!UtilObjeto.esNulo(entity.getCorreoElectronico().getClave())) {
 						sentencia.append(operadorCondicional).append(" clave = ? ");
@@ -306,10 +313,10 @@ public final class ClientePostgreSQLDAO extends SQLDAO implements ClienteDAO{
 						operadorCondicional = "AND";
 						parametros.add(entity.getNumeroCelular().getNumeroCelular());
 					}
-					if (!UtilObjeto.esNulo(entity.getNumeroCelular().isNumeroCelularConfirmado())) {
+					if (!UtilObjeto.esNulo(entity.getNumeroCelular().isNumeroCelularConfirmado().isValorDefecto())) {
 						sentencia.append(operadorCondicional).append(" numeroCelularConfirmado = ? ");
 						operadorCondicional = "AND";
-						parametros.add(entity.getNumeroCelular().isNumeroCelularConfirmado());
+						parametros.add(entity.getNumeroCelular().isNumeroCelularConfirmado().isValor());
 					}
 				}
 			}
@@ -342,15 +349,22 @@ public final class ClientePostgreSQLDAO extends SQLDAO implements ClienteDAO{
 		try(final var resultados = sentenciaPreparada.executeQuery()) {
 			while (resultados.next()) {
 				var clienteEntity = ClienteEntity.crear(UUID.fromString(resultados.getObject("id").toString()), 
-						IdentificacionClienteEntity.crear(TipoIdentificacionEntity.crear(UUID.fromString(resultados.getObject("id").toString()),
-								resultados.getString("nombre"), resultados.getString("codigo"), resultados.getBoolean("estado")),resultados.getString("numeroIdentificacion")),								
-						NombreCompletoClienteEntity.crear(resultados.getString("primerNombre"), resultados.getString("segundoNombre"), 
+						IdentificacionClienteEntity.crear(TipoIdentificacionEntity.crear(
+								UUID.fromString(resultados.getObject("id").toString()),
+								resultados.getString("nombre"), resultados.getString("codigo"), 
+								BooleanEntity.crear(resultados.getBoolean("estado"), false)),
+								resultados.getString("numeroIdentificacion")),								
+						NombreCompletoClienteEntity.crear(resultados.getString("primerNombre"), 
+								resultados.getString("segundoNombre"), 
 								resultados.getString("primerApellido"), resultados.getString("segundoApellido")),
-						CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"), resultados.getBoolean("correoElectronicoConfirmado"), resultados.getString("clave")),
+						CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"), 
+								BooleanEntity.crear(resultados.getBoolean("correoElectronicoConfirmado"), false), resultados.getString("clave")),
 						resultados.getDate("fechaNacimiento"), 
-						PaisEntity.crear(UUID.fromString((String) resultados.getObject("id")), resultados.getString("nombre"), resultados.getString("codigoIndicativo"), resultados.getString("codigoIso3")),
-						NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"), resultados.getBoolean("numeroCelularConfirmado")));
-						
+						PaisEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
+								resultados.getString("nombre"), resultados.getString("codigoIndicativo"), 
+								resultados.getString("codigoIso3")),
+						NumeroCelularClienteEntity.crear(resultados.getString("numeroCelular"), 
+								BooleanEntity.crear(resultados.getBoolean("numeroCelularConfirmado"), false)));
 				
 				listaResultados.add(clienteEntity);
 			}

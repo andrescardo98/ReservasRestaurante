@@ -10,6 +10,7 @@ import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.service.businesslogic.UseCase;
 import co.edu.uco.reservasrestaurante.service.businesslogic.validator.concrete.tipoidentificacion.ModificarTipoIdentificacionValidator;
+import co.edu.uco.reservasrestaurante.service.domain.support.BooleanDomain;
 import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.reservasrestaurante.service.mapper.entity.concrete.TipoIdentificacionEntityMapper;
 
@@ -46,26 +47,24 @@ public class ModificarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 	
 	private final void validarNoExistenciaTipoIdentificacionConMismoNombre(final String nombre) {
 		
-		//TODO: ¿Cómo lograr que esto no quede tan feo?
-		var domain = TipoIdentificacionDomain.crear(null, nombre, null, false);
+		var domain = TipoIdentificacionDomain.crear(null, nombre, null, BooleanDomain.crear(false, true));
 		var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = "Ya existe un tipo de identificación con el nombre " + nombre;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000330) + nombre;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
 	
 	private final void validarNoExistenciaTipoIdentificacionConMismoCodigo(final String codigo) {
 		
-		//TODO: ¿Cómo lograr que esto no quede tan feo?
-		var domain = TipoIdentificacionDomain.crear(null, null, codigo, false);
+		var domain = TipoIdentificacionDomain.crear(null, null, codigo, BooleanDomain.crear(false, true));
 		var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = "Ya existe un tipo de identificación con el codigo " + codigo;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000331) + codigo;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}

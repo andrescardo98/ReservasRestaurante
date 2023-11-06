@@ -25,7 +25,8 @@ public final class CorreoElectronicoClienteEntityMapper implements EntityMapper<
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return CorreoElectronicoClienteDomain.crear(entity.getCorreoElectronico(), entity.isCorreoElectronicoConfirmado(),
+		return CorreoElectronicoClienteDomain.crear(entity.getCorreoElectronico(), 
+				BooleanEntityMapper.convertToDomain(entity.isCorreoElectronicoConfirmado()),
 				entity.getClave());
 	}
 
@@ -37,7 +38,8 @@ public final class CorreoElectronicoClienteEntityMapper implements EntityMapper<
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return CorreoElectronicoClienteEntity.crear(domain.getCorreoElectronico(), domain.isCorreoElectronicoConfirmado(), domain.getClave());
+		return CorreoElectronicoClienteEntity.crear(domain.getCorreoElectronico(), 
+				BooleanEntityMapper.convertToEntity(domain.isCorreoElectronicoConfirmado()), domain.getClave());
 	}
 	
 	public static final CorreoElectronicoClienteDomain convertToDomain(final CorreoElectronicoClienteEntity entity) {

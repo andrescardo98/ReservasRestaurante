@@ -26,7 +26,8 @@ public final class CorreoElectronicoClienteDTOMapper implements DTOMapper<Correo
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000092);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return CorreoElectronicoClienteDomain.crear(dto.getCorreoElectronico(), dto.isCorreoElectronicoConfirmado(),
+		return CorreoElectronicoClienteDomain.crear(dto.getCorreoElectronico(), 
+				BooleanDTOMapper.convertToDomain(dto.isCorreoElectronicoConfirmado()) ,
 				dto.getClave());
 	}
 
@@ -37,8 +38,9 @@ public final class CorreoElectronicoClienteDTOMapper implements DTOMapper<Correo
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000093);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return CorreoElectronicoClienteDTO.crear(domain.getCorreoElectronico(), 
-				domain.isCorreoElectronicoConfirmado(), domain.getClave());
+		return CorreoElectronicoClienteDTO.crear().setCorreoElectronico(domain.getCorreoElectronico())
+				.setCorreoElectronicoConfirmado(BooleanDTOMapper.convertToDTO(domain.isCorreoElectronicoConfirmado()))
+				.setClave(domain.getClave());
 	}
 
 	public static final CorreoElectronicoClienteDomain convertToDomain(final CorreoElectronicoClienteDTO dto) {

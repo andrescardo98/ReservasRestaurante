@@ -13,9 +13,9 @@ public class ClienteResponse {
 				dto.getIdentificacion().getNumeroIdentificacion(), dto.getNombreCompleto().getPrimerNombre(),
 				dto.getNombreCompleto().getSegundoNombre(), dto.getNombreCompleto().getPrimerApellido(),
 				dto.getNombreCompleto().getSegundoApellido(), dto.getCorreoElectronico().getCorreoElectronico(),
-				dto.getCorreoElectronico().isCorreoElectronicoConfirmado(), dto.getCorreoElectronico().getClave(),
+				dto.getCorreoElectronico().isCorreoElectronicoConfirmado().isValor(), dto.getCorreoElectronico().getClave(),
 				dto.getFechaNacimiento(), dto.getPais().getId(), dto.getNumeroCelular().getNumeroCelular(),
-				dto.getNumeroCelular().isNumeroCelularConfirmado());
+				dto.getNumeroCelular().isNumeroCelularConfirmado().isValor());
 	}
 	
 	public static final List<SolicitarCliente> convertListToResponse(List<ClienteDTO> dto){

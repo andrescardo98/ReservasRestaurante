@@ -29,7 +29,7 @@ public final class TipoIdentificacionEntityMapper implements EntityMapper<TipoId
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return TipoIdentificacionDomain.crear(entity.getId(), entity.getCodigo(), entity.getNombre(),entity.isEstado());
+		return TipoIdentificacionDomain.crear(entity.getId(), entity.getCodigo(), entity.getNombre(),BooleanEntityMapper.convertToDomain(entity.isEstado()));
 	}
 
 	@Override
@@ -40,7 +40,8 @@ public final class TipoIdentificacionEntityMapper implements EntityMapper<TipoId
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return TipoIdentificacionEntity.crear(domain.getId(), domain.getCodigo(), domain.getNombre(), domain.isEstado());
+		return TipoIdentificacionEntity.crear(domain.getId(), domain.getNombre(), domain.getCodigo(), 
+				BooleanEntityMapper.convertToEntity(domain.isEstado()));
 	}
 	
 	public static final TipoIdentificacionDomain convertToDomain(final TipoIdentificacionEntity entity) {

@@ -11,6 +11,7 @@ import co.edu.uco.reservasrestaurante.data.dao.TipoIdentificacionDAO;
 import co.edu.uco.reservasrestaurante.data.dao.daofactory.DAOFactory;
 import co.edu.uco.reservasrestaurante.data.entity.TipoIdentificacionEntity;
 import co.edu.uco.reservasrestaurante.service.businesslogic.UseCase;
+import co.edu.uco.reservasrestaurante.service.domain.support.BooleanDomain;
 import co.edu.uco.reservasrestaurante.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.reservasrestaurante.service.mapper.entity.concrete.TipoIdentificacionEntityMapper;
 
@@ -38,7 +39,7 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 	
 	private final void validarNoExistenciaTipoIdentificacionConMismoNombre(final String nombre) {
 		
-		var domain = TipoIdentificacionDomain.crear(null, nombre, null, false);
+		var domain = TipoIdentificacionDomain.crear(null, nombre, null, BooleanDomain.crear(false, true));
 		var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		
@@ -50,7 +51,7 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 	
 	private final void validarNoExistenciaTipoIdentificacionConMismoCodigo(final String codigo) {
 		
-		var domain = TipoIdentificacionDomain.crear(null, null, codigo, false);
+		var domain = TipoIdentificacionDomain.crear(null, null, codigo, BooleanDomain.crear(false, true));
 		var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		

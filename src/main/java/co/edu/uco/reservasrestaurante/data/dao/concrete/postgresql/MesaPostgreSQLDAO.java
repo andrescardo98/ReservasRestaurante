@@ -16,6 +16,7 @@ import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
 import co.edu.uco.reservasrestaurante.data.dao.MesaDAO;
 import co.edu.uco.reservasrestaurante.data.dao.base.SQLDAO;
 import co.edu.uco.reservasrestaurante.data.entity.MesaEntity;
+import co.edu.uco.reservasrestaurante.data.entity.support.BooleanEntity;
 
 public final class MesaPostgreSQLDAO extends SQLDAO implements MesaDAO {
 	
@@ -38,7 +39,7 @@ public final class MesaPostgreSQLDAO extends SQLDAO implements MesaDAO {
 			sentenciaPreparada.setInt(2, entity.getNumero());
 			sentenciaPreparada.setString(3, entity.getUbicacion());
 			sentenciaPreparada.setInt(4, entity.getCapacidad());
-			sentenciaPreparada.setBoolean(5, entity.isEstado());
+			sentenciaPreparada.setBoolean(5, entity.isEstado().isValor());
 			
 			sentenciaPreparada.executeUpdate();
 			
@@ -67,7 +68,7 @@ public final class MesaPostgreSQLDAO extends SQLDAO implements MesaDAO {
 			sentenciaPreparada.setInt(1, entity.getNumero());
 			sentenciaPreparada.setString(2, entity.getUbicacion());
 			sentenciaPreparada.setInt(3, entity.getCapacidad());
-			sentenciaPreparada.setBoolean(4, entity.isEstado());
+			sentenciaPreparada.setBoolean(4, entity.isEstado().isValor());
 			sentenciaPreparada.setObject(5, entity.getId());
 			
 			sentenciaPreparada.executeUpdate();
@@ -170,7 +171,7 @@ public final class MesaPostgreSQLDAO extends SQLDAO implements MesaDAO {
 			if (resultados.next()) {
 				var mesaEntity = MesaEntity.crear(UUID.fromString((String) resultados.getObject("id")),
 						resultados.getInt("numero"), resultados.getString("ubicacion"), resultados.getInt("capacidad"),
-						resultados.getBoolean("estado"));
+						BooleanEntity.crear(resultados.getBoolean("estado"), false));
 				
 				resultado = Optional.of(mesaEntity);
 			}
@@ -221,9 +222,9 @@ public final class MesaPostgreSQLDAO extends SQLDAO implements MesaDAO {
 				parametros.add(entity.getCapacidad());
 			}
 			
-			if (!UtilObjeto.esNulo(entity.isEstado())) {
+			if (!UtilObjeto.esNulo(entity.isEstado().isValorDefecto())) {
 				sentencia.append(operadorCondicional).append(" estado = ? ");
-				parametros.add(entity.isEstado());
+				parametros.add(entity.isEstado().isValor());
 			}	
 		}
 		sentencia.append("ORDER BY codigo ASC ");
@@ -254,7 +255,7 @@ public final class MesaPostgreSQLDAO extends SQLDAO implements MesaDAO {
 			while (resultados.next()) {
 				var mesaEntity = MesaEntity.crear(UUID.fromString((String) resultados.getObject("id")),
 						resultados.getInt("numero"), resultados.getString("ubicacion"), resultados.getInt("capacidad"),
-						resultados.getBoolean("estado"));
+						BooleanEntity.crear(resultados.getBoolean("estado"), false));
 				
 				listaResultados.add(mesaEntity);
 			}

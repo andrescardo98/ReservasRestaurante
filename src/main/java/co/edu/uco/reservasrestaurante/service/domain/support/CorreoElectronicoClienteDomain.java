@@ -1,12 +1,13 @@
 package co.edu.uco.reservasrestaurante.service.domain.support;
 
+
 public final class CorreoElectronicoClienteDomain {
 	private String correoElectronico;
-	private boolean correoElectronicoConfirmado;
+	private BooleanDomain correoElectronicoConfirmado;
 	private String clave;
 	
 	
-	private CorreoElectronicoClienteDomain(final String correoElectronico, final boolean correoElectronicoConfirmado, final String clave) {
+	private CorreoElectronicoClienteDomain(final String correoElectronico, final BooleanDomain correoElectronicoConfirmado, final String clave) {
 		setCorreoElectronico(correoElectronico);
 		setCorreoElectronicoConfirmado(correoElectronicoConfirmado);
 		setClave(clave);
@@ -14,7 +15,7 @@ public final class CorreoElectronicoClienteDomain {
 	
 	
 	public static final CorreoElectronicoClienteDomain crear(final String correoElectronico, 
-			final boolean correoElectronicoConfirmado, final String clave) {
+			final BooleanDomain correoElectronicoConfirmado, final String clave) {
 		return new CorreoElectronicoClienteDomain(correoElectronico, correoElectronicoConfirmado, clave);
 	}
 
@@ -28,7 +29,7 @@ public final class CorreoElectronicoClienteDomain {
 		return clave;
 	}
 
-	public final boolean isCorreoElectronicoConfirmado() {
+	public final BooleanDomain isCorreoElectronicoConfirmado() {
 		return correoElectronicoConfirmado;
 	}
 
@@ -37,7 +38,7 @@ public final class CorreoElectronicoClienteDomain {
 		this.correoElectronico = correoElectronico;
 	}
 
-	private final void setCorreoElectronicoConfirmado(final boolean correoElectronicoConfirmado) {
+	private final void setCorreoElectronicoConfirmado(final BooleanDomain correoElectronicoConfirmado) {
 		this.correoElectronicoConfirmado = correoElectronicoConfirmado;
 	}
 

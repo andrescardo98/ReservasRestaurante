@@ -1,20 +1,21 @@
 package co.edu.uco.reservasrestaurante.service.dto.support;
 
 import co.edu.uco.reservasrestaurante.crosscutting.util.UtilTexto;
+import co.edu.uco.reservasrestaurante.service.dto.BooleanDTO;
 
 public class CorreoElectronicoClienteDTO {
 	
 	private String correoElectronico;
-	private boolean correoElectronicoConfirmado;
+	private BooleanDTO correoElectronicoConfirmado;
 	private String clave;
 	
 	public CorreoElectronicoClienteDTO() {
 		setCorreoElectronico(UtilTexto.VACIO);
-		setCorreoElectronicoConfirmado(correoElectronicoConfirmado);
+		setCorreoElectronicoConfirmado(new BooleanDTO());
 		setClave(UtilTexto.VACIO);
 	}
 	
-	public CorreoElectronicoClienteDTO(final String correoElectronico, final boolean correoElectronicoConfirmado, final String clave) {
+	public CorreoElectronicoClienteDTO(final String correoElectronico, final BooleanDTO correoElectronicoConfirmado, final String clave) {
 		setCorreoElectronico(correoElectronico);
 		setCorreoElectronicoConfirmado(correoElectronicoConfirmado);
 		setClave(clave);
@@ -25,7 +26,7 @@ public class CorreoElectronicoClienteDTO {
 	}
 	
 	public static final CorreoElectronicoClienteDTO crear(final String correoElectronico, 
-			final boolean correoElectronicoConfirmado, final String clave) {
+			final BooleanDTO correoElectronicoConfirmado, final String clave) {
 		return new CorreoElectronicoClienteDTO(correoElectronico, correoElectronicoConfirmado, clave);
 	}
 
@@ -39,7 +40,7 @@ public class CorreoElectronicoClienteDTO {
 		return clave;
 	}
 
-	public final boolean isCorreoElectronicoConfirmado() {
+	public final BooleanDTO isCorreoElectronicoConfirmado() {
 		return correoElectronicoConfirmado;
 	}
 
@@ -49,8 +50,9 @@ public class CorreoElectronicoClienteDTO {
 		return this;
 	}
 
-	public final CorreoElectronicoClienteDTO setCorreoElectronicoConfirmado(final boolean correoElectronicoConfirmado) {
-		this.correoElectronicoConfirmado = correoElectronicoConfirmado;
+	public final CorreoElectronicoClienteDTO setCorreoElectronicoConfirmado(final BooleanDTO correoElectronicoConfirmado) {
+		this.correoElectronicoConfirmado = correoElectronicoConfirmado.isValorDefecto() ? new BooleanDTO():
+			new BooleanDTO().setValor(correoElectronicoConfirmado.isValor()).setValorDefecto(false);
 		return this;
 	}
 
