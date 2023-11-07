@@ -93,7 +93,8 @@ public final class PaisControllerImpl implements PaisController{
 
 	@Override
 	@GetMapping
-	public ResponseEntity<Respuesta<SolicitarPais>> consultar(@RequestParam(name = "id", required = false) UUID id,
+	public ResponseEntity<Respuesta<SolicitarPais>> consultar(
+			@RequestParam(name = "id", required = false) UUID id,
 			@RequestParam(name = "nombre", required = false) String nombre,
 			@RequestParam(name = "codigoIndicativo", required = false) String codigoIndicativo,
 			@RequestParam(name = "codigoISO3", required = false) String codigoIso3) {

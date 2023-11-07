@@ -1,5 +1,7 @@
 package co.edu.uco.reservasrestaurante.crosscutting.messages;
 
+
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -627,11 +629,11 @@ public final class CatalogoMensajes {
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000173, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"El nombre del país solo puede contener letras, digitos y espacios internos"));
 		
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000171, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000332, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"La longitud del código indicativo del país no es válida. La logitud mínima es de 2 caracteres y la "
 				+ "longitud máxima son 6 caracteres"));
 		
-		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000172, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
+		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000333, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"El código indicativo del país es un dato obligatorio..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000327, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
@@ -642,10 +644,10 @@ public final class CatalogoMensajes {
 				"La longitud del código ISO 3 del país no es válida. La logitud máxima son 3 caracteres"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000175, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
-				"El nombre del país es un dato obligatorio..."));
+				"El código ISO 3 del país es un dato obligatorio..."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000176, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
-				"El nombre del país solo puede contener letras en mayúscula"));
+				"El código ISO 3 del país solo puede contener letras en mayúscula"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000177, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"El número de identificación del cliente es un dato obligatorio..."));

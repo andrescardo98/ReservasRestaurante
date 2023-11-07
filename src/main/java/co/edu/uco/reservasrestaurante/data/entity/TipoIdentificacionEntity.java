@@ -13,10 +13,9 @@ public final class TipoIdentificacionEntity {
 	
 	
 	private TipoIdentificacionEntity(final UUID id, final String nombre, final String codigo, final BooleanEntity estado) {
-		super();
 		setId(id);
-		setCodigo(codigo);
 		setNombre(nombre);
+		setCodigo(codigo);
 		setEstado(estado);
 	}
 

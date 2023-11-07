@@ -13,16 +13,16 @@ public class SolicitarTipoIdentificacion {
 	
 	public SolicitarTipoIdentificacion() {
 		setId(UtilUUID.generarUUIDVacio());
-		setCodigo(UtilTexto.VACIO);
 		setNombre(UtilTexto.VACIO);
+		setCodigo(UtilTexto.VACIO);
 		setEstado(false);
 	}
 	
 	
 	public SolicitarTipoIdentificacion(final UUID id, final String nombre, final String codigo, final Boolean estado) {
 		setId(id);
-		setCodigo(codigo);
-		setNombre(nombre);
+		setNombre(codigo);
+		setCodigo(nombre);
 		setEstado(estado);
 	}
 	

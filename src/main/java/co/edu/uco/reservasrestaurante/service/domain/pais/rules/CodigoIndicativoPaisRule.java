@@ -27,14 +27,14 @@ private static final Rule<String> instancia = new CodigoIndicativoPaisRule();
 	
 	private final void validarLongitud(final String dato) {
 		if (!UtilTexto.longitudValida(dato, 2, 6)) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000171);
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000332);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
 	
 	private final void validarObligatoriedad(final String dato) {
 		if (UtilTexto.estaVacio(dato)) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000172);
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000333);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}

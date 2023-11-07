@@ -16,6 +16,7 @@ public final class CodigoTipoIdentificacionRule implements Rule<String> {
 	
 	public static final void ejecutarValidacion(final String dato) {
 		instancia.validar(dato);
+
 	}
 	
 	@Override

@@ -29,7 +29,8 @@ public final class TipoIdentificacionEntityMapper implements EntityMapper<TipoId
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return TipoIdentificacionDomain.crear(entity.getId(), entity.getCodigo(), entity.getNombre(),BooleanEntityMapper.convertToDomain(entity.isEstado()));
+		return TipoIdentificacionDomain.crear(entity.getId(), entity.getNombre(), entity.getCodigo(),
+				BooleanEntityMapper.convertToDomain(entity.isEstado()));
 	}
 
 	@Override

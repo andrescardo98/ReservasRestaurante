@@ -14,8 +14,8 @@ public final class TipoIdentificacionDomain {
 	
 	private TipoIdentificacionDomain(final UUID id, final String nombre, final String codigo, final BooleanDomain estado) {
 		setId(id);
-		setCodigo(codigo);
 		setNombre(nombre);
+		setCodigo(codigo);
 		setEstado(estado);
 	}
 

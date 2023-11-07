@@ -31,8 +31,8 @@ public class UtilUUID {
 		return uuidIgual(uuid, UUID_DEFECTO);
 	}
 	
-	public static final UUID obtenerValorDefecto(final UUID valor, final UUID valorDefecto) {
-		return UtilObjeto.obtenerValorDefecto(valor, valorDefecto);
+	public static final UUID obtenerValorDefecto(final UUID uuid, final UUID valorDefecto) {
+		return esNulo(uuid) ? valorDefecto : uuid;
 	}
 	
 	public static final UUID obtenerValorDefecto(final UUID valor) {
@@ -43,4 +43,7 @@ public class UtilUUID {
 		return UUID_DEFECTO;
 	}
 
+	public static final boolean esNulo(final UUID uuid) {
+		return (uuid == null) || (uuid == UUID_DEFECTO);
+	}
 }

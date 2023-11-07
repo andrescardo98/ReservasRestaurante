@@ -21,8 +21,8 @@ public final class TipoIdentificacionDTO {
 	
 	public TipoIdentificacionDTO(final UUID id, final String nombre, final String codigo, final BooleanDTO estado) {
 		setId(id);
-		setCodigo(codigo);
 		setNombre(nombre);
+		setCodigo(codigo);
 		setEstado(estado);
 	}
 	

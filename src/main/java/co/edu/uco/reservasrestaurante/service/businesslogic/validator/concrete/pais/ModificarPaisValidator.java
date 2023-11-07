@@ -24,9 +24,9 @@ public class ModificarPaisValidator implements Validator<PaisDomain>{
 	public void execute(PaisDomain data) {
 		PaisClienteRule.ejecutarValidacion(data);
 		IdPaisRule.ejecutarValidacion(data.getId());
+		NombrePaisRule.ejecutarValidacion(data.getNombre());
 		CodigoIndicativoPaisRule.ejecutarValidacion(data.getCodigoIndicativo());
 		CodigoISO3PaisRule.ejecutarValidacion(data.getCodigoiso3());
-		NombrePaisRule.ejecutarValidacion(data.getNombre());
 	}
 
 }

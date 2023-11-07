@@ -34,7 +34,7 @@ private static final Rule<String> instancia = new NombrePaisRule();
 	
 	private final void validarObligatoriedad(final String dato) {
 		if (UtilTexto.estaVacio(dato)) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000172);
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000175);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
