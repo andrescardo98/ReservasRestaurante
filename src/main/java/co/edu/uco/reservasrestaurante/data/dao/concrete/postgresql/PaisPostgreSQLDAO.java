@@ -117,7 +117,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 		Optional<PaisEntity> resultado = Optional.empty();
 		
 		try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString())) {
-			
+
 			sentenciaPreparada.setObject(1, id);
 			resultado = ejecutarConsultaPorId(sentenciaPreparada);
 			
@@ -132,12 +132,12 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000107);
 			throw DataReservasRestauranteException.crear(excepcion, mensajeUsuario, mensajeTecnico);
 		}
-		
 		return resultado;
 	}
 
 	@Override
 	public final List<PaisEntity> consultar(final PaisEntity entity) {
+		//System.out.println(entity.getId());
 		final var parametros = new ArrayList<Object>();
 		final String sentencia = formarSentenciaConsulta(entity, parametros);
 		

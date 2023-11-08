@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ import co.edu.uco.reservasrestaurante.service.facade.concrete.pais.EliminarPaisF
 import co.edu.uco.reservasrestaurante.service.facade.concrete.pais.ModificarPaisFacade;
 import co.edu.uco.reservasrestaurante.service.facade.concrete.pais.RegistrarPaisFacade;
 
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RestController
 @RequestMapping("/api/v1/pais")
 public final class PaisControllerImpl implements PaisController{
@@ -76,7 +78,7 @@ public final class PaisControllerImpl implements PaisController{
 			.setId(id)
 			.setNombre(request.getNombre())
 			.setCodigoIndicativo(request.getCodigoIndicativo())
-			.setCodigoiso3(request.getCodigoiso3());
+			.setCodigoIso3(request.getcodigoIso3());
 			facade.execute(dto);
 			codigoHttp = HttpStatus.OK;
 			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000323));
@@ -96,8 +98,8 @@ public final class PaisControllerImpl implements PaisController{
 	public ResponseEntity<Respuesta<SolicitarPais>> consultar(
 			@RequestParam(name = "id", required = false) UUID id,
 			@RequestParam(name = "nombre", required = false) String nombre,
-			@RequestParam(name = "codigoIndicativo", required = false) String codigoIndicativo,
-			@RequestParam(name = "codigoISO3", required = false) String codigoIso3) {
+			@RequestParam(name = "codigo_indicativo", required = false) String codigoIndicativo,
+			@RequestParam(name = "codigo_iso3", required = false) String codigoIso3) {
 		
 		final Respuesta<SolicitarPais> respuesta = new Respuesta<>();
 		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;
@@ -105,7 +107,7 @@ public final class PaisControllerImpl implements PaisController{
 		var dto = PaisDTO.crear().setId(id).
 				setNombre(nombre).
 				setCodigoIndicativo(codigoIndicativo).
-				setCodigoiso3(codigoIso3);
+				setCodigoIso3(codigoIso3);
 		
 		try {
 			ConsultarPaisFacade facade = new ConsultarPaisFacade();
@@ -124,7 +126,7 @@ public final class PaisControllerImpl implements PaisController{
 	}
 
 
-	@Override
+	@Override	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Respuesta<SolicitarPais>> eliminar(@PathVariable("id") UUID id) {
 		final Respuesta<SolicitarPais> respuesta = new Respuesta<>();

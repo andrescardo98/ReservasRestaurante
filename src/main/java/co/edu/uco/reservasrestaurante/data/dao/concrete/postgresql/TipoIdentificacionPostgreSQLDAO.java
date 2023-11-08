@@ -140,7 +140,6 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 
 	@Override
 	public final List<TipoIdentificacionEntity> consultar(final TipoIdentificacionEntity entity) {
-		
 		final var parametros = new ArrayList<Object>();
 		final String sentencia = formarSentenciaConsulta(entity, parametros);
 		

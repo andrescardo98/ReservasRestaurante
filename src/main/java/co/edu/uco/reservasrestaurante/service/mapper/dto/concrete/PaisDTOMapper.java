@@ -26,7 +26,7 @@ public final class PaisDTOMapper implements DTOMapper<PaisDTO, PaisDomain>{
 			var mensajeTecnico = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000195);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		return PaisDomain.crear(dto.getId(), dto.getNombre(), dto.getCodigoIndicativo(), dto.getCodigoiso3());
+		return PaisDomain.crear(dto.getId(), dto.getNombre(), dto.getCodigoIndicativo(), dto.getCodigoIso3());
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public final class PaisDTOMapper implements DTOMapper<PaisDTO, PaisDomain>{
 		return PaisDTO.crear().setId(domain.getId()).
 				setNombre(domain.getNombre()).
 				setCodigoIndicativo(domain.getCodigoIndicativo()).
-				setCodigoiso3(domain.getCodigoiso3());
+				setCodigoIso3(domain.getCodigoiso3());
 	}
 
 	public static final PaisDomain convertToDomain(final PaisDTO dto) {

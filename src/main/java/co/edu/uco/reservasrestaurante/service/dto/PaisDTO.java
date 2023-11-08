@@ -10,20 +10,20 @@ public class PaisDTO {
 	private UUID id;
 	private String nombre;
 	private String codigoIndicativo;
-	private String codigoiso3;
+	private String codigoIso3;
 	
 	public PaisDTO() {
 		setId(UtilUUID.generarUUIDVacio());
 		setNombre(UtilTexto.VACIO);
 		setCodigoIndicativo(UtilTexto.VACIO);
-		setCodigoiso3(UtilTexto.VACIO);
+		setCodigoIso3(UtilTexto.VACIO);
 	}
 	
-	public PaisDTO(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3) {
+	public PaisDTO(final UUID id, final String nombre, final String codigoIndicativo, final String codigoIso3) {
 		setId(id);
 		setNombre(nombre);
 		setCodigoIndicativo(codigoIndicativo);
-		setCodigoiso3(codigoiso3);
+		setCodigoIso3(codigoIso3);
 	}
 	
 	public static final PaisDTO crear() {
@@ -40,8 +40,8 @@ public class PaisDTO {
 	public final String getCodigoIndicativo() {
 		return codigoIndicativo;
 	}
-	public final String getCodigoiso3() {
-		return codigoiso3;
+	public final String getCodigoIso3() {
+		return codigoIso3;
 	}
 	
 	
@@ -58,8 +58,8 @@ public class PaisDTO {
 				UtilTexto.VACIO);
 		return this;
 	}
-	public final PaisDTO setCodigoiso3(final String codigoiso3) {
-		this.codigoiso3 = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(codigoiso3), 
+	public final PaisDTO setCodigoIso3(final String codigoIso3) {
+		this.codigoIso3 = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(codigoIso3), 
 				UtilTexto.VACIO);
 		return this;
 	}

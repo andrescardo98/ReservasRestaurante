@@ -9,7 +9,7 @@ import co.edu.uco.reservasrestaurante.service.dto.PaisDTO;
 public class PaisResponse {
 
 	public static final SolicitarPais convertToResponse(PaisDTO dto) {
-		return new SolicitarPais(dto.getId(),dto.getNombre(),dto.getCodigoIndicativo(),dto.getCodigoiso3());
+		return new SolicitarPais(dto.getId(),dto.getNombre(),dto.getCodigoIndicativo(),dto.getCodigoIso3());
 	}
 	
 	public static final List<SolicitarPais> convertListToResponse(List<PaisDTO> dto){
