@@ -4,7 +4,7 @@ public final class UtilTexto {
 	
 	public static final String VACIO = "";
 	public static final String PATTERN_SOLO_LETRAS = "^[A-Za-záéíóúÁÉÍÓÚ]+$";
-	public static final String PATTERN_SOLO_LETRAS_DIGITOS_ESPACIOS = "^[0-9A-Za-záéíóúÁÉÍÓÚ ]+$";
+	public static final String PATTERN_SOLO_LETRAS_DIGITOS_ESPACIOS = "^[0-9A-Za-záéíóúñÑÁÉÍÓÚ ]+$";
 	public static final String PATTERN_CLAVE = "^[A-Za-z0-9\\\\s#\\\\-\\\\/]+$";
 	public static final String PATTERN_CODIGO_INDICATIVO = "^\\+\\d+$";
 	public static final String PATTERN_CODIGO_ISO3 = "^[A-Z]+$";
