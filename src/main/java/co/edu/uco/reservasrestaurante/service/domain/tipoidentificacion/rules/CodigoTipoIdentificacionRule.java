@@ -27,7 +27,7 @@ public final class CodigoTipoIdentificacionRule implements Rule<String> {
 	}
 	
 	private final void validarLongitud(final String dato) {
-		if (!UtilTexto.longitudMaximaValida(dato, 50)) {
+		if (!UtilTexto.longitudMaximaValida(dato, 5)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000072);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}

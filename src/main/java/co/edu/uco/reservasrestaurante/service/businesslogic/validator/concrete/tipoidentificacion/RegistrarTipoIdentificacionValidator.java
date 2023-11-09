@@ -21,8 +21,8 @@ public final class RegistrarTipoIdentificacionValidator implements Validator<Tip
 	@Override
 	public final void execute(final TipoIdentificacionDomain data) {
 		TipoIdentificacionRule.ejecutarValidacion(data);
-		CodigoTipoIdentificacionRule.ejecutarValidacion(data.getCodigo());
 		NombreTipoIdentificacionRule.ejecutarValidacion(data.getNombre());
+		CodigoTipoIdentificacionRule.ejecutarValidacion(data.getCodigo());
 		
 	}
 

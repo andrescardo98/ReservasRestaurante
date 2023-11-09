@@ -13,8 +13,8 @@ public final class TipoIdentificacionDTO {
 	
 	public TipoIdentificacionDTO() {
 		setId(UtilUUID.generarUUIDVacio());
-		setCodigo(UtilTexto.VACIO);
 		setNombre(UtilTexto.VACIO);
+		setCodigo(UtilTexto.VACIO);
 		setEstado(new BooleanDTO());
 	}
 	

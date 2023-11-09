@@ -279,7 +279,7 @@ public final class CatalogoMensajes {
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000072, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"La longitud del código del tipo de identificación no es válida. La logitud máxima "
-						+ "son 50 caracteres "));
+						+ "son 5 caracteres "));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000073, TipoMensaje.USUARIO, CategoriaMensaje.ERROR, 
 				"El código del tipo de identificación es un dato obligatorio..."));

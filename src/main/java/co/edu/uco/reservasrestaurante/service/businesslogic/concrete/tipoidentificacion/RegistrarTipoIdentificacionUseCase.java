@@ -44,7 +44,7 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000310) + nombre;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000310) + " " + nombre;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
@@ -56,7 +56,7 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000310) + codigo;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000311) + " " + codigo;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
