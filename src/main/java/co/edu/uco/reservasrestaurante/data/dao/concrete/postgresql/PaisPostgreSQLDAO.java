@@ -37,7 +37,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 			sentenciaPreparada.setObject(1, entity.getId());
 			sentenciaPreparada.setString(2, entity.getNombre());
 			sentenciaPreparada.setString(3, entity.getCodigoIndicativo());
-			sentenciaPreparada.setString(4, entity.getCodigoiso3());
+			sentenciaPreparada.setString(4, entity.getCodigoIso3());
 			
 			sentenciaPreparada.executeUpdate();
 			
@@ -65,7 +65,7 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 			
 			sentenciaPreparada.setString(1, entity.getNombre());
 			sentenciaPreparada.setString(2, entity.getCodigoIndicativo());
-			sentenciaPreparada.setString(3, entity.getCodigoiso3());
+			sentenciaPreparada.setString(3, entity.getCodigoIso3());
 			sentenciaPreparada.setObject(4, entity.getId());
 			
 			sentenciaPreparada.executeUpdate();
@@ -137,7 +137,6 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 
 	@Override
 	public final List<PaisEntity> consultar(final PaisEntity entity) {
-		//System.out.println(entity.getId());
 		final var parametros = new ArrayList<Object>();
 		final String sentencia = formarSentenciaConsulta(entity, parametros);
 		
@@ -211,9 +210,9 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 				parametros.add(entity.getCodigoIndicativo());
 			}
 			
-			if (!UtilObjeto.esNulo(entity.getCodigoiso3())) {
+			if (!UtilObjeto.esNulo(entity.getCodigoIso3())) {
 				sentencia.append(operadorCondicional).append(" codigo_iso3 = ? ");
-				parametros.add(entity.getCodigoiso3());
+				parametros.add(entity.getCodigoIso3());
 			}
 		}
 		sentencia.append("ORDER BY codigo_indicativo ASC ");
@@ -239,11 +238,12 @@ public class PaisPostgreSQLDAO extends SQLDAO implements PaisDAO {
 	private final List<PaisEntity> ejecutarConsulta(final PreparedStatement sentenciaPreparada){
 		
 		final var listaResultados = new ArrayList<PaisEntity>();
-		
 		try(final var resultados = sentenciaPreparada.executeQuery()) {
 			while (resultados.next()) {
-				var paisEntity = PaisEntity.crear(UUID.fromString((String) resultados.getObject("id")), 
-						resultados.getString("nombre"), resultados.getString("codigo_indicativo"), resultados.getString("codigo_iso3"));
+				var paisEntity = PaisEntity.
+						crear(UUID.fromString(resultados.getObject("id").toString()), 
+						resultados.getString("nombre"), resultados.getString("codigo_indicativo"),
+						resultados.getString("codigo_iso3"));
 				
 				listaResultados.add(paisEntity);
 			}

@@ -28,7 +28,7 @@ public class RegistrarPaisUseCase implements UseCase<PaisDomain>{
 		RegistrarPaisValidator.ejecutar(domain);
 		validarNoExistenciaMismoNombre(domain.getNombre());
 		validarNoExistenciaMismoCodigoIndicativo(domain.getCodigoIndicativo());
-		validarNoExistenciaMismoCodigoIso3(domain.getCodigoiso3());
+		validarNoExistenciaMismoCodigoIso3(domain.getCodigoIso3());
 		domain = obtenerIdentificadorPais(domain);
 		registrar(domain);
 	}
@@ -45,7 +45,7 @@ public class RegistrarPaisUseCase implements UseCase<PaisDomain>{
 		var resultados = getPaisDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000306) + nombre;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000306) + " " + nombre;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
@@ -56,7 +56,7 @@ public class RegistrarPaisUseCase implements UseCase<PaisDomain>{
 		var resultados = getPaisDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000307) + codigoIndicativo;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000307) + " " + codigoIndicativo;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
@@ -67,7 +67,7 @@ public class RegistrarPaisUseCase implements UseCase<PaisDomain>{
 		var resultados = getPaisDAO().consultar(entity);
 		
 		if (!resultados.isEmpty()) {
-			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000308) + codigoIso3;
+			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000308) + " " + codigoIso3;
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}
@@ -81,7 +81,7 @@ public class RegistrarPaisUseCase implements UseCase<PaisDomain>{
 			optional = getPaisDAO().consultarPorId(uuid);
 		}while(optional.isPresent());
 		
-		return PaisDomain.crear(uuid, domain.getNombre(), domain.getCodigoIndicativo(), domain.getCodigoiso3());
+		return PaisDomain.crear(uuid, domain.getNombre(), domain.getCodigoIndicativo(), domain.getCodigoIso3());
 	}
 	
 	private final PaisDAO getPaisDAO() {

@@ -39,7 +39,7 @@ public final class PaisDTOMapper implements DTOMapper<PaisDTO, PaisDomain>{
 		return PaisDTO.crear().setId(domain.getId()).
 				setNombre(domain.getNombre()).
 				setCodigoIndicativo(domain.getCodigoIndicativo()).
-				setCodigoIso3(domain.getCodigoiso3());
+				setCodigoIso3(domain.getCodigoIso3());
 	}
 
 	public static final PaisDomain convertToDomain(final PaisDTO dto) {

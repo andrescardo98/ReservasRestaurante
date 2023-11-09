@@ -28,7 +28,7 @@ public final class CorreoElectronicoClienteRule implements Rule<String>{
 
 	
 	private final void validarLongitud(final String dato) {
-		if (!UtilTexto.longitudValida(dato, 30, 250)) {
+		if (!UtilTexto.longitudValida(dato, 10, 250)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000157);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}

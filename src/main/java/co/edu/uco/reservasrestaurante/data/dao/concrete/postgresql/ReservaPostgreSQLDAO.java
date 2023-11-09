@@ -237,7 +237,7 @@ public final class ReservaPostgreSQLDAO extends SQLDAO implements ReservaDAO{
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getId(), "id", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getNombre(), "nombre", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getCodigoIndicativo(), "codigoIndicativo", operadorCondicional, parametros, sentencia);
-	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getCodigoiso3(), "codigoiso3", operadorCondicional, parametros, sentencia);
+	    operadorCondicional = agregarCondiciones(entity.getCliente().getPais().getCodigoIso3(), "codigoiso3", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getNumeroCelular().getNumeroCelular(), "numeroCelular", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getCliente().getNumeroCelular().isNumeroCelularConfirmado().isValor(), "numeroCelularConfirmado", operadorCondicional, parametros, sentencia);
 	    operadorCondicional = agregarCondiciones(entity.getFecha(), "fecha", operadorCondicional, parametros, sentencia);

@@ -27,7 +27,7 @@ public class ModificarPaisUseCase implements UseCase<PaisDomain>{
 		validarRegistroExistente(domain.getId());
 		validarNoExistenciaMismoNombre(domain.getNombre());
 		validarNoExistenciaMismoCodigoIndicativo(domain.getCodigoIndicativo());
-		validarNoExistenciaMismoCodigoIso3(domain.getCodigoiso3());
+		validarNoExistenciaMismoCodigoIso3(domain.getCodigoIso3());
 		actualizar(domain);
 	}
 

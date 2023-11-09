@@ -78,7 +78,7 @@ public final class PaisControllerImpl implements PaisController{
 			.setId(id)
 			.setNombre(request.getNombre())
 			.setCodigoIndicativo(request.getCodigoIndicativo())
-			.setCodigoIso3(request.getcodigoIso3());
+			.setCodigoIso3(request.getCodigoIso3());
 			facade.execute(dto);
 			codigoHttp = HttpStatus.OK;
 			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000323));
@@ -98,8 +98,8 @@ public final class PaisControllerImpl implements PaisController{
 	public ResponseEntity<Respuesta<SolicitarPais>> consultar(
 			@RequestParam(name = "id", required = false) UUID id,
 			@RequestParam(name = "nombre", required = false) String nombre,
-			@RequestParam(name = "codigo_indicativo", required = false) String codigoIndicativo,
-			@RequestParam(name = "codigo_iso3", required = false) String codigoIso3) {
+			@RequestParam(name = "codigoIndicativo", required = false) String codigoIndicativo,
+			@RequestParam(name = "getCodigoIso3", required = false) String codigoIso3) {
 		
 		final Respuesta<SolicitarPais> respuesta = new Respuesta<>();
 		HttpStatus codigoHttp = HttpStatus.BAD_REQUEST;

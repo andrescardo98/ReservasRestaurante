@@ -16,14 +16,14 @@ public class SolicitarPais {
 		setId(UtilUUID.generarUUIDVacio());
 		setNombre(UtilTexto.VACIO);
 		setCodigoIndicativo(UtilTexto.VACIO);
-		setcodigoIso3(UtilTexto.VACIO);
+		setCodigoIso3(UtilTexto.VACIO);
 	}
 	
 	public SolicitarPais(final UUID id, final String nombre, final String codigoIndicativo, final String codigoIso3) {
 		setId(id);
 		setNombre(nombre);
 		setCodigoIndicativo(codigoIndicativo);
-		setcodigoIso3(codigoIso3);
+		setCodigoIso3(codigoIso3);
 	}
 	
 	public final UUID getId() {
@@ -35,7 +35,7 @@ public class SolicitarPais {
 	public final String getCodigoIndicativo() {
 		return codigoIndicativo;
 	}
-	public final String getcodigoIso3() {
+	public final String getCodigoIso3() {
 		return codigoIso3;
 	}
 	
@@ -52,7 +52,7 @@ public class SolicitarPais {
 		this.codigoIndicativo = codigoIndicativo;
 	}
 	
-	public final void setcodigoIso3(final String codigoIso3) {
+	public final void setCodigoIso3(final String codigoIso3) {
 		this.codigoIso3 = codigoIso3;
 	}
 	

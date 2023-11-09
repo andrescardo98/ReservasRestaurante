@@ -23,7 +23,7 @@ public class RegistrarPaisValidator implements Validator<PaisDomain>{
 	public void execute(PaisDomain data) {
 		PaisClienteRule.ejecutarValidacion(data);
 		CodigoIndicativoPaisRule.ejecutarValidacion(data.getCodigoIndicativo());
-		CodigoISO3PaisRule.ejecutarValidacion(data.getCodigoiso3());
+		CodigoISO3PaisRule.ejecutarValidacion(data.getCodigoIso3());
 		NombrePaisRule.ejecutarValidacion(data.getNombre());
 	}
 

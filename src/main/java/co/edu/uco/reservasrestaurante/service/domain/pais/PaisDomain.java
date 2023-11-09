@@ -7,18 +7,18 @@ public final class PaisDomain {
 	private UUID id;
 	private String nombre;
 	private String codigoIndicativo;
-	private String codigoiso3;
+	private String codigoIso3;
 	
-	private PaisDomain(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3) {
+	private PaisDomain(final UUID id, final String nombre, final String codigoIndicativo, final String codigoIso3) {
 		super();
 		setId(id);
 		setNombre(nombre);
 		setCodigoIndicativo(codigoIndicativo);
-		setCodigoiso3(codigoiso3);
+		setCodigoIso3(codigoIso3);
 	}
 	
-	public static final PaisDomain crear(final UUID id, final String nombre, final String codigoIndicativo, final String codigoiso3) {
-		return new PaisDomain(id, nombre, codigoIndicativo, codigoiso3);
+	public static final PaisDomain crear(final UUID id, final String nombre, final String codigoIndicativo, final String codigoIso3) {
+		return new PaisDomain(id, nombre, codigoIndicativo, codigoIso3);
 	}
 	
 
@@ -34,8 +34,8 @@ public final class PaisDomain {
 		return codigoIndicativo;
 	}
 
-	public final String getCodigoiso3() {
-		return codigoiso3;
+	public final String getCodigoIso3() {
+		return codigoIso3;
 	}
 
 	private final void setId(final UUID id) {
@@ -50,8 +50,8 @@ public final class PaisDomain {
 		this.codigoIndicativo = codigoIndicativo;
 	}
 
-	private final void setCodigoiso3(final String codigoiso3) {
-		this.codigoiso3 = codigoiso3;
+	private final void setCodigoIso3(final String codigoIso3) {
+		this.codigoIso3 = codigoIso3;
 	}
 	
 

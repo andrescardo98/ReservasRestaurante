@@ -43,8 +43,8 @@ public interface PaisController {
 	ResponseEntity<Respuesta<SolicitarPais>> consultar(
 			@RequestParam(name = "id", required = false) UUID id,
 			@RequestParam(name = "nombre", required = false) String nombre,
-			@RequestParam(name = "codigo_indicativo", required = false) String codigoIndicativo,
-			@RequestParam(name = "codigo_iso3", required = false) String codigoIso3);
+			@RequestParam(name = "codigoIndicativo", required = false) String codigoIndicativo,
+			@RequestParam(name = "codigoIso3", required = false) String codigoIso3);
 	
 
 	@Operation(summary = "Eliminar país", description = "Servicio encargado de eliminar de forma definitiva un país")

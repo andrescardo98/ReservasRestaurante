@@ -60,14 +60,23 @@ public class ClienteControllerImpl implements ClienteController{
 		
 		try {
 			RegistrarClienteFacade facade = new RegistrarClienteFacade();
-			var dto = ClienteDTO.crear().
-					setIdentificacion(IdentificacionClienteDTO.crear().
-							setTipoIdentificacion(TipoIdentificacionDTO.crear().setId(request.getId())))
-					.setNombreCompleto(NombreCompletoClienteDTO.crear().setPrimerNombre(request.getPrimerNombre()).
-							setSegundoNombre(request.getSegundoNombre()).setPrimerApellido(request.getPrimerApellido()).
-							setSegundoApellido(request.getSegundoApellido()))
-					.setCorreoElectronico(CorreoElectronicoClienteDTO.crear().setCorreoElectronico(request.getCorreoElectronico())
-							.setCorreoElectronicoConfirmado(BooleanDTO.crear().setValor(false).setValorDefecto(true)))
+			var tipoIdenficacionDTO = TipoIdentificacionDTO.crear().setId(request.getTipoIdentificacion());
+			var identificacionClienteDTO = IdentificacionClienteDTO.crear().setNumeroIdentificacion(request.getIdentificacion())
+					.setTipoIdentificacion(tipoIdenficacionDTO);
+			var correoElectronicoDTO = CorreoElectronicoClienteDTO.crear()
+					.setCorreoElectronico(request.getCorreoElectronico()).setClave(request.getClave())
+					.setCorreoElectronicoConfirmado(BooleanDTO.crear().setValor(false).setValorDefecto(true));
+
+			var nombreCompletoDTO = NombreCompletoClienteDTO.crear()
+					.setPrimerNombre(request.getPrimerNombre())
+					.setSegundoNombre(request.getSegundoNombre())
+					.setPrimerApellido(request.getPrimerApellido())
+					.setSegundoApellido(request.getSegundoApellido());
+		
+		
+			var dto = ClienteDTO.crear().setIdentificacion(identificacionClienteDTO)
+					.setNombreCompleto(nombreCompletoDTO)
+					.setCorreoElectronico(correoElectronicoDTO)
 					.setFechaNacimiento(request.getFechaNacimiento()).
 					setPais(PaisDTO.crear().setId(request.getId()))
 					.setNumeroCelular(NumeroCelularClienteDTO.crear()

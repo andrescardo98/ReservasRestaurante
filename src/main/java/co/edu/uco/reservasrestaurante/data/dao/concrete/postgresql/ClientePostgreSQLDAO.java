@@ -219,7 +219,7 @@ public final class ClientePostgreSQLDAO extends SQLDAO implements ClienteDAO{
 		final var sentencia = new StringBuilder();
 		String operadorCondicional = "WHERE ";
 		
-		sentencia.append("SELECT id, identificacion, nombreCompleto, correoElectronico, fechaNacimiento, pais, numeroCelular ");
+		sentencia.append("SELECT * ");
 		sentencia.append("FROM Cliente ");
 		
 		if (!UtilObjeto.esNulo(entity)) {

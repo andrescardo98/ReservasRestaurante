@@ -27,7 +27,7 @@ public final class PaisClienteEntityMapper implements EntityMapper<PaisEntity, P
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return PaisDomain.crear(entity.getId(),entity.getNombre(),entity.getCodigoIndicativo(),entity.getCodigoiso3());
+		return PaisDomain.crear(entity.getId(),entity.getNombre(),entity.getCodigoIndicativo(),entity.getCodigoIso3());
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public final class PaisClienteEntityMapper implements EntityMapper<PaisEntity, P
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return PaisEntity.crear(domain.getId(), domain.getNombre(), domain.getCodigoIndicativo(), domain.getCodigoiso3());
+		return PaisEntity.crear(domain.getId(), domain.getNombre(), domain.getCodigoIndicativo(), domain.getCodigoIso3());
 	}
 	
 	public static final PaisDomain convertToDomain(final PaisEntity entity) {
