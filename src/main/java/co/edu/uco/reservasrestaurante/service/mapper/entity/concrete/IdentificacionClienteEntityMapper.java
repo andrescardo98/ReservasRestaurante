@@ -25,7 +25,8 @@ public final class IdentificacionClienteEntityMapper implements EntityMapper<Ide
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return IdentificacionClienteDomain.crear(null, null);
+		return IdentificacionClienteDomain.crear(TipoIdentificacionEntityMapper.convertToDomain(entity.getTipoIdentificacion()), 
+				entity.getNumeroIdentificacion());
 	}
 
 	@Override
@@ -36,7 +37,8 @@ public final class IdentificacionClienteEntityMapper implements EntityMapper<Ide
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		 
-		return IdentificacionClienteEntity.crear(null, null);
+		return IdentificacionClienteEntity.crear(TipoIdentificacionEntityMapper.convertToEntity(domain.getTipoIdentificacion()), 
+				domain.getNumeroIdentificacion());
 	}
 	
 	public static final IdentificacionClienteDomain convertToDomain(final IdentificacionClienteEntity entity) {

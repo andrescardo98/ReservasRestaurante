@@ -9,6 +9,10 @@ public final class PaisEntity {
 	private String codigoIndicativo;
 	private String codigoIso3;
 	
+	private PaisEntity(final UUID id) {
+		setId(id);
+	}
+	
 	private PaisEntity(final UUID id, final String nombre, final String codigoIndicativo, final String codigoIso3) {
 		super();
 		setId(id);
@@ -19,6 +23,10 @@ public final class PaisEntity {
 	
 	public static final PaisEntity crear(final UUID id, final String nombre, final String codigoIndicativo, final String codigoIso3) {
 		return new PaisEntity(id, nombre, codigoIndicativo, codigoIso3);
+	}
+	
+	public static final PaisEntity crear(final UUID id) {
+		return new PaisEntity(id);
 	}
 	
 

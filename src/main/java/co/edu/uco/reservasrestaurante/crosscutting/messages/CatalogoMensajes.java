@@ -489,16 +489,16 @@ public final class CatalogoMensajes {
 				+ "mappear un Cliente entity a partir de un dominio de Cliente domain nulo."));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000130, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede registrar el cliente. Ya existe un tipo cliente con ese nombre completo registrado"));
+				"No se puede registrar el cliente. Ya existe un cliente con ese nombre completo registrado"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000131, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede registrar el cliente. Ya existe un tipo cliente con el correo electronico registrado"));
+				"No se puede registrar el cliente. Ya existe un cliente con el correo electronico registrado"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000132, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede registrar el cliente. Ya existe un tipo cliente con el número de celular registrado"));
+				"No se puede registrar el cliente. Ya existe un cliente con el número de celular registrado"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000133, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede registrar el cliente. Ya existe un tipo cliente con el tipo de identificación e "
+				"No se puede registrar el cliente. Ya existe un cliente con el tipo de identificación e "
 				+ "identificación registrado"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000134, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
@@ -512,16 +512,16 @@ public final class CatalogoMensajes {
 				"No existe un cliente existente a modificar"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000137, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede modificar el cliente. Ya existe un tipo cliente con ese nombre completo a modificar"));
+				"No se puede modificar el cliente. Ya existe un cliente con ese nombre completo a modificar"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000138, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede modificar el cliente. Ya existe un tipo cliente con el correo electronico a modificar"));
+				"No se puede modificar el cliente. Ya existe un cliente con el correo electronico a modificar"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000139, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede modificar el cliente. Ya existe un tipo cliente con el número de celular a modificar"));
+				"No se puede modificar el cliente. Ya existe un cliente con el número de celular a modificar"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000140, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,
-				"No se puede modificar el cliente. Ya existe un tipo cliente con el tipo de identificación e "
+				"No se puede modificar el cliente. Ya existe un cliente con el tipo de identificación e "
 				+ "identificación a modificar"));
 		
 		agregarMensaje(Mensaje.crear(CodigoMensaje.M00000141, TipoMensaje.USUARIO, CategoriaMensaje.ERROR,

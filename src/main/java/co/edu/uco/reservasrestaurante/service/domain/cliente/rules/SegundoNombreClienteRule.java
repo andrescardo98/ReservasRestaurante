@@ -33,7 +33,7 @@ public final class SegundoNombreClienteRule implements Rule<String>{
 	}
 	
 	private final void validarFormato(final String dato) {
-		if (!UtilTexto.contieneSoloLetrasDigitosEspacios(dato)) {
+		if ((!UtilTexto.contieneSoloLetrasDigitosEspacios(dato)) && (!dato.isEmpty())) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000150);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}

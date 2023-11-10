@@ -77,8 +77,8 @@ public class ClienteControllerImpl implements ClienteController{
 			var dto = ClienteDTO.crear().setIdentificacion(identificacionClienteDTO)
 					.setNombreCompleto(nombreCompletoDTO)
 					.setCorreoElectronico(correoElectronicoDTO)
-					.setFechaNacimiento(request.getFechaNacimiento()).
-					setPais(PaisDTO.crear().setId(request.getId()))
+					.setFechaNacimiento(request.getFechaNacimiento())
+					.setPais(PaisDTO.crear().setId(request.getPais()))
 					.setNumeroCelular(NumeroCelularClienteDTO.crear()
 							.setNumeroCelular(request.getNumeroCelular())
 							.setNumeroCelularConfirmado(BooleanDTO.crear().setValor(false).setValorDefecto(true)));

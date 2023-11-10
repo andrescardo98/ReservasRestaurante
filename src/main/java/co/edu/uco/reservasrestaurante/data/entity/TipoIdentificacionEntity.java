@@ -11,6 +11,10 @@ public final class TipoIdentificacionEntity {
 	private String codigo;
 	private BooleanEntity estado;
 	
+	private TipoIdentificacionEntity(final UUID id) {
+		setId(id);
+	}
+	
 	
 	private TipoIdentificacionEntity(final UUID id, final String nombre, final String codigo, final BooleanEntity estado) {
 		setId(id);
@@ -21,6 +25,10 @@ public final class TipoIdentificacionEntity {
 
 	public static final TipoIdentificacionEntity crear(final UUID id, final String nombre, final String codigo, final BooleanEntity estado) {
 		return new TipoIdentificacionEntity(id, nombre, codigo, estado);
+	}
+	
+	public static final TipoIdentificacionEntity crear(final UUID id) {
+		return new TipoIdentificacionEntity(id);
 	}
 	
 	
