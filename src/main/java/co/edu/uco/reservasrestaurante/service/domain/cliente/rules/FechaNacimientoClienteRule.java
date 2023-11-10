@@ -38,7 +38,7 @@ public final class FechaNacimientoClienteRule implements Rule<Date>{
 		long tiempoActual = System.currentTimeMillis();
 		
 		if (dato.getTime() > tiempoActual) {
-			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000240);
+			final var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000335);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
 	}

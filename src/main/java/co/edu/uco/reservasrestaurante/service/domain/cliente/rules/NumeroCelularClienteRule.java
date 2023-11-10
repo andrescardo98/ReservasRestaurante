@@ -28,7 +28,7 @@ public final class NumeroCelularClienteRule implements Rule<String>{
 
 	
 	private final void validarLongitud(final String dato) {
-		if (!UtilTexto.longitudMaximaValida(dato, 20)) {
+		if (!UtilTexto.longitudMaximaValida(dato, 15)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000166);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}

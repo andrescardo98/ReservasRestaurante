@@ -27,7 +27,7 @@ public final class ClaveClienteRule implements Rule<String>{
 
 	
 	private final void validarLongitud(final String dato) {
-		if (!UtilTexto.longitudValida(dato, 8, 50)) {
+		if (!UtilTexto.longitudValida(dato, 8, 16)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenidoMensaje(CodigoMensaje.M00000160);
 			throw ServiceReservasRestauranteException.crear(mensajeUsuario);
 		}
